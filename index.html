@@ -36,7 +36,6 @@
         <nav id="primary-nav" class="primary-nav" aria-label="주요 메뉴" data-menu>
           <a href="#about">소개</a>
           <a href="#projects">프로젝트</a>
-          <a href="#research">연구</a>
           <a href="#contact">연락</a>
         </nav>
       </div>
@@ -84,10 +83,10 @@
           </aside>
         </div>
 
-        <div class="container proof-strip reveal" aria-label="주요 성과">
-          <div><strong>85.2<small>%</small></strong><span>VIO ATE RMSE 감소</span></div>
-          <div><strong>5</strong><span>로보틱스 프로젝트</span></div>
-          <div><strong>HW↔SW</strong><span>전장부터 제어까지 통합</span></div>
+        <div class="container proof-strip reveal" aria-label="주요 작업 영역">
+          <div><strong>DESIGN</strong><span>전장·인터페이스 설계</span></div>
+          <div><strong>CONTROL</strong><span>저수준·실시간 제어</span></div>
+          <div><strong>VALIDATE</strong><span>실기체 통합·성능 검증</span></div>
         </div>
       </section>
 
@@ -181,10 +180,9 @@
                 <div class="project-summary">
                   <p>
                     VINS-Fusion의 실패 징후를 실시간 감시하고 영상 블랙아웃 구간에서 위치 오차의
-                    연쇄 누적을 억제하는 대응 로직을 설계했습니다. 실험에서 ATE RMSE를 평균
-                    85.2% 낮추고, OptiTrack 기반 실비행으로 성능을 검증했습니다.
+                    연쇄 누적을 억제하는 대응 로직을 설계했습니다. GDB로 특징점 처리 흐름과
+                    이상치 개입 시점을 추적하고, OptiTrack 기반 실비행으로 성능을 검증했습니다.
                   </p>
-                  <div class="result-line"><strong>85.2%</strong><span>평균 ATE RMSE 감소</span></div>
                   <ul class="tags" aria-label="사용 기술">
                     <li>VINS-Fusion</li><li>GDB</li><li>ArduPilot</li><li>MAVROS</li><li>Jetson</li>
                   </ul>
@@ -232,47 +230,10 @@
         </div>
       </section>
 
-      <section id="research" class="section section-light">
-        <div class="container research-layout">
-          <div class="section-heading reveal">
-            <p class="section-index">03 / RESEARCH</p>
-            <h2>연구와 학력</h2>
-            <p>제주대학교 AIML 연구실에서 로봇 상태 추정, 제어 시스템, 구조 진동 분석을 연구했습니다.</p>
-          </div>
-
-          <div class="timeline reveal">
-            <article class="timeline-item">
-              <div class="timeline-date">2025.02</div>
-              <div>
-                <p class="timeline-type">학술대회 발표 · 주저자</p>
-                <h3>VINS-Fusion 위치추정 성능 향상에 관한 연구</h3>
-                <p>제20회 한국로봇종합학술대회 · 한국로봇학회</p>
-              </div>
-            </article>
-            <article class="timeline-item">
-              <div class="timeline-date">2024 — 2026</div>
-              <div>
-                <p class="timeline-type">제주대학교 대학원 · AIML 연구실</p>
-                <h3>기계공학 석사</h3>
-                <p>Visual-Inertial Odometry의 실패 대응과 위치추정 강건성 연구</p>
-              </div>
-            </article>
-            <article class="timeline-item">
-              <div class="timeline-date">2018 — 2024</div>
-              <div>
-                <p class="timeline-type">제주대학교</p>
-                <h3>메카트로닉스공학 학사</h3>
-                <p>기계·전자·제어를 연결하는 시스템 설계 기반 구축</p>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
       <section id="contact" class="contact section-shell">
         <div class="container contact-grid reveal">
           <div>
-            <p class="section-index">04 / CONTACT</p>
+            <p class="section-index">03 / CONTACT</p>
             <h2>복잡한 시스템을<br />끝까지 동작하게 만듭니다.</h2>
           </div>
           <div class="contact-copy">
