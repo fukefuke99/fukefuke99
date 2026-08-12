@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="로보틱스·임베디드 시스템 엔지니어 김수환의 프로젝트와 연구 포트폴리오입니다."
+    />
+    <meta name="theme-color" content="#0d1b2a" />
+    <title>김수환 | Robotics & Embedded Systems Engineer</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <script src="assets/js/main.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">본문으로 바로가기</a>
+
+    <header class="site-header" data-header>
+      <div class="container nav-wrap">
+        <a class="brand" href="#top" aria-label="처음으로 이동">
+          <span class="brand-mark" aria-hidden="true">KS</span>
+          <span class="brand-name">김수환</span>
+        </a>
+
+        <button
+          class="menu-button"
+          type="button"
+          aria-expanded="false"
+          aria-controls="primary-nav"
+          data-menu-button
+        >
+          <span class="sr-only">메뉴 열기</span>
+          <span></span><span></span>
+        </button>
+
+        <nav id="primary-nav" class="primary-nav" aria-label="주요 메뉴" data-menu>
+          <a href="#about">소개</a>
+          <a href="#projects">프로젝트</a>
+          <a href="#research">연구</a>
+          <a href="#contact">연락</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <section id="top" class="hero section-shell">
+        <div class="container hero-grid">
+          <div class="hero-copy reveal">
+            <p class="eyebrow"><span></span> ROBOTICS · EMBEDDED SYSTEMS</p>
+            <h1>
+              하드웨어의 움직임을<br />
+              <em>신뢰할 수 있는 코드</em>로 연결합니다.
+            </h1>
+            <p class="hero-description">
+              수중로봇과 자율비행 플랫폼에서 전장 설계, 센서 인터페이스,
+              실시간 제어 펌웨어를 구현해 온 엔지니어 김수환입니다.
+              시스템이 흔들리는 원인을 끝까지 추적하고 검증 가능한 결과로 만듭니다.
+            </p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="#projects">프로젝트 보기 <span>↘</span></a>
+              <a class="button button-ghost" href="mailto:shkim99@stu.jejunu.ac.kr">이메일 보내기</a>
+            </div>
+          </div>
+
+          <aside class="system-panel reveal" aria-label="핵심 작업 영역">
+            <div class="panel-topline">
+              <span>FIELD SYSTEM / 01</span>
+              <span class="status"><i></i> READY</span>
+            </div>
+            <div class="system-map" aria-hidden="true">
+              <div class="map-axis axis-x"></div>
+              <div class="map-axis axis-y"></div>
+              <div class="map-ring ring-one"></div>
+              <div class="map-ring ring-two"></div>
+              <div class="map-node node-sensor"><b>SENSOR</b><small>01</small></div>
+              <div class="map-node node-control"><b>CONTROL</b><small>02</small></div>
+              <div class="map-node node-actuator"><b>ACTUATOR</b><small>03</small></div>
+              <div class="map-core">HW<br /><span>×</span><br />SW</div>
+            </div>
+            <div class="panel-footer">
+              <div><small>PLATFORM</small><strong>Underwater · UAV</strong></div>
+              <div><small>FOCUS</small><strong>Reliability</strong></div>
+            </div>
+          </aside>
+        </div>
+
+        <div class="container proof-strip reveal" aria-label="주요 성과">
+          <div><strong>85.2<small>%</small></strong><span>VIO ATE RMSE 감소</span></div>
+          <div><strong>5</strong><span>로보틱스 프로젝트</span></div>
+          <div><strong>HW↔SW</strong><span>전장부터 제어까지 통합</span></div>
+        </div>
+      </section>
+
+      <section id="about" class="section section-light">
+        <div class="container">
+          <div class="section-heading reveal">
+            <p class="section-index">01 / ABOUT</p>
+            <h2>경계를 나누기보다<br />시스템 전체를 봅니다.</h2>
+            <p>
+              센서 신호가 제어 명령이 되고 실제 구동으로 이어지는 전 과정을 이해합니다.
+              문제를 로그 한 줄이나 부품 하나로 단정하지 않고, 물리 계층부터 알고리즘까지
+              연결해 원인을 찾습니다.
+            </p>
+          </div>
+
+          <div class="capability-grid">
+            <article class="capability-card reveal">
+              <span class="card-number">01</span>
+              <h3>Embedded & Control</h3>
+              <p>MCU 기반 센서 인터페이스와 저수준 통신, 실시간 모터·자세 제어기를 구현합니다.</p>
+              <ul>
+                <li>C/C++ · STM32/MCU · Raspberry Pi</li>
+                <li>UART · I2C · SSI · GPIO</li>
+                <li>Cascade · Feedforward · Filtering</li>
+              </ul>
+            </article>
+            <article class="capability-card reveal">
+              <span class="card-number">02</span>
+              <h3>Robotics Platform</h3>
+              <p>엣지 컴퓨팅 보드와 센서, 펌웨어를 연결해 실제 기체에서 동작하는 시스템을 만듭니다.</p>
+              <ul>
+                <li>ROS · MAVROS · ArduPilot</li>
+                <li>NVIDIA Jetson · VESC · LiDAR</li>
+                <li>SLAM · VIO · Autonomous Systems</li>
+              </ul>
+            </article>
+            <article class="capability-card reveal">
+              <span class="card-number">03</span>
+              <h3>Analysis & Validation</h3>
+              <p>데이터를 계측하고 분석해 설계가 실제 환경에서도 신뢰할 수 있는지 검증합니다.</p>
+              <ul>
+                <li>MATLAB · Signal Processing · FRF</li>
+                <li>GDB · CMake · Docker · Linux</li>
+                <li>OptiTrack · Gazebo · AirSim</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects" class="section section-dark">
+        <div class="container">
+          <div class="section-heading heading-on-dark reveal">
+            <p class="section-index">02 / SELECTED WORK</p>
+            <h2>대표 프로젝트</h2>
+            <p>프로젝트에서 어떤 문제를 맡았고, 어떻게 실제 시스템으로 완성했는지를 중심으로 정리했습니다.</p>
+          </div>
+
+          <div class="project-list">
+            <article class="project-card project-featured reveal">
+              <div class="project-meta">
+                <span>01</span><span>2024.03 — 2026.02</span><span>UNDERWATER ROBOTICS</span>
+              </div>
+              <div class="project-body">
+                <div>
+                  <p class="project-kicker">전장 · 펌웨어 · 제어</p>
+                  <h3>생체모방 수중유영로봇 플랫폼</h3>
+                </div>
+                <div class="project-summary">
+                  <p>
+                    전원·회로부와 방수 배선을 설계하고 Raspberry Pi–Teensy 통신, GPIO 기반 SSI,
+                    침수 센서를 통합했습니다. 엔코더 피드백 기반 Feedforward Cascade 제어와
+                    중앙값 필터를 적용해 수중 구동 안정성을 확보했습니다.
+                  </p>
+                  <ul class="tags" aria-label="사용 기술">
+                    <li>ROS</li><li>C++</li><li>Teensy</li><li>SSI</li><li>MATLAB</li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+
+            <article class="project-card reveal">
+              <div class="project-meta">
+                <span>02</span><span>MASTER'S THESIS</span><span>AUTONOMOUS FLIGHT</span>
+              </div>
+              <div class="project-body">
+                <div>
+                  <p class="project-kicker">VIO · 디버깅 · 비행 검증</p>
+                  <h3>VIO 기반 자율비행 SLAM 고도화</h3>
+                </div>
+                <div class="project-summary">
+                  <p>
+                    VINS-Fusion의 실패 징후를 실시간 감시하고 영상 블랙아웃 구간에서 위치 오차의
+                    연쇄 누적을 억제하는 대응 로직을 설계했습니다. 실험에서 ATE RMSE를 평균
+                    85.2% 낮추고, OptiTrack 기반 실비행으로 성능을 검증했습니다.
+                  </p>
+                  <div class="result-line"><strong>85.2%</strong><span>평균 ATE RMSE 감소</span></div>
+                  <ul class="tags" aria-label="사용 기술">
+                    <li>VINS-Fusion</li><li>GDB</li><li>ArduPilot</li><li>MAVROS</li><li>Jetson</li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+
+            <article class="project-card reveal">
+              <div class="project-meta">
+                <span>03</span><span>2025.09 — 2026.02</span><span>MODAL ANALYSIS</span>
+              </div>
+              <div class="project-body">
+                <div>
+                  <p class="project-kicker">DAQ · 신호처리 · 알고리즘</p>
+                  <h3>항공우주 구조체 모달 분석 파이프라인</h3>
+                </div>
+                <div class="project-summary">
+                  <p>
+                    가진기와 8채널 가속도계 기반 DAQ 환경을 구축했습니다. 라이선스에 의존하지 않도록
+                    FFT·FRF 산출과 SDOF/MDOF 커브 피팅을 MATLAB으로 직접 구현하고,
+                    모드 형상을 3D 애니메이션으로 복원했습니다.
+                  </p>
+                  <ul class="tags" aria-label="사용 기술">
+                    <li>MATLAB</li><li>FFT/FRF</li><li>Curve Fitting</li><li>DAQ</li><li>3D Visualization</li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+
+            <div class="project-pair">
+              <article class="compact-project reveal">
+                <span class="compact-index">04 / AUTONOMOUS DRIVING</span>
+                <h3>F1TENTH 자율주행 레이싱</h3>
+                <p>Hokuyo LiDAR 기반 OGM과 SLAM 환경을 구축하고, 고속 주행에서 스캔 매칭·루프 클로징을 튜닝했습니다. Jetson–VESC UART 및 ERPM 텔레메트리를 통합했습니다.</p>
+                <ul class="tags"><li>SLAM Toolbox</li><li>LiDAR</li><li>VESC</li><li>Jetson</li></ul>
+              </article>
+              <article class="compact-project reveal">
+                <span class="compact-index">05 / EMBEDDED IoT</span>
+                <h3>압전소자 교통량 분석 시스템</h3>
+                <p>압전 신호 계측부터 RTC·SD 로깅, Bluetooth 증분 전송, App Inventor와 Firebase 모니터링까지 연결한 End-to-End 시제품을 팀장으로 완성했습니다.</p>
+                <ul class="tags"><li>Arduino</li><li>Bluetooth</li><li>Firebase</li><li>App Inventor</li></ul>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="research" class="section section-light">
+        <div class="container research-layout">
+          <div class="section-heading reveal">
+            <p class="section-index">03 / RESEARCH</p>
+            <h2>연구와 학력</h2>
+            <p>제주대학교 AIML 연구실에서 로봇 상태 추정, 제어 시스템, 구조 진동 분석을 연구했습니다.</p>
+          </div>
+
+          <div class="timeline reveal">
+            <article class="timeline-item">
+              <div class="timeline-date">2025.02</div>
+              <div>
+                <p class="timeline-type">학술대회 발표 · 주저자</p>
+                <h3>VINS-Fusion 위치추정 성능 향상에 관한 연구</h3>
+                <p>제20회 한국로봇종합학술대회 · 한국로봇학회</p>
+              </div>
+            </article>
+            <article class="timeline-item">
+              <div class="timeline-date">2024 — 2026</div>
+              <div>
+                <p class="timeline-type">제주대학교 대학원 · AIML 연구실</p>
+                <h3>기계공학 석사</h3>
+                <p>Visual-Inertial Odometry의 실패 대응과 위치추정 강건성 연구</p>
+              </div>
+            </article>
+            <article class="timeline-item">
+              <div class="timeline-date">2018 — 2024</div>
+              <div>
+                <p class="timeline-type">제주대학교</p>
+                <h3>메카트로닉스공학 학사</h3>
+                <p>기계·전자·제어를 연결하는 시스템 설계 기반 구축</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="contact section-shell">
+        <div class="container contact-grid reveal">
+          <div>
+            <p class="section-index">04 / CONTACT</p>
+            <h2>복잡한 시스템을<br />끝까지 동작하게 만듭니다.</h2>
+          </div>
+          <div class="contact-copy">
+            <p>
+              로보틱스, 임베디드 제어, 센서 인터페이스와 관련한 이야기라면 언제든 연락해 주세요.
+            </p>
+            <a class="email-link" href="mailto:shkim99@stu.jejunu.ac.kr">
+              shkim99@stu.jejunu.ac.kr <span>↗</span>
+            </a>
+            <a class="text-link" href="https://github.com/fukefuke99" target="_blank" rel="noreferrer">
+              GitHub / fukefuke99 <span>↗</span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>Designed & built for clear engineering stories.</p>
+        <p>© <span data-year></span> 김수환</p>
+      </div>
+    </footer>
+  </body>
+</html>
