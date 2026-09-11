@@ -77,7 +77,7 @@
             </p>
             <dl class="profile-details">
               <div><dt>전문 분야</dt><dd>Embedded Systems · Control</dd></div>
-              <div><dt>개발 경험</dt><dd>Underwater Robot · UAV(Unmanned Aerial Vehicle)</dd></div>
+              <div><dt>개발 경험</dt><dd>Underwater Robot · UAV</dd></div>
               <div><dt>업무 방식</dt><dd>설계 · 통합 · 실기체 검증</dd></div>
             </dl>
           </aside>
@@ -129,7 +129,7 @@
               <h3>Analysis & Validation</h3>
               <p>데이터를 계측하고 분석해 설계가 실제 환경에서도 신뢰할 수 있는지 검증합니다.</p>
               <ul>
-                <li>MATLAB · Signal Processing · FRF(Frequency Response Function)</li>
+                <li>MATLAB · Signal Processing · FRF</li>
                 <li>GDB · CMake · Docker · Linux</li>
                 <li>OptiTrack · Gazebo · AirSim</li>
               </ul>
@@ -159,8 +159,8 @@
                 <div class="project-summary">
                   <p>
                     전원·회로부와 방수 배선을 설계하고 Raspberry Pi–Teensy 통신, GPIO 기반 SSI,
-                    침수 센서를 통합했습니다. 모터 토크와 DAQ(Data Acquisition)로 측정한 소비전류를 바탕으로 구동계와
-                    방수 커넥터·케이블을 선정했으며, 엔코더 피드백 제어와 MATLAB GUI(Graphical User Interface)로
+                    침수 센서를 통합했습니다. 모터 토크와 DAQ로 측정한 소비전류를 바탕으로 구동계와
+                    방수 커넥터·케이블을 선정했으며, 엔코더 피드백 제어와 MATLAB GUI로
                     상태 점검·파라미터 조정·시험까지 수행했습니다.
                   </p>
                   <ul class="tags" aria-label="사용 기술">
@@ -214,8 +214,8 @@
                   <p>
                     발사 진동과 3U 큐브위성 구조체의 고유진동수가 겹칠 때 발생할 수 있는 공진 위험을
                     확인하는 연구입니다. 3인 협업에서 저는 발사 환경과 선행연구 조사, 시험 조건 설정,
-                    가진기, 힘 센서, 8채널 가속도계, DAQ(Data Acquisition) 기반 시험 환경 구축부터 계측·시험·분석을 맡았습니다. 상용 분석 소프트웨어 라이선스
-                    유실에 대응해 논문을 근거로 MATLAB 전환을 협의하고, FFT(Fast Fourier Transform) 기반 FRF(Frequency Response Function)에 Peak Picking과 LSCE(Least-Squares Complex Exponential)를 적용해
+                    가진기, 힘 센서, 8채널 가속도계, DAQ 기반 시험 환경 구축부터 계측·시험·분석을 맡았습니다. 상용 분석 소프트웨어 라이선스
+                    유실에 대응해 논문을 근거로 MATLAB 전환을 협의하고, FFT 기반 FRF에 Peak Picking과 LSCE를 적용해
                     고유진동수와 감쇠비를 도출한 뒤 모드 형상을 시각화했습니다.
                   </p>
                   <ul class="tags" aria-label="사용 기술">
@@ -257,10 +257,10 @@
                 </div>
                 <div class="project-summary">
                   <p>
-                    5인 팀에서 DAVE(Dave Aquatic Virtual Environment)의 수중 월드와 BlueROV·Slocum 자산을 분석해 공통 환경을 구성하고,
+                    5인 팀에서 DAVE의 수중 월드와 BlueROV·Slocum 자산을 분석해 공통 환경을 구성하고,
                     큰 주익을 제거한 4-fin 위협 어뢰 모델과 제어를 담당했습니다.
-                    PP(Pure Pursuit, 순수 추종)와 PNG(Proportional Navigation Guidance, 비례항법 유도) 로직을 구현하고 센서 발행 경로를 개선해 최대 발행 간격을 330ms에서
-                    12ms로, CPU(Central Processing Unit) 사용률을 102.7%에서 2.4%로 낮췄으며 RTF(Real-Time Factor)는 0.62에서 1.00으로 높였습니다.
+                    PP와 PNG 로직을 구현하고 센서 발행 경로를 개선해 최대 발행 간격을 330ms에서
+                    12ms로, CPU 사용률을 102.7%에서 2.4%로 낮췄으며 Gazebo의 Real-Time Factor를 0.62에서 1.00으로 높였습니다.
                     실행 과정을 5단계 명령으로 표준화하고 문서화해 팀원의 통합과 반복 시험을 지원했습니다.
                     최종 통합 환경에서 PP 회피 동작을 확인했고, PNG는 충돌이 다수 발생하는 한계까지 기록했습니다.
                   </p>
@@ -285,7 +285,7 @@
               <article class="compact-project reveal">
                 <span class="compact-index">05 / AUTONOMOUS DRIVING</span>
                 <h3>F1TENTH 자율주행 레이싱</h3>
-                <p>Hokuyo LiDAR로 OGM(Occupancy Grid Map)과 SLAM(Simultaneous Localization and Mapping) 환경을 구축하고, 고속 주행에서 스캔 매칭·루프 클로징을 튜닝했습니다. Jetson–VESC 통신과 모터 회전 정보를 통합했습니다.</p>
+                <p>Hokuyo LiDAR로 OGM과 SLAM 환경을 구축하고, 고속 주행에서 스캔 매칭·루프 클로징을 튜닝했습니다. Jetson–VESC 통신과 모터 회전 정보를 통합했습니다.</p>
                 <ul class="tags"><li>SLAM Toolbox</li><li>LiDAR</li><li>VESC</li><li>Jetson</li></ul>
                 <a class="project-link" href="projects/f1tenth.html">자세히 보기 <span>↗</span></a>
                 <figure class="compact-media">
@@ -296,7 +296,7 @@
               <article class="compact-project reveal">
                 <span class="compact-index">06 / EMBEDDED IoT</span>
                 <h3>마찰전기 나노발전기 기반 교통량 측정 시스템</h3>
-                <p>마찰전기 나노발전기의 입력을 Arduino로 계수하고 RTC(Real-Time Clock)와 SD(Secure Digital) 카드에 기록한 뒤, Bluetooth로 App Inventor 앱에 전달해 기간별 교통량을 확인하는 시제품을 팀장으로 개발했습니다.</p>
+                <p>마찰전기 나노발전기의 입력을 Arduino로 계수하고 RTC와 SD 카드에 기록한 뒤, Bluetooth로 App Inventor 앱에 전달해 기간별 교통량을 확인하는 시제품을 팀장으로 개발했습니다.</p>
                 <ul class="tags"><li>Arduino</li><li>Bluetooth</li><li>RTC·SD</li><li>App Inventor</li></ul>
                 <a class="project-link" href="projects/triboelectric-counter.html">자세히 보기 <span>↗</span></a>
                 <figure class="compact-media">
@@ -327,7 +327,7 @@
 
             <article class="skill-card reveal">
               <div class="skill-card-head"><span class="skill-icon" aria-hidden="true">++</span><div><small>LANGUAGE</small><h3>C++</h3></div><span class="skill-level">프로젝트</span></div>
-              <p>로봇 제어 노드와 장비 인터페이스 구현, OOP(Object-Oriented Programming)과 기본적인 Strategy, Factory 패턴 적용</p>
+              <p>로봇 제어 노드와 장비 인터페이스 구현, OOP과 기본적인 Strategy, Factory 패턴 적용</p>
               <ul><li>OOP</li><li>Control</li><li>Interface</li></ul>
               <div class="skill-meter" data-score="2" aria-label="활용 수준 중하"><div class="skill-meter-label"><span>활용 수준</span><strong>중하</strong></div><div class="skill-meter-bar" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div><div class="skill-meter-scale"><span>하</span><span>중</span><span>상</span></div></div>
             </article>
@@ -341,7 +341,7 @@
 
             <article class="skill-card reveal">
               <div class="skill-card-head"><span class="skill-icon" aria-hidden="true">&gt;_</span><div><small>SYSTEM</small><h3>Linux, Bash</h3></div><span class="skill-level">활용</span></div>
-              <p>약 2년간 CLI(Command-Line Interface) 중심 개발 환경을 사용하며 패키지, 권한, 그래픽 관련 오류를 분석하고 셸 스크립트로 반복 작업 자동화</p>
+              <p>약 2년간 CLI 중심 개발 환경을 사용하며 패키지, 권한, 그래픽 관련 오류를 분석하고 셸 스크립트로 반복 작업 자동화</p>
               <ul><li>Ubuntu</li><li>CLI</li><li>Shell Script</li></ul>
               <div class="skill-meter" data-score="3" aria-label="활용 수준 중"><div class="skill-meter-label"><span>활용 수준</span><strong>중</strong></div><div class="skill-meter-bar" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div><div class="skill-meter-scale"><span>하</span><span>중</span><span>상</span></div></div>
             </article>
@@ -355,28 +355,28 @@
 
             <article class="skill-card reveal">
               <div class="skill-card-head"><span class="skill-icon" aria-hidden="true">MCU</span><div><small>EMBEDDED BOARD</small><h3>Bare-metal, RTOS</h3></div><span class="skill-level">프로젝트</span></div>
-              <p>베어메탈 제어와 RTOS(Real-Time Operating System) 실습, 주변장치 및 통신 연동에 여러 MCU와 FPGA(Field-Programmable Gate Array) 기반 보드를 직접 사용</p>
+              <p>베어메탈 제어와 RTOS 실습, 주변장치 및 통신 연동에 여러 MCU와 FPGA 기반 보드를 직접 사용</p>
               <ul><li>Teensy</li><li>Arduino</li><li>ESP32</li><li>Zybo</li><li>STM32</li></ul>
               <div class="skill-meter" data-score="3" aria-label="활용 수준 중"><div class="skill-meter-label"><span>활용 수준</span><strong>중</strong></div><div class="skill-meter-bar" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div><div class="skill-meter-scale"><span>하</span><span>중</span><span>상</span></div></div>
             </article>
 
             <article class="skill-card reveal">
               <div class="skill-card-head"><span class="skill-icon" aria-hidden="true">MAT</span><div><small>ANALYSIS</small><h3>MATLAB</h3></div><span class="skill-level">프로젝트</span></div>
-              <p>실험 데이터 가공과 3차원 좌표 변환, 궤적과 오차 시각화, FRF와 모달 데이터 분석 및 시험용 GUI(Graphical User Interface) 제작</p>
+              <p>실험 데이터 가공과 3차원 좌표 변환, 궤적과 오차 시각화, FRF와 모달 데이터 분석 및 시험용 GUI 제작</p>
               <ul><li>Plot</li><li>App Designer</li><li>Signal</li></ul>
               <div class="skill-meter" data-score="3" aria-label="활용 수준 중"><div class="skill-meter-label"><span>활용 수준</span><strong>중</strong></div><div class="skill-meter-bar" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div><div class="skill-meter-scale"><span>하</span><span>중</span><span>상</span></div></div>
             </article>
 
             <article class="skill-card reveal">
               <div class="skill-card-head"><span class="skill-icon" aria-hidden="true">SIM</span><div><small>SIMULATION</small><h3>Gazebo, AirSim</h3></div><span class="skill-level">활용</span></div>
-              <p>Gazebo의 SDF(Simulation Description Format) 모델 수정과 플러그인, ROS Bridge를 적용했으며 AirSim과 ROS 연동 환경 구성 및 센서, 제어 설정에 성공</p>
+              <p>Gazebo의 SDF 모델 수정과 플러그인, ROS Bridge를 적용했으며 AirSim과 ROS 연동 환경 구성 및 센서, 제어 설정에 성공</p>
               <ul><li>Gazebo</li><li>SDF</li><li>AirSim</li></ul>
               <div class="skill-meter" data-score="3" aria-label="활용 수준 중"><div class="skill-meter-label"><span>활용 수준</span><strong>중</strong></div><div class="skill-meter-bar" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div><div class="skill-meter-scale"><span>하</span><span>중</span><span>상</span></div></div>
             </article>
 
             <article class="skill-card reveal">
               <div class="skill-card-head"><span class="skill-icon" aria-hidden="true">CAD</span><div><small>MECHANICAL DESIGN</small><h3>Inventor</h3></div><span class="skill-level">활용</span></div>
-              <p>CAD(Computer-Aided Design)로 구조물을 3D 모델링하고, 3D 프린터 출력과 CNC(Computer Numerical Control) 카본 플레이트 가공까지 연계</p>
+              <p>CAD로 구조물을 3D 모델링하고, 3D 프린터 출력과 CNC 카본 플레이트 가공까지 연계</p>
               <ul><li>3D Modeling</li><li>3D Printing</li><li>CNC</li></ul>
               <div class="skill-meter" data-score="3" aria-label="활용 수준 중"><div class="skill-meter-label"><span>활용 수준</span><strong>중</strong></div><div class="skill-meter-bar" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div><div class="skill-meter-scale"><span>하</span><span>중</span><span>상</span></div></div>
             </article>
