@@ -176,7 +176,7 @@
 
             <article class="project-card reveal">
               <div class="project-meta">
-                <span>02</span><span>MASTER'S THESIS</span><span>AUTONOMOUS FLIGHT</span>
+                <span>02</span><span>2024.03 — 2026.02</span><span>AUTONOMOUS FLIGHT</span>
               </div>
               <div class="project-body">
                 <div>
@@ -185,7 +185,7 @@
                 </div>
                 <div class="project-summary">
                   <p>
-                    시각 정보 손실 시 VIO의 궤적 오차가 누적되는 문제를 해결하기 위해 VINS-Fusion 기반의 경량 모듈형 실패 감지,대응 프레임워크를 설계하고 구현하였다. 특징점 추적 개수로 실패를 실시간 감지하고 ROS 토픽으로 상태를 전달하도록 구성하였다. RC카와 드론 시뮬레이션 암전 실험에서 7초 차단 시 ATE RMSE를 각각 0.9121m에서 0.1346m로 85.2%, 0.8613m에서 0.3024m로 64.9% 감소시켰다. 본 실험에서는 개념 검증을 위해 외부 추정치로 참값을 사용하였다.
+                    VINS-Fusion에서 영상 특징점 수를 관찰해 암전을 감지하고, 실패 시 OptiTrack 또는 Gazebo 위치로 전환한 뒤 복구된 VIO 궤적을 정렬하는 외부 상태 관리자를 구현했습니다. 7초 암전 조건에서 ATE RMSE는 RC카 실험 0.9121 m에서 0.1346 m로 85.2%, 드론 시뮬레이션 0.8613 m에서 0.3024 m로 64.9% 감소했습니다. 개념 검증 단계에서는 외부 위치를 참값이자 대체 입력으로 사용했습니다.
                   </p>
                   <ul class="tags" aria-label="사용 기술">
                     <li>VINS-Fusion</li><li>GDB</li><li>ArduPilot</li><li>MAVROS</li><li>Jetson</li>
@@ -194,7 +194,7 @@
                 </div>
               </div>
               <figure class="project-media project-media-wide project-media-vio">
-                <video autoplay muted loop playsinline preload="metadata" aria-label="VINS-Fusion 영상 특징점 추적과 암전 구간의 실패 감지 실험">
+                <video controls muted loop playsinline preload="none" data-autoplay-video poster="assets/images/projects/vio-feature-debug-poster.jpg" aria-label="VINS-Fusion 영상 특징점 추적과 암전 구간의 실패 감지 실험">
                   <source src="assets/videos/vio-feature-tracking-noaudio.mp4" type="video/mp4" />
                 </video>
                 <figcaption>영상 특징점 추적과 암전 구간의 VIO 실패 감지</figcaption>
@@ -231,13 +231,13 @@
                 </figure>
                 <div class="project-mode-stack" aria-label="모드별 분석 영상">
                   <figure class="project-media">
-                    <video class="modal-mode-video" autoplay muted loop playsinline preload="metadata" aria-label="MATLAB으로 시각화한 구조체 Bending 모드 형상">
+                    <video class="modal-mode-video" controls muted loop playsinline preload="none" data-autoplay-video poster="assets/images/projects/modal-mif.png" aria-label="MATLAB으로 시각화한 구조체 Bending 모드 형상">
                       <source src="assets/videos/modal-bending-mode2-noaudio.mp4" type="video/mp4" />
                     </video>
-                    <figcaption><strong>BENDING MODE</strong><span>263.5 Hz에서 식별한 구조체 굽힘 모드 형상</span></figcaption>
+                    <figcaption><strong>BENDING MODE</strong><span>243.5 Hz에서 식별한 구조체 굽힘 모드 형상</span></figcaption>
                   </figure>
                   <figure class="project-media">
-                    <video class="modal-mode-video" autoplay muted loop playsinline preload="metadata" aria-label="MATLAB으로 시각화한 구조체 Twist 모드 형상">
+                    <video class="modal-mode-video" controls muted loop playsinline preload="none" data-autoplay-video poster="assets/images/projects/modal-frf.png" aria-label="MATLAB으로 시각화한 구조체 Twist 모드 형상">
                       <source src="assets/videos/modal-twist-mode3-noaudio.mp4" type="video/mp4" />
                     </video>
                     <figcaption><strong>TWIST MODE</strong><span>380.6 Hz에서 식별한 구조체 비틀림 모드 형상</span></figcaption>
@@ -248,7 +248,7 @@
 
             <article class="project-card project-featured reveal">
               <div class="project-meta">
-                <span>04</span><span>TEAM PROJECT</span><span>UNDERWATER SIMULATION</span>
+                <span>04</span><span>2026.07 — 2026.08</span><span>UNDERWATER SIMULATION</span>
               </div>
               <div class="project-body">
                 <div>
@@ -274,7 +274,7 @@
                 </div>
               </div>
               <figure class="project-media project-media-wide manta-main-media">
-                <video autoplay muted loop playsinline preload="metadata" poster="assets/images/projects/manta-main-poster.jpg" aria-label="DAVE 수중 환경에서 구동하는 MANTA 4-fin 위협 어뢰 모델">
+                <video muted loop playsinline preload="none" data-autoplay-video poster="assets/images/projects/manta-main-poster.jpg" aria-label="DAVE 수중 환경에서 구동하는 MANTA 4-fin 위협 어뢰 모델">
                   <source src="assets/videos/manta-main-13s-noaudio.mp4" type="video/mp4" />
                 </video>
                 <figcaption>DAVE 수중 환경에서 구동한 4-fin 위협 어뢰 모델</figcaption>
@@ -283,22 +283,22 @@
 
             <div class="project-pair">
               <article class="compact-project reveal">
-                <span class="compact-index">05 / AUTONOMOUS DRIVING</span>
+                <div class="compact-meta"><span class="compact-index">05 / AUTONOMOUS DRIVING</span><span class="compact-date">2024.07 — 2024.11</span></div>
                 <h3>F1TENTH 자율주행 레이싱</h3>
-                <p>F1TENTH 차량의 2D LiDAR SLAM 위치추정을 맡았습니다. 저속·고속 주행과 센서 조건별 ROS bag을 비교해 scan matching과 loop closure를 조정하고, VESC의 ERPM을 차량 상태 확인에 연동했습니다.</p>
+                <p>F1TENTH 차량의 2D LiDAR SLAM 위치추정을 맡았습니다. 저속·고속 주행과 센서 조건별 ROS bag을 비교해 스캔 매칭과 루프 클로징을 조정하고, VESC의 ERPM을 차량 상태 확인에 연동했습니다.</p>
                 <ul class="tags"><li>SLAM Toolbox</li><li>LiDAR</li><li>VESC</li><li>Jetson</li></ul>
                 <a class="project-link" href="projects/f1tenth.html">자세히 보기 <span>↗</span></a>
                 <figure class="compact-media compact-media-f1">
-                  <video autoplay muted loop playsinline preload="metadata" poster="assets/images/projects/f1-fast-localization-poster.jpg" aria-label="F1TENTH 차량의 고속 주행과 2D LiDAR 위치추정 화면">
+                  <video muted loop playsinline preload="none" data-autoplay-video poster="assets/images/projects/f1-fast-localization-poster.jpg" aria-label="F1TENTH 차량의 고속 주행과 2D LiDAR 위치추정 화면">
                     <source src="assets/videos/f1-fast-localization-noaudio.mp4" type="video/mp4" />
                   </video>
                   <figcaption>고속 실차 주행과 2D LiDAR 위치추정 동시 검증</figcaption>
                 </figure>
               </article>
               <article class="compact-project reveal">
-                <span class="compact-index">06 / EMBEDDED IoT</span>
+                <div class="compact-meta"><span class="compact-index">06 / EMBEDDED IoT</span><span class="compact-date">2022.03 — 2022.06</span></div>
                 <h3>마찰전기 나노발전기 기반 교통량 측정 시스템</h3>
-                <p>마찰전기 나노발전기의 입력을 Arduino로 계수하고 RTC와 SD 카드에 기록한 뒤, Bluetooth로 App Inventor 앱에 전달해 기간별 교통량을 확인하는 시제품을 팀장으로 개발했습니다.</p>
+                <p>마찰전기 센서의 입력을 Arduino로 계수하고 차동 데이터와 발생 시각을 SD 카드에 저장한 뒤, Bluetooth로 App Inventor 앱에 전달해 기간별 교통량을 조회하는 시제품을 팀장으로 개발했습니다.</p>
                 <ul class="tags"><li>Arduino</li><li>Bluetooth</li><li>RTC·SD</li><li>App Inventor</li></ul>
                 <a class="project-link" href="projects/triboelectric-counter.html">자세히 보기 <span>↗</span></a>
                 <figure class="compact-media">
@@ -330,7 +330,7 @@
             <article class="skill-card reveal">
               <div class="skill-card-head"><span class="skill-icon" aria-hidden="true">C++</span><div><small>LANGUAGE</small><h3>C++</h3></div><span class="skill-level">프로젝트</span></div>
               <p>로봇 제어 노드와 장비 인터페이스 구현, 객체지향과 기본적인 Strategy, Factory 패턴 적용</p>
-              <ul><li>OOP</li><li>Control</li><li>Interface</li></ul>
+                  <ul><li>객체지향</li><li>Control</li><li>Interface</li></ul>
               <div class="skill-meter" data-score="2" aria-label="활용 수준 중하"><div class="skill-meter-label"><span>활용 수준</span><strong>중하</strong></div><div class="skill-meter-bar" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div><div class="skill-meter-scale"><span>하</span><span>중</span><span>상</span></div></div>
             </article>
 

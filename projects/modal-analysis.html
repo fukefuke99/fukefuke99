@@ -51,13 +51,16 @@
     <section class="detail-section detail-section-dark"><div class="container detail-grid"><h2>분석 환경을 다시 만들다</h2><div class="detail-copy">
       <p>연구실에 보관된 것으로 알았던 상용 분석 소프트웨어의 라이선스 키가 유실되어 복구 방법을 찾는 동안 일정이 지체됐습니다. 상용 도구가 있어야만 분석할 수 있다는 전제를 다시 검토하고, MATLAB과 상용 도구의 결과를 비교한 논문을 근거로 지도교수님과 MATLAB 전환을 협의했습니다.</p>
       <p>모달시험 경험을 보완하기 위해 장비 업체 교육에도 직접 참여했습니다. 이후 계측 시스템이 산출한 주파수별 FRF 크기와 위상을 MATLAB에서 복소수 응답으로 재구성하고, 모든 채널을 함께 비교하는 분석 절차를 만들었습니다.</p>
-      <figure class="certificate-card"><a class="image-zoom" href="../assets/images/projects/modal-training-certificate.png" target="_blank" rel="noopener"><img src="../assets/images/projects/modal-training-certificate.png" alt="팜테크 모달시험 해석 및 분석 교육 수료증" loading="lazy" /></a><figcaption><strong>모달시험 해석 및 분석 교육 수료</strong><span>팜테크 · 2026.01.07.</span></figcaption></figure>
+      <figure class="certificate-card"><img src="../assets/images/projects/modal-training-certificate.png" alt="팜테크 모달시험 해석 및 분석 교육 수료증" loading="lazy" /><figcaption><strong>모달시험 해석 및 분석 교육 수료</strong><span>팜테크 · 2026.01.07. · 개인정보 보호를 위해 원본 확대는 제공하지 않습니다.</span></figcaption></figure>
     </div></div></section>
 
     <section class="detail-section"><div class="container detail-grid"><h2>분석 결과</h2><div class="detail-copy">
       <p>센서가 진동하지 않는 절점에 놓일 가능성을 고려해 8개 채널의 FRF를 함께 비교하고, 전체 응답에서 공통으로 나타나는 모드 후보를 찾았습니다. Peak Picking과 LSCE 결과를 교차 검토해 고유진동수와 감쇠비를 추정한 뒤, 센서 위치에 대응시켜 3차원 모드 형상과 애니메이션으로 시각화했습니다.</p>
       <div class="evidence-grid"><figure class="wide"><a class="image-zoom" href="../assets/images/projects/modal-frf.png" target="_blank" rel="noopener"><img src="../assets/images/projects/modal-frf.png" alt="8개 가속도 채널의 FRF 크기와 위상" /></a><figcaption>8개 채널의 FRF 크기와 위상 비교</figcaption></figure><figure class="wide"><a class="image-zoom" href="../assets/images/projects/modal-mif.png" target="_blank" rel="noopener"><img src="../assets/images/projects/modal-mif.png" alt="전체 채널의 Global Mode Indicator" /></a><figcaption>전체 채널을 합산한 모드 후보 확인</figcaption></figure></div>
-      <figure class="detail-video"><video autoplay muted loop playsinline preload="metadata"><source src="../assets/videos/modal-bending-mode-noaudio.mp4" type="video/mp4" /></video><figcaption>MATLAB으로 재구성한 구조체 굽힘 모드 애니메이션</figcaption></figure>
+      <div class="detail-video-grid">
+        <figure><video controls muted loop playsinline preload="metadata" poster="../assets/images/projects/modal-mif.png"><source src="../assets/videos/modal-bending-mode2-noaudio.mp4" type="video/mp4" /></video><figcaption><strong>BENDING MODE</strong><span>243.5 Hz에서 식별한 굽힘 모드 형상</span></figcaption></figure>
+        <figure><video controls muted loop playsinline preload="metadata" poster="../assets/images/projects/modal-frf.png"><source src="../assets/videos/modal-twist-mode3-noaudio.mp4" type="video/mp4" /></video><figcaption><strong>TWIST MODE</strong><span>380.6 Hz에서 식별한 비틀림 모드 형상</span></figcaption></figure>
+      </div>
     </div></div></section>
     <div class="container detail-next"><a href="vio-slam.html">← 이전: VIO</a><a href="manta.html">다음: MANTA →</a></div>
   </main>

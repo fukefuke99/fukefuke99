@@ -20,7 +20,7 @@
     <section class="detail-hero vio-hero">
       <div class="container">
         <p class="detail-label">MASTER'S RESEARCH · VINS-FUSION · FAILURE MANAGEMENT</p>
-        <h1>암전에서 무너지는 VIO를 감지하고<br />위치 출력을 이어가다</h1>
+        <h1>암전에서 무너지는 VIO를 감지하고<br /> 위치 출력을 이어가다</h1>
         <p class="detail-lead">VIO(Visual-Inertial Odometry)에서 영상 특징점이 사라지는 순간을 감지하고 외부 위치 입력으로 전환하는 상태 관리 프레임워크를 설계했습니다. Gazebo 시뮬레이션과 OptiTrack 기반 RC(Radio-Controlled) 차량 실험으로 성능을 검증했습니다.</p>
 
         <dl class="detail-facts">
@@ -54,7 +54,7 @@
         <h2>연구 질문</h2>
         <div class="detail-copy">
           <p class="section-intro">카메라 영상이 잠시 끊기더라도 플랫폼이 사용할 위치 정보는 계속 이어질 수 있을까?</p>
-          <p>VINS-Fusion은 영상과 IMU(Inertial Measurement Unit)를 함께 사용하지만, 암전이 길어지면 추적 특징점이 급감하고 IMU 오차가 누적되어 위치가 크게 틀어졌습니다. 단순히 알고리즘의 파라미터를 조정하는 대신, 위치추정기가 실패할 수 있다는 전제에서 실패를 판단하고 입력을 전환하는 별도 관리 구조를 연구했습니다.</p>
+          <p>VINS-Fusion은 영상과 IMU(Inertial Measurement Unit)를 함께 사용하지만, 암전이 길어지면 추적 특징점이 급감하고 IMU 오차가 누적되어 위치가 크게 틀어졌습니다. 이 결과를 바탕으로 위치추정기의 실패 여부를 판단하고 입력원을 전환하는 별도 상태 관리 구조를 연구했습니다.</p>
           <div class="evidence-grid">
             <figure><a class="image-zoom" href="../assets/images/projects/vio-rmse-3d.jpg" target="_blank" rel="noopener"><img src="../assets/images/projects/vio-rmse-3d.jpg" alt="암전 시간에 따른 3차원 위치 RMSE 증가 그래프" /></a><figcaption>암전 시간이 길어질수록 커지는 3차원 위치 오차</figcaption></figure>
             <figure><a class="image-zoom" href="../assets/images/projects/vio-rmse-axes.jpg" target="_blank" rel="noopener"><img src="../assets/images/projects/vio-rmse-axes.jpg" alt="X Y Z 축과 3차원 RMSE 분석 그래프" /></a><figcaption>X, Y, Z축과 3차원 오차를 분리해 원인을 확인</figcaption></figure>
@@ -71,7 +71,7 @@
           <h3 class="selection-title">여러 위치추정기를 실행·검토한 뒤 VINS-Fusion을 선정했습니다.</h3>
           <p>연구 초기에는 ORB-SLAM2의 mono·stereo 구성과 VINS 계열을 직접 구동하고 관련 성능 비교 자료를 조사했습니다. 오픈소스 구현 여부, KITTI 평가 결과, 제한된 연산 자원에서의 구동 가능성, 스테레오 카메라와 IMU를 함께 사용할 수 있는 확장성을 기준으로 최종 연구 대상을 VINS-Fusion으로 좁혔습니다.</p>
           <div class="algorithm-selection"><article><span>01</span><strong>ORB-SLAM2</strong><small>ORB(Oriented FAST and Rotated BRIEF) 특징 기반 Mono·Stereo 추정 특성 확인</small></article><article><span>02</span><strong>VINS 계열</strong><small>VINS(Visual-Inertial Navigation System)의 카메라·IMU 결합과 제한된 연산 자원에서의 구동 가능성 검토</small></article><article class="selected"><span>03</span><strong>VINS-Fusion 선정</strong><small>Stereo·IMU 구성과 소스 확장성을 바탕으로 연구 진행</small></article></div>
-          <p>연구 결과만 비교하기 전에 카메라, VIO, 비행 제어기가 같은 좌표와 시간 기준으로 데이터를 주고받는 환경부터 구성했습니다.</p>
+          <p>카메라, VIO와 비행 제어기가 같은 좌표계와 시간 기준으로 데이터를 주고받도록 기반 환경을 먼저 구성했습니다.</p>
           <ol class="process-list">
             <li><span>01</span><div><strong>VINS-Fusion 포팅</strong><p>Ceres Solver 버전 차이로 발생한 빌드 오류를 추적하고 WSL(Windows Subsystem for Linux) 환경의 CMake 설정을 수정했습니다.</p></div></li>
             <li><span>02</span><div><strong>스테레오 카메라 보정</strong><p>사용한 Kalibr 빌드가 Ubuntu 14.04 기반 의존성을 요구해 현재 개발환경에 직접 구성하기 어려웠습니다. 기존 환경과의 충돌을 피하기 위해 해당 버전이 구성된 Docker 이미지를 활용하고, 내부 파라미터와 카메라 간 상대 변환을 추정해 재투영 오차를 확인했습니다.</p></div></li>
@@ -218,7 +218,7 @@
       <div class="container detail-grid">
         <h2>연구 결과</h2>
         <div class="detail-copy">
-          <p class="section-intro">VIO 내부 알고리즘 하나를 고치는 데서 끝나지 않고, 실패를 전제로 감지·전환·복구·검증하는 운용 구조를 만들었습니다.</p>
+          <p class="section-intro">영상 손실을 감지하고 외부 위치로 전환한 뒤 복구된 궤적을 정렬하는 운용 구조를 구현했습니다.</p>
           <ul class="result-list">
             <li>VINS-Fusion 소스 분석부터 환경 구축, 실험 설계, 데이터 분석과 논문 집필까지 수행</li>
             <li>Gazebo 드론 시뮬레이션과 OptiTrack 기반 RC카 실험으로 실패 대응 구조를 단계적으로 검증</li>

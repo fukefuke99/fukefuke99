@@ -157,7 +157,7 @@ p {
   padding-left: 14px;
   border-left: 1px solid currentColor;
   color: inherit;
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.13em;
   opacity: 0.64;
@@ -330,7 +330,7 @@ p {
 .profile-label {
   margin-bottom: 12px;
   color: var(--accent);
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 800;
   letter-spacing: 0.14em;
 }
@@ -365,7 +365,7 @@ p {
 
 .profile-details dt {
   color: #718393;
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 800;
   letter-spacing: 0.1em;
 }
@@ -373,7 +373,7 @@ p {
 .profile-details dd {
   margin: 0;
   color: #d6dde2;
-  font-size: 12px;
+  font-size: 13px;
 }
 
 .proof-strip {
@@ -532,7 +532,7 @@ p {
   border: 1px solid #405363;
   color: #b5c1ca;
   font-family: Consolas, monospace;
-  font-size: 10px;
+  font-size: 12px;
 }
 
 .project-media,
@@ -612,11 +612,11 @@ p {
 .compact-media figcaption {
   padding: 10px 12px;
   color: #8293a0;
-  font-size: 11px;
+  font-size: 13px;
 }
 .project-gallery .project-media figcaption { display: grid; gap: 4px; min-height: 58px; padding: 12px 14px; border-top: 1px solid #263746; background: #101d29; color: #c7d2d9; line-height: 1.5; }
-.project-gallery .project-media figcaption strong { color: #f07a55; font-size: 10px; letter-spacing: 0.08em; }
-.project-gallery .project-media figcaption span { font-size: 12px; }
+.project-gallery .project-media figcaption strong { color: #f07a55; font-size: 12px; letter-spacing: 0.08em; }
+.project-gallery .project-media figcaption span { font-size: 13px; }
 
 .project-link {
   display: inline-flex;
@@ -656,7 +656,7 @@ p {
 
 .security-notice span {
   color: var(--accent);
-  font: 800 10px Consolas, monospace;
+  font: 800 12px Consolas, monospace;
   letter-spacing: 0.08em;
   white-space: nowrap;
 }
@@ -700,6 +700,20 @@ p {
   font-size: 12px;
   font-weight: 800;
   letter-spacing: 0.045em;
+}
+
+.compact-meta {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.compact-date {
+  color: #93a2ad;
+  font: 700 12px Consolas, monospace;
+  letter-spacing: 0.035em;
+  white-space: nowrap;
 }
 
 .compact-project h3 {
@@ -771,7 +785,7 @@ p {
   display: block;
   margin: 2px 0 3px;
   color: #72808d;
-  font: 800 10px Consolas, monospace;
+  font: 800 12px Consolas, monospace;
   letter-spacing: 0.05em;
 }
 
@@ -786,7 +800,7 @@ p {
   border-radius: 999px;
   background: #fff1bc;
   color: #26333e;
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 800;
   white-space: nowrap;
 }
@@ -814,7 +828,7 @@ p {
   border-radius: 999px;
   background: #fff9df;
   color: #26333e;
-  font: 800 10px Consolas, monospace;
+  font: 800 12px Consolas, monospace;
 }
 
 .skill-meter {
@@ -832,7 +846,7 @@ p {
 .skill-meter-label {
   margin-bottom: 8px;
   color: #6d7b88;
-  font-size: 11px;
+  font-size: 12px;
 }
 
 .skill-meter-label strong {
@@ -862,7 +876,7 @@ p {
 .skill-meter-scale {
   margin-top: 6px;
   color: #93a0aa;
-  font-size: 9px;
+  font-size: 12px;
   font-weight: 700;
 }
 
@@ -922,7 +936,7 @@ p {
   background: #09131e;
   color: #6c7c89;
   font-family: Consolas, monospace;
-  font-size: 10px;
+  font-size: 12px;
 }
 
 .site-footer .container {
@@ -1013,6 +1027,7 @@ p {
   .compact-project { display: block; min-height: auto; padding: 38px 26px; }
   .compact-project + .compact-project { padding: 38px 26px; border-top: 1px solid var(--line-dark); border-left: 0; }
   .compact-project h3 { margin-top: 42px; }
+  .compact-meta { align-items: flex-start; flex-direction: column; gap: 7px; }
   .skills-grid { grid-template-columns: 1fr; }
   .skill-card { min-height: auto; }
   .skill-card > p { min-height: auto; }
