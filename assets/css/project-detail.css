@@ -130,6 +130,8 @@ body.lightbox-open { overflow: hidden; }
 .logic-flow small { color: var(--detail-muted); font-size: 12px; line-height: 1.5; }
 .detail-note { padding: 18px 20px; border-left: 3px solid var(--detail-accent); background: #efede6; font-size: 15px !important; }
 .source-attribution a { color: var(--detail-accent); font-weight: 800; text-decoration: underline; text-underline-offset: 3px; }
+.source-actions { display: flex; flex-wrap: wrap; gap: 12px 28px; margin: 18px 0 30px; }
+.source-actions .project-link { margin-top: 0; }
 .wide-evidence { margin: 32px 0 0; overflow: hidden; border: 1px solid var(--detail-line); background: #fff; }
 .wide-evidence img { display: block; width: 100%; height: auto; }
 .wide-evidence figcaption { display: flex; align-items: center; justify-content: center; gap: 8px; text-align: center; }

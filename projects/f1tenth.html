@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="김수환의 F1TENTH 자율주행 레이싱 플랫폼 프로젝트" />
   <title>F1TENTH 자율주행 레이싱 | 김수환</title>
-  <link rel="stylesheet" href="../assets/css/style.css" />
-  <link rel="stylesheet" href="../assets/css/project-detail.css" />
+  <link rel="stylesheet" href="../assets/css/style.css?v=20260911-14" />
+  <link rel="stylesheet" href="../assets/css/project-detail.css?v=20260911-13" />
 </head>
 <body class="project-page">
   <header class="detail-header"><div class="container detail-nav"><a class="detail-back" href="../index.html#projects">← 대표 프로젝트</a><strong>김수환 포트폴리오</strong></div></header>
@@ -14,14 +14,13 @@
     <section class="detail-hero"><div class="container">
       <p class="detail-label">F1TENTH · LIDAR SLAM · POSITION ESTIMATION</p>
       <h1>고속 주행에 맞춘 LiDAR 맵핑과 위치추정</h1>
-      <p class="detail-lead">F1TENTH 자율주행 레이싱 플랫폼에서 맵핑과 위치추정을 맡아, 실제 트랙의 지도를 구축하고 속도에 따른 SLAM 설정을 반복 조정했습니다.</p>
-      <dl class="detail-facts"><div><dt>역할</dt><dd>맵핑 및 위치추정</dd></div><div><dt>센서</dt><dd>Hokuyo LiDAR</dd></div><div><dt>연산</dt><dd>NVIDIA Jetson</dd></div><div><dt>구동 연동</dt><dd>VESC UART, ERPM</dd></div></dl>
+      <p class="detail-lead">F1TENTH 자율주행 레이싱 플랫폼에서 맵핑과 위치추정을 맡아, 실제 트랙의 지도를 구축하고 속도에 따른 동시적 위치추정 및 지도작성(Simultaneous Localization and Mapping, SLAM) 설정을 반복 조정했습니다.</p>
+      <dl class="detail-facts"><div><dt>역할</dt><dd>맵핑 및 위치추정</dd></div><div><dt>센서</dt><dd>Hokuyo LiDAR</dd></div><div><dt>연산</dt><dd>NVIDIA Jetson</dd></div><div><dt>구동 연동</dt><dd>VESC·UART·ERPM</dd></div></dl>
     </div></section>
     <section class="detail-section"><div class="container detail-grid"><h2>주행 환경 구축</h2><div class="detail-copy">
-      <p>Hokuyo LiDAR를 사용해 OGM을 구성하고 SLAM Toolbox 기반 맵핑 환경을 구축했습니다. 저속에서 확보한 설정을 그대로 사용하지 않고, 고속 주행에서 발생하는 스캔 매칭 오차와 루프 클로징 결과를 확인하며 파라미터를 조정했습니다.</p>
-      <p>Jetson과 VESC는 UART로 연결하고 ERPM 텔레메트리를 받아 차량 상태와 주행 데이터를 함께 확인했습니다. 지도 생성 결과와 TF 흐름을 비교해 위치추정이 흔들리는 구간을 찾았습니다.</p>
+      <p>Hokuyo의 광 검출 및 거리 측정(Light Detection and Ranging, LiDAR) 센서로 점유 격자 지도(Occupancy Grid Map, OGM)를 구성하고 SLAM Toolbox 기반 맵핑 환경을 구축했습니다. 저속에서 확보한 설정을 그대로 사용하지 않고, 고속 주행에서 발생하는 스캔 매칭 오차와 루프 클로징 결과를 확인하며 파라미터를 조정했습니다.</p>
+      <p>Jetson과 Vedder 전자식 속도 제어기(Vedder Electronic Speed Controller, VESC)는 범용 비동기 송수신(Universal Asynchronous Receiver-Transmitter, UART)으로 연결했습니다. 모터의 전기적 분당 회전수(Electrical Revolutions Per Minute, ERPM) 텔레메트리를 받아 차량 상태와 주행 데이터를 함께 확인하고, 지도 생성 결과와 좌표변환(TF) 흐름을 비교해 위치추정이 흔들리는 구간을 찾았습니다.</p>
       <div class="evidence-grid"><figure class="wide"><img src="../assets/images/projects/f1tenth-map.jpg" alt="F1TENTH 차량으로 생성한 실내 트랙 지도" /><figcaption>LiDAR SLAM으로 생성한 실내 주행 트랙 지도</figcaption></figure></div>
-      <div class="video-slot"><p><strong>영상 영역</strong>고속 주행, TF 비교, 루프 클로징 영상을 정리한 뒤 배치합니다.</p></div>
     </div></div></section>
     <div class="container detail-next"><a href="manta.html">← 이전: MANTA</a><a href="triboelectric-counter.html">다음: 교통량 측정 →</a></div>
   </main>

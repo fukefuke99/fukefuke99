@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="3U 큐브위성의 발사 진동 공진 위험을 확인하기 위한 모달 시험 환경 구축 및 MATLAB 분석 프로젝트" />
   <title>항공우주 구조체 모달 분석 | 김수환</title>
-  <link rel="stylesheet" href="../assets/css/style.css" />
-  <link rel="stylesheet" href="../assets/css/project-detail.css?v=20260911-5" />
+  <link rel="stylesheet" href="../assets/css/style.css?v=20260911-14" />
+  <link rel="stylesheet" href="../assets/css/project-detail.css?v=20260911-13" />
 </head>
 <body class="project-page">
   <header class="detail-header"><div class="container detail-nav"><a class="detail-back" href="../index.html#projects">← 대표 프로젝트</a><strong>김수환 포트폴리오</strong></div></header>
@@ -14,8 +14,8 @@
     <section class="detail-hero"><div class="container">
       <p class="detail-label">MODAL TEST · FRF · MATLAB</p>
       <h1>발사 진동의 공진 위험을 모달시험으로 확인하다</h1>
-      <p class="detail-lead">발사 중 진동과 구조체의 고유진동수가 겹치면 공진으로 응답이 커질 수 있습니다. 3U 큐브위성의 고유진동수와 감쇠비, 모드 형상을 확인하기 위해 가진 시험 환경을 구성하고 계측부터 MATLAB 분석·시각화까지 수행했습니다.</p>
-      <dl class="detail-facts"><div><dt>목적</dt><dd>발사 진동 공진 위험 확인</dd></div><div><dt>담당</dt><dd>시험 환경 구축·계측·분석</dd></div><div><dt>계측</dt><dd>가진기·힘 센서·8채널 가속도계</dd></div><div><dt>분석</dt><dd>FRF·Peak Picking·LSCE</dd></div></dl>
+      <p class="detail-lead">발사 중 진동과 구조체의 고유진동수가 겹치면 공진으로 응답이 커질 수 있습니다. 3단위(3U) 큐브위성의 고유진동수와 감쇠비, 모드 형상을 확인하기 위해 가진 시험 환경을 구성하고 주파수 응답 함수(Frequency Response Function, FRF) 계측부터 MATLAB 분석·시각화까지 수행했습니다.</p>
+      <dl class="detail-facts"><div><dt>목적</dt><dd>발사 진동 공진 위험 확인</dd></div><div><dt>담당</dt><dd>시험 환경 구축·계측·분석</dd></div><div><dt>계측</dt><dd>가진기·힘 센서·8채널 가속도계</dd></div><div><dt>분석</dt><dd>주파수응답·모드 식별</dd></div></dl>
     </div></section>
 
     <section class="detail-section detail-section-tint"><div class="container detail-grid"><h2>왜 시험했는가</h2><div class="detail-copy">
@@ -41,9 +41,9 @@
       <p class="section-intro">시험 결과가 구조설계 판단으로 이어지도록, 계측부터 모드 형상 시각화까지의 분석 절차를 직접 구성했습니다.</p>
       <ol class="modal-process">
         <li><strong>입력과 응답 계측</strong><span>힘 센서로 가진기의 실제 입력력을, 8개 가속도계로 구조체 각 지점의 응답을 동시에 측정했습니다.</span></li>
-        <li><strong>주파수응답함수 산출</strong><span>진동 제어 시스템과 VibrationVIEW에서 평균화, 윈도우 처리와 FFT를 수행하고, 주파수별 가속도 응답을 힘 입력으로 나눈 FRF를 얻었습니다.</span></li>
+        <li><strong>주파수응답함수 산출</strong><span>진동 제어 시스템과 VibrationVIEW에서 평균화, 윈도우 처리와 고속 푸리에 변환(Fast Fourier Transform, FFT)을 수행하고, 주파수별 가속도 응답을 힘 입력으로 나눈 FRF를 얻었습니다.</span></li>
         <li><strong>모드 후보 식별</strong><span>한 센서가 진동하지 않는 절점에 놓일 가능성을 고려해 단일 채널에 의존하지 않고, 8채널 FRF와 Coherence 및 전체 응답 합을 함께 비교했습니다.</span></li>
-        <li><strong>고유진동수와 감쇠비 추정</strong><span>서로 겹친 공진 응답을 분리하기 위해 관심 주파수 구간을 정한 뒤 Peak Picking과 LSCE 결과를 교차 검토했습니다.</span></li>
+        <li><strong>고유진동수와 감쇠비 추정</strong><span>서로 겹친 공진 응답을 분리하기 위해 관심 주파수 구간을 정한 뒤 Peak Picking과 최소제곱 복소지수법(Least-Squares Complex Exponential, LSCE) 결과를 교차 검토했습니다.</span></li>
         <li><strong>모드 형상 재구성</strong><span>FRF 크기와 위상으로 복소수 응답을 만들고 센서 위치에 대응시킨 뒤, 3차 스플라인 보간을 적용해 굽힘과 비틀림 거동을 3차원 애니메이션으로 시각화했습니다.</span></li>
       </ol>
     </div></div></section>
