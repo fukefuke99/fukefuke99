@@ -531,12 +531,13 @@ p {
 
 .project-gallery {
   display: grid;
-  grid-template-columns: 1.35fr 0.65fr;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 16px;
 }
 
 .project-gallery .project-media img,
 .project-gallery .project-media video {
+  height: auto;
   aspect-ratio: 4 / 3;
 }
 
