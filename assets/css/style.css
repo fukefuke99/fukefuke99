@@ -728,11 +728,14 @@ p {
 }
 
 .compact-media {
+  display: grid;
+  grid-template-rows: auto auto;
   max-width: 360px;
 }
 
 .compact-media img,
 .compact-media video {
+  height: auto;
   aspect-ratio: 4 / 3;
 }
 
