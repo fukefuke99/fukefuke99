@@ -9,7 +9,7 @@
     />
     <meta name="theme-color" content="#0d1b2a" />
     <title>김수환 | Robotics & Embedded Systems Engineer</title>
-    <link rel="stylesheet" href="assets/css/style.css?v=20260911-16" />
+    <link rel="stylesheet" href="assets/css/style.css?v=20260911-17" />
     <script src="assets/js/main.js?v=20260911-1" defer></script>
   </head>
   <body>
@@ -186,11 +186,7 @@
                 </div>
                 <div class="project-summary">
                   <p>
-                    VIO(Visual-Inertial Odometry)의 궤적 오차가 시각 정보 손실 시 누적되는 문제를 해결하기 위해 VINS-Fusion 기반의
-                    경량 모듈형 실패 감지, 대응 프레임워크를 설계하고 구현했습니다. 특징점 추적 개수로 실패를
-                    실시간 감지하고 ROS 토픽으로 상태를 전달했습니다. 7초 암전 조건에서 RC(Radio-Controlled) 차량의 ATE(Absolute Trajectory Error) RMSE(Root Mean Square Error)를
-                    0.9121m에서 0.1346m로 85.2%, 드론 시뮬레이션에서는 0.8613m에서 0.3024m로 64.9%
-                    낮췄습니다. 개념 검증을 위해 외부 추정치로 참값을 사용했습니다.
+                    시각 정보 손실 시 VIO의 궤적 오차가 누적되는 문제를 해결하기 위해 VINS-Fusion 기반의 경량 모듈형 실패 감지,대응 프레임워크를 설계하고 구현하였다. 특징점 추적 개수로 실패를 실시간 감지하고 ROS 토픽으로 상태를 전달하도록 구성하였다. RC카와 드론 시뮬레이션 암전 실험에서 7초 차단 시 ATE RMSE를 각각 0.9121m에서 0.1346m로 85.2%, 0.8613m에서 0.3024m로 64.9% 감소시켰다. 본 실험에서는 개념 검증을 위해 외부 추정치로 참값을 사용하였다.
                   </p>
                   <ul class="tags" aria-label="사용 기술">
                     <li>VINS-Fusion</li><li>GDB</li><li>ArduPilot</li><li>MAVROS</li><li>Jetson</li>

@@ -213,7 +213,7 @@ p {
 }
 
 .hero {
-  min-height: 100vh;
+  min-height: auto;
   padding: calc(var(--header-height) + 92px) 0 0;
   overflow: hidden;
 }
