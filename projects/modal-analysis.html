@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="김수환의 항공우주 구조체 모달 시험 및 MATLAB 분석 프로젝트" />
+  <title>항공우주 구조체 모달 분석 | 김수환</title>
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <link rel="stylesheet" href="../assets/css/project-detail.css" />
+</head>
+<body class="project-page">
+  <header class="detail-header"><div class="container detail-nav"><a class="detail-back" href="../index.html#projects">← 대표 프로젝트</a><strong>김수환 포트폴리오</strong></div></header>
+  <main>
+    <section class="detail-hero"><div class="container">
+      <p class="detail-label">MODAL TEST · FRF · MATLAB</p>
+      <h1>시험 데이터에서 모드 형상까지 잇는 분석 환경</h1>
+      <p class="detail-lead">상용 분석 소프트웨어의 라이선스 키가 유실된 상황에서 MATLAB 기반 분석 절차를 제안하고, 계측 데이터에서 고유진동수와 감쇠비, 모드 형상을 도출했습니다.</p>
+      <dl class="detail-facts"><div><dt>대상</dt><dd>3U 위성 프레임 시험체</dd></div><div><dt>계측</dt><dd>가진기, 8채널 가속도계, DAQ</dd></div><div><dt>분석</dt><dd>FRF, Peak Picking, LSCE</dd></div><div><dt>산출물</dt><dd>3D 모드 형상과 결과보고서</dd></div></dl>
+    </div></section>
+
+    <section class="detail-section"><div class="container detail-grid"><h2>대안 제안</h2><div class="detail-copy">
+      <p>기존 라이선스 키를 찾고 복구 방법을 확인하는 동안 일정이 지체됐습니다. 상용 소프트웨어가 있어야 분석할 수 있다는 전제를 다시 살펴보고, MATLAB과 상용 도구의 성능을 비교한 논문을 근거로 지도교수님과 분석 방식 전환을 협의했습니다.</p>
+      <p>모달 시험 경험을 보완하기 위해 장비 업체 출장 교육에 참여했습니다. 이후 가진기와 8채널 가속도계로 구조 응답을 계측하고, DAQ에서 취득한 FRF를 MATLAB 분석 단계로 연결했습니다.</p>
+      <div class="evidence-grid"><figure class="portrait"><img src="../assets/images/projects/modal-frame.jpg" alt="모달 시험 대상 3U 위성 프레임" /><figcaption>모달 시험에 사용한 3U 위성 프레임 시험체</figcaption></figure><figure><img src="../assets/images/projects/modal-test.jpg" alt="구조체와 가속도계 설치 모습" /><figcaption>구조체에 부착한 가속도계와 시험 구성</figcaption></figure></div>
+    </div></div></section>
+
+    <section class="detail-section"><div class="container detail-grid"><h2>분석 결과</h2><div class="detail-copy">
+      <p>채널별 FRF의 크기와 위상을 비교하고, 전체 채널의 응답에서 공통으로 나타나는 모드를 확인했습니다. Peak Picking과 LSCE로 고유진동수와 감쇠비를 구한 뒤 시험점 좌표에 연결해 3차원 모드 형상으로 시각화했습니다.</p>
+      <div class="evidence-grid"><figure class="wide"><img src="../assets/images/projects/modal-frf.png" alt="8개 가속도 채널의 FRF 크기와 위상" /><figcaption>8개 채널의 FRF 크기와 위상 비교</figcaption></figure><figure><img src="../assets/images/projects/modal-mif.png" alt="전체 채널의 Global Mode Indicator" /><figcaption>전체 채널을 합산한 모드 후보 확인</figcaption></figure><figure><img src="../assets/images/projects/modal-shapes.png" alt="MATLAB으로 시각화한 모드 형상" /><figcaption>MATLAB 기반 3차원 모드 형상 시각화</figcaption></figure></div>
+      <div class="video-slot"><p><strong>영상 영역</strong>굽힘과 비틀림 모드 애니메이션을 정리한 뒤 배치합니다.</p></div>
+    </div></div></section>
+    <div class="container detail-next"><a href="vio-slam.html">← 이전: VIO</a><a href="manta.html">다음: MANTA →</a></div>
+  </main>
+</body>
+</html>

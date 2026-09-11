@@ -9,8 +9,8 @@
     />
     <meta name="theme-color" content="#0d1b2a" />
     <title>김수환 | Robotics & Embedded Systems Engineer</title>
-    <link rel="stylesheet" href="assets/css/style.css?v=20260812-1" />
-    <script src="assets/js/main.js?v=20260812-1" defer></script>
+    <link rel="stylesheet" href="assets/css/style.css?v=20260911-3" />
+    <script src="assets/js/main.js?v=20260911-1" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main">본문으로 바로가기</a>
@@ -36,6 +36,7 @@
         <nav id="primary-nav" class="primary-nav" aria-label="주요 메뉴" data-menu>
           <a href="#about">소개</a>
           <a href="#projects">프로젝트</a>
+          <a href="#skills">기술</a>
           <a href="#contact">연락</a>
         </nav>
       </div>
@@ -172,15 +173,22 @@
                 </div>
                 <div class="project-summary">
                   <p>
-                    VINS-Fusion의 실패 징후를 실시간 감시하고 영상 블랙아웃 구간에서 위치 오차의
-                    연쇄 누적을 억제하는 대응 로직을 설계했습니다. GDB로 특징점 처리 흐름과
-                    이상치 개입 시점을 추적하고, OptiTrack 기반 실비행으로 성능을 검증했습니다.
+                    시각 정보 손실 시 VIO의 궤적 오차가 누적되는 문제를 해결하기 위해 VINS-Fusion 기반의
+                    경량 모듈형 실패 감지, 대응 프레임워크를 설계하고 구현했습니다. 특징점 추적 개수로 실패를
+                    실시간 감지하고 ROS 토픽으로 상태를 전달했습니다. 7초 암전 조건에서 RC카의 ATE RMSE를
+                    0.9121m에서 0.1346m로 85.2%, 드론 시뮬레이션에서는 0.8613m에서 0.3024m로 64.9%
+                    낮췄습니다. 개념 검증을 위해 외부 추정치로 참값을 사용했습니다.
                   </p>
                   <ul class="tags" aria-label="사용 기술">
                     <li>VINS-Fusion</li><li>GDB</li><li>ArduPilot</li><li>MAVROS</li><li>Jetson</li>
                   </ul>
+                  <a class="project-link" href="projects/vio-slam.html">연구 과정 자세히 보기 <span>↗</span></a>
                 </div>
               </div>
+              <figure class="project-media project-media-wide">
+                <img src="assets/images/projects/vio-platform.jpg" alt="Jetson과 카메라, 센서를 탑재한 VIO 실험 차량" loading="lazy" />
+                <figcaption>VIO 실패 대응 로직 검증에 사용한 센서·연산 플랫폼</figcaption>
+              </figure>
             </article>
 
             <article class="project-card reveal">
@@ -194,31 +202,167 @@
                 </div>
                 <div class="project-summary">
                   <p>
-                    가진기와 8채널 가속도계 기반 DAQ 환경을 구축했습니다. 라이선스에 의존하지 않도록
-                    FFT·FRF 산출과 SDOF/MDOF 커브 피팅을 MATLAB으로 직접 구현하고,
-                    모드 형상을 3D 애니메이션으로 복원했습니다.
+                    가진기와 8채널 가속도계로 구조 응답을 계측하고 FRF를 확보했습니다. 상용 분석
+                    소프트웨어의 라이선스가 유실된 상황에서 관련 논문과 업체 교육을 바탕으로 MATLAB
+                    분석 환경을 구축했으며, Peak Picking과 LSCE로 고유진동수와 감쇠비를 구하고
+                    모드 형상을 시각화했습니다.
                   </p>
                   <ul class="tags" aria-label="사용 기술">
                     <li>MATLAB</li><li>FFT/FRF</li><li>Curve Fitting</li><li>DAQ</li><li>3D Visualization</li>
                   </ul>
+                  <a class="project-link" href="projects/modal-analysis.html">분석 과정 자세히 보기 <span>↗</span></a>
                 </div>
               </div>
+              <div class="project-gallery" aria-label="모달 시험 및 분석 결과">
+                <figure class="project-media">
+                  <img src="assets/images/projects/modal-test.jpg" alt="항공우주 구조체에 부착한 가속도계와 모달 시험 장비" loading="lazy" />
+                  <figcaption>가진기·가속도계 기반 모달 시험</figcaption>
+                </figure>
+                <figure class="project-media">
+                  <img src="assets/images/projects/modal-shapes.png" alt="MATLAB으로 시각화한 구조체 모드 형상" loading="lazy" />
+                  <figcaption>MATLAB 기반 모드 형상 시각화</figcaption>
+                </figure>
+              </div>
+            </article>
+
+            <article class="project-card project-featured reveal">
+              <div class="project-meta">
+                <span>04</span><span>TEAM PROJECT</span><span>UNDERWATER SIMULATION</span>
+              </div>
+              <div class="project-body">
+                <div>
+                  <p class="project-kicker">통합 환경 · 유도 제어 · 성능 개선</p>
+                  <h3>MANTA 수중 통합 시뮬레이션</h3>
+                </div>
+                <div class="project-summary">
+                  <p>
+                    5인 팀에서 DAVE, ROS 2, Gazebo 기반 공통 환경과 위협 어뢰 제어를 담당했습니다.
+                    PP와 PNG 유도 로직을 구현하고 센서 발행 경로를 개선해 최대 발행 간격을 330ms에서
+                    12ms로, CPU 사용률을 102.7%에서 2.4%로 낮췄으며 RTF는 0.62에서 1.00으로 높였습니다.
+                    실행 과정을 5단계 명령으로 표준화하고 문서화해 팀원의 통합과 반복 시험을 지원했습니다.
+                    최종 통합 환경에서 PP 회피 동작을 확인했고, PNG는 충돌이 다수 발생하는 한계까지 기록했습니다.
+                  </p>
+                  <ul class="tags" aria-label="사용 기술">
+                    <li>DAVE</li><li>ROS 2</li><li>Gazebo</li><li>C++</li><li>Git</li>
+                  </ul>
+                  <div class="project-actions">
+                    <a class="project-link" href="projects/manta.html">통합 과정 자세히 보기 <span>↗</span></a>
+                    <a class="project-link" href="https://github.com/MANTA-P/MANTA" target="_blank" rel="noreferrer">GitHub 저장소 <span>↗</span></a>
+                  </div>
+                </div>
+              </div>
+              <figure class="project-media project-media-wide">
+                <img src="assets/images/projects/manta-simulation.png" alt="Gazebo에서 구현한 MANTA 수중 시뮬레이션 환경" loading="lazy" />
+                <figcaption>DAVE·Gazebo 기반 수중 환경과 ROV·위협 어뢰 통합 모델</figcaption>
+              </figure>
             </article>
 
             <div class="project-pair">
               <article class="compact-project reveal">
-                <span class="compact-index">04 / AUTONOMOUS DRIVING</span>
+                <span class="compact-index">05 / AUTONOMOUS DRIVING</span>
                 <h3>F1TENTH 자율주행 레이싱</h3>
                 <p>Hokuyo LiDAR 기반 OGM과 SLAM 환경을 구축하고, 고속 주행에서 스캔 매칭·루프 클로징을 튜닝했습니다. Jetson–VESC UART 및 ERPM 텔레메트리를 통합했습니다.</p>
                 <ul class="tags"><li>SLAM Toolbox</li><li>LiDAR</li><li>VESC</li><li>Jetson</li></ul>
+                <a class="project-link" href="projects/f1tenth.html">프로젝트 자세히 보기 <span>↗</span></a>
+                <figure class="compact-media">
+                  <img src="assets/images/projects/f1tenth-map.jpg" alt="F1TENTH 차량으로 작성한 주행 트랙 지도" loading="lazy" />
+                  <figcaption>LiDAR SLAM으로 작성한 실내 주행 트랙 지도</figcaption>
+                </figure>
               </article>
               <article class="compact-project reveal">
-                <span class="compact-index">05 / EMBEDDED IoT</span>
-                <h3>압전소자 교통량 분석 시스템</h3>
-                <p>압전 신호 계측부터 RTC·SD 로깅, Bluetooth 증분 전송, App Inventor와 Firebase 모니터링까지 연결한 End-to-End 시제품을 팀장으로 완성했습니다.</p>
-                <ul class="tags"><li>Arduino</li><li>Bluetooth</li><li>Firebase</li><li>App Inventor</li></ul>
+                <span class="compact-index">06 / EMBEDDED IoT</span>
+                <h3>마찰전기 나노발전기 기반 교통량 측정 시스템</h3>
+                <p>마찰전기 나노발전기의 입력을 Arduino로 계수하고 RTC·SD에 기록한 뒤, Bluetooth로 App Inventor 앱에 전달해 기간별 교통량을 확인하는 시제품을 팀장으로 개발했습니다.</p>
+                <ul class="tags"><li>Arduino</li><li>Bluetooth</li><li>RTC·SD</li><li>App Inventor</li></ul>
+                <a class="project-link" href="projects/triboelectric-counter.html">프로젝트 자세히 보기 <span>↗</span></a>
+                <figure class="compact-media">
+                  <img src="assets/images/projects/triboelectric-prototype.jpg" alt="마찰전기 나노발전기 기반 교통량 측정 시스템 시제품" loading="lazy" />
+                  <figcaption>센서 입력·로깅·무선 전송을 통합한 팀 프로젝트 시제품</figcaption>
+                </figure>
               </article>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="skills" class="section skills-section section-light">
+        <div class="container">
+          <div class="section-heading reveal">
+            <p class="section-index">03 / SKILLS</p>
+            <h2>기술과 도구</h2>
+            <p>직접 구현하고 시험한 경험을 기준으로, 업무에 활용할 수 있는 기술을 정리했습니다.</p>
+          </div>
+
+          <div class="skills-grid">
+            <article class="skill-card reveal">
+              <div class="skill-card-head"><span class="skill-icon" aria-hidden="true">C</span><div><small>LANGUAGE</small><h3>C</h3></div><span class="skill-level">프로젝트</span></div>
+              <p>STM32 주변장치 제어와 비트 단위 데이터 처리 경험이 있으며, 임계영역, volatile, mutex의 목적과 적용 조건을 이해하고 실제 프로젝트에서 mutex를 적용</p>
+              <ul><li>Critical Section</li><li>volatile</li><li>FreeRTOS</li><li>Mutex</li></ul>
+              <div class="skill-meter" data-score="3" aria-label="활용 수준 중"><div class="skill-meter-label"><span>활용 수준</span><strong>중</strong></div><div class="skill-meter-bar" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div><div class="skill-meter-scale"><span>하</span><span>중</span><span>상</span></div></div>
+            </article>
+
+            <article class="skill-card reveal">
+              <div class="skill-card-head"><span class="skill-icon" aria-hidden="true">++</span><div><small>LANGUAGE</small><h3>C++</h3></div><span class="skill-level">프로젝트</span></div>
+              <p>로봇 제어 노드와 장비 인터페이스 구현, 기본적인 객체지향 설계와 Strategy, Factory 패턴 적용</p>
+              <ul><li>OOP</li><li>Control</li><li>Interface</li></ul>
+              <div class="skill-meter" data-score="2" aria-label="활용 수준 중하"><div class="skill-meter-label"><span>활용 수준</span><strong>중하</strong></div><div class="skill-meter-bar" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div><div class="skill-meter-scale"><span>하</span><span>중</span><span>상</span></div></div>
+            </article>
+
+            <article class="skill-card reveal">
+              <div class="skill-card-head"><span class="skill-icon" aria-hidden="true">ROS</span><div><small>ROBOTICS</small><h3>ROS 1, ROS 2</h3></div><span class="skill-level">프로젝트</span></div>
+              <p>센서와 제어 노드 구성, 토픽 기반 데이터 연동, ROS-Gazebo Bridge와 다중 플랫폼 통합 환경 구축</p>
+              <ul><li>ROS 1</li><li>ROS 2</li><li>MAVROS</li></ul>
+              <div class="skill-meter" data-score="3" aria-label="활용 수준 중"><div class="skill-meter-label"><span>활용 수준</span><strong>중</strong></div><div class="skill-meter-bar" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div><div class="skill-meter-scale"><span>하</span><span>중</span><span>상</span></div></div>
+            </article>
+
+            <article class="skill-card reveal">
+              <div class="skill-card-head"><span class="skill-icon" aria-hidden="true">&gt;_</span><div><small>SYSTEM</small><h3>Linux, Bash</h3></div><span class="skill-level">활용</span></div>
+              <p>약 2년간 CLI 중심 개발 환경을 사용하며 패키지, 권한, 그래픽 관련 오류를 분석하고 셸 스크립트로 반복 작업 자동화</p>
+              <ul><li>Ubuntu</li><li>CLI</li><li>Shell Script</li></ul>
+              <div class="skill-meter" data-score="3" aria-label="활용 수준 중"><div class="skill-meter-label"><span>활용 수준</span><strong>중</strong></div><div class="skill-meter-bar" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div><div class="skill-meter-scale"><span>하</span><span>중</span><span>상</span></div></div>
+            </article>
+
+            <article class="skill-card reveal">
+              <div class="skill-card-head"><span class="skill-icon" aria-hidden="true">EDGE</span><div><small>EDGE COMPUTER</small><h3>NVIDIA Jetson</h3></div><span class="skill-level">프로젝트</span></div>
+              <p>ROS 기반 센서 연동과 SLAM, VIO 구동을 위해 Jetson 계열 보드에 개발 환경을 구성하고 실제 플랫폼에 적용</p>
+              <ul><li>TX2</li><li>Xavier</li><li>Orin NX</li><li>Orin Nano</li></ul>
+              <div class="skill-meter" data-score="2" aria-label="활용 수준 중하"><div class="skill-meter-label"><span>활용 수준</span><strong>중하</strong></div><div class="skill-meter-bar" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div><div class="skill-meter-scale"><span>하</span><span>중</span><span>상</span></div></div>
+            </article>
+
+            <article class="skill-card reveal">
+              <div class="skill-card-head"><span class="skill-icon" aria-hidden="true">MCU</span><div><small>EMBEDDED BOARD</small><h3>Bare-metal, RTOS</h3></div><span class="skill-level">프로젝트</span></div>
+              <p>베어메탈 제어와 RTOS 실습, 주변장치 및 통신 연동에 여러 MCU, FPGA 기반 보드를 직접 사용</p>
+              <ul><li>Teensy</li><li>Arduino</li><li>ESP32</li><li>Zybo</li><li>STM32</li></ul>
+              <div class="skill-meter" data-score="3" aria-label="활용 수준 중"><div class="skill-meter-label"><span>활용 수준</span><strong>중</strong></div><div class="skill-meter-bar" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div><div class="skill-meter-scale"><span>하</span><span>중</span><span>상</span></div></div>
+            </article>
+
+            <article class="skill-card reveal">
+              <div class="skill-card-head"><span class="skill-icon" aria-hidden="true">MAT</span><div><small>ANALYSIS</small><h3>MATLAB</h3></div><span class="skill-level">프로젝트</span></div>
+              <p>실험 데이터 가공과 3차원 좌표 변환, 궤적과 오차 시각화, FRF와 모달 데이터 분석 및 시험용 GUI 제작</p>
+              <ul><li>Plot</li><li>App Designer</li><li>Signal</li></ul>
+              <div class="skill-meter" data-score="3" aria-label="활용 수준 중"><div class="skill-meter-label"><span>활용 수준</span><strong>중</strong></div><div class="skill-meter-bar" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div><div class="skill-meter-scale"><span>하</span><span>중</span><span>상</span></div></div>
+            </article>
+
+            <article class="skill-card reveal">
+              <div class="skill-card-head"><span class="skill-icon" aria-hidden="true">SIM</span><div><small>SIMULATION</small><h3>Gazebo, AirSim</h3></div><span class="skill-level">활용</span></div>
+              <p>Gazebo SDF 모델 수정과 플러그인, ROS Bridge를 적용했으며 AirSim과 ROS 연동 환경 구성 및 센서, 제어 설정에 성공</p>
+              <ul><li>Gazebo</li><li>SDF</li><li>AirSim</li></ul>
+              <div class="skill-meter" data-score="3" aria-label="활용 수준 중"><div class="skill-meter-label"><span>활용 수준</span><strong>중</strong></div><div class="skill-meter-bar" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div><div class="skill-meter-scale"><span>하</span><span>중</span><span>상</span></div></div>
+            </article>
+
+            <article class="skill-card reveal">
+              <div class="skill-card-head"><span class="skill-icon" aria-hidden="true">CAD</span><div><small>MECHANICAL DESIGN</small><h3>Inventor</h3></div><span class="skill-level">활용</span></div>
+              <p>프로젝트에 필요한 구조물을 3D 모델링하고, 3D 프린터 출력과 CNC 카본 플레이트 가공용 설계로 실제 제작까지 연계</p>
+              <ul><li>3D Modeling</li><li>3D Printing</li><li>CNC</li></ul>
+              <div class="skill-meter" data-score="3" aria-label="활용 수준 중"><div class="skill-meter-label"><span>활용 수준</span><strong>중</strong></div><div class="skill-meter-bar" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div><div class="skill-meter-scale"><span>하</span><span>중</span><span>상</span></div></div>
+            </article>
+
+            <article class="skill-card reveal">
+              <div class="skill-card-head"><span class="skill-icon" aria-hidden="true">DEV</span><div><small>TOOLCHAIN</small><h3>Git, CMake, Docker</h3></div><span class="skill-level">활용</span></div>
+              <p>브랜치와 Pull Request 기반 협업, 일반 코드와 ROS 패키지 빌드 구성, 기초 Dockerfile 작성과 이미지 실행, 데이터 마운트</p>
+              <ul><li>Git Flow</li><li>CMake</li><li>Docker</li></ul>
+              <div class="skill-meter" data-score="3" aria-label="활용 수준 중"><div class="skill-meter-label"><span>활용 수준</span><strong>중</strong></div><div class="skill-meter-bar" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div><div class="skill-meter-scale"><span>하</span><span>중</span><span>상</span></div></div>
+            </article>
           </div>
         </div>
       </section>
@@ -226,7 +370,7 @@
       <section id="contact" class="contact section-shell">
         <div class="container contact-grid reveal">
           <div>
-            <p class="section-index">03 / CONTACT</p>
+            <p class="section-index">04 / CONTACT</p>
             <h2>복잡한 시스템을<br />끝까지 동작하게 만듭니다.</h2>
           </div>
           <div class="contact-copy">

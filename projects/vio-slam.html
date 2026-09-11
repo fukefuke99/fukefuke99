@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="김수환의 VINS-Fusion 기반 VIO 실패 감지·대응 프레임워크 연구" />
+  <title>VIO 실패 대응 프레임워크 | 김수환</title>
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <link rel="stylesheet" href="../assets/css/project-detail.css" />
+</head>
+<body class="project-page">
+  <header class="detail-header">
+    <div class="container detail-nav">
+      <a class="detail-back" href="../index.html#projects">← 대표 프로젝트</a>
+      <strong>김수환 포트폴리오</strong>
+    </div>
+  </header>
+
+  <main>
+    <section class="detail-hero vio-hero">
+      <div class="container">
+        <p class="detail-label">MASTER'S RESEARCH · VINS-FUSION · FAILURE MANAGEMENT</p>
+        <h1>암전에서 무너지는 VIO를 감지하고<br />위치 출력을 이어가다</h1>
+        <p class="detail-lead">영상 특징점이 사라지는 순간을 감지하고 외부 위치 입력으로 전환하는 상태 관리 프레임워크를 설계했습니다. Gazebo 시뮬레이션과 OptiTrack 기반 RC카 실험으로 성능을 검증했습니다.</p>
+
+        <dl class="detail-facts">
+          <div><dt>연구 형태</dt><dd>석사학위 연구 전 과정 수행</dd></div>
+          <div><dt>핵심 구현</dt><dd>P-PID 위치 제어·실패 대응</dd></div>
+          <div><dt>검증 환경</dt><dd>Gazebo, OptiTrack 기반 RC카</dd></div>
+          <div><dt>발표</dt><dd>2025 한국로봇종합학술대회</dd></div>
+        </dl>
+
+        <div class="hero-research-showcase">
+          <figure class="hero-feature-video">
+            <div class="showcase-kicker">FEATURE TRACKING TEST</div>
+            <video autoplay loop muted playsinline controls preload="metadata" aria-label="영상 특징점 추적과 암전 실험 영상">
+              <source src="../assets/videos/vio-feature-tracking-noaudio.mp4" type="video/mp4" />
+              브라우저가 MP4 영상 재생을 지원하지 않습니다.
+            </video>
+            <figcaption>영상 특징점 추적과 암전 구간에서의 변화 확인</figcaption>
+          </figure>
+
+          <figure class="hero-framework-diagram">
+            <div class="showcase-kicker">RESEARCH ARCHITECTURE</div>
+            <img src="../assets/images/projects/vio-controller-framework.png" alt="P-PID 위치 제어기와 암전 대응 VIO 프레임워크 구성도" />
+            <figcaption>직접 구현한 위치 제어기와 암전 대응 VIO 프레임워크의 전체 데이터 흐름</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="detail-section">
+      <div class="container detail-grid">
+        <h2>연구 질문</h2>
+        <div class="detail-copy">
+          <p class="section-intro">카메라 영상이 잠시 끊기더라도 플랫폼이 사용할 위치 정보는 계속 이어질 수 있을까?</p>
+          <p>VINS-Fusion은 영상과 IMU를 함께 사용하지만, 암전이 길어지면 추적 특징점이 급감하고 IMU 오차가 누적되어 위치가 크게 틀어졌습니다. 단순히 알고리즘의 파라미터를 조정하는 대신, 위치추정기가 실패할 수 있다는 전제에서 실패를 판단하고 입력을 전환하는 별도 관리 구조를 연구했습니다.</p>
+          <div class="evidence-grid">
+            <figure><img src="../assets/images/projects/vio-rmse-3d.jpg" alt="암전 시간에 따른 3차원 위치 RMSE 증가 그래프" /><figcaption>암전 시간이 길어질수록 커지는 3차원 위치 오차</figcaption></figure>
+            <figure><img src="../assets/images/projects/vio-rmse-axes.jpg" alt="X Y Z 축과 3차원 RMSE 분석 그래프" /><figcaption>X, Y, Z축과 3차원 오차를 분리해 원인을 확인</figcaption></figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="detail-section detail-section-dark">
+      <div class="container detail-grid">
+        <h2>기반 환경 구축</h2>
+        <div class="detail-copy">
+          <p>연구 결과만 비교하기 전에 카메라, VIO, 비행 제어기가 같은 좌표와 시간 기준으로 데이터를 주고받는 환경부터 구성했습니다.</p>
+          <ol class="process-list">
+            <li><span>01</span><div><strong>VINS-Fusion 포팅</strong><p>Ceres Solver 버전 차이로 발생한 빌드 오류를 추적하고 WSL 환경의 CMake 설정을 수정했습니다.</p></div></li>
+            <li><span>02</span><div><strong>스테레오 카메라 보정</strong><p>Ubuntu 14.04 기반 Kalibr Docker 이미지를 활용해 내부 파라미터와 카메라 간 상대 변환을 추정하고 재투영 오차를 확인했습니다.</p></div></li>
+            <li><span>03</span><div><strong>드론 시뮬레이션 구성</strong><p>Gazebo, ArduPilot, MAVROS를 연동하고 드론 모델과 카메라 센서, 위치 제어 흐름을 구성했습니다.</p></div></li>
+            <li><span>04</span><div><strong>AirSim 사전 검토</strong><p>AirSim과 ROS 연동 환경도 구성해 제어·센서 설정을 시험했습니다. 최종 논문에는 포함하지 않았지만 시뮬레이션 환경을 비교하고 연구 방향을 정하는 과정에 활용했습니다.</p></div></li>
+          </ol>
+          <div class="evidence-grid">
+            <figure><img src="../assets/images/projects/vio-drone-model.png" alt="Gazebo에서 사용한 카메라 탑재 쿼드콥터 모델" /><figcaption>카메라와 연산 보드를 고려해 구성한 드론 모델</figcaption></figure>
+            <figure><img src="../assets/images/projects/vio-gazebo-environment.png" alt="WSL Gazebo 드론 시뮬레이션 환경" /><figcaption>WSL에서 구축한 Gazebo 비행·암전 실험 환경</figcaption></figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="detail-section">
+      <div class="container detail-grid">
+        <h2 id="ppid-controller">P-PID 위치 제어기</h2>
+        <div class="detail-copy">
+          <p class="section-intro">VIO가 추정한 위치를 실제 드론의 이동으로 연결하기 위해 MAVROS 기반 캐스케이드 위치 제어기를 직접 구현했습니다.</p>
+          <p>외부 루프의 P 제어기가 위치 오차를 목표 속도로 바꾸고, 내부 루프의 PID 제어기가 속도 오차로 가속도 명령을 계산하도록 구성했습니다. 계산 결과는 드론의 Roll, Pitch, Thrust 명령으로 변환해 ArduPilot에 전달했습니다.</p>
+          <div class="logic-flow controller-flow" aria-label="P-PID 위치 제어 흐름">
+            <div><span>1</span><strong>위치 오차</strong><small>목표 위치와 추정 위치 비교</small></div>
+            <div><span>2</span><strong>외부 P 루프</strong><small>목표 속도 생성·크기 제한</small></div>
+            <div><span>3</span><strong>내부 PID 루프</strong><small>속도 오차에서 가속도 계산</small></div>
+            <div><span>4</span><strong>자세 명령</strong><small>Roll, Pitch, Thrust 출력</small></div>
+          </div>
+          <p>제어 주기를 50 Hz로 맞추고 목표 속도, 자세각과 추력 범위를 제한했습니다. Dynamic Reconfigure로 게인을 조정하면서 ArduPilot 기본 위치 제어와 직접 구현한 P-PID의 축별 추종 응답을 같은 경로에서 비교했습니다.</p>
+          <div class="evidence-grid ppid-grid">
+            <figure><img src="../assets/images/projects/vio-ardupilot-ppid.png" alt="ArduPilot 위치 제어기의 X Y Z 목표 위치 추종 결과" /><figcaption><strong>ArduPilot 기준</strong> 동일한 사각 경로의 X, Y, Z축 위치 응답</figcaption></figure>
+            <figure><img src="../assets/images/projects/vio-custom-ppid.png" alt="직접 구현한 P-PID 위치 제어기의 X Y Z 목표 위치 추종 결과" /><figcaption><strong>직접 구현한 P-PID</strong> 50 Hz 캐스케이드 위치 제어 결과</figcaption></figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="detail-section">
+      <div class="container detail-grid">
+        <h2>실패 감지와 대응</h2>
+        <div class="detail-copy">
+          <p>카메라를 완전히 가려도 미세한 빛 때문에 특징점이 약 10개 남아, 특징점 수가 0이 되는 조건으로는 실패 시점을 잡을 수 없었습니다. 저조도 실험을 반복하며 추정이 무너지기 직전의 특징점 수를 관찰하고 감지 임계값을 정했습니다.</p>
+          <figure class="wide-evidence feature-evidence">
+            <img src="../assets/images/projects/vio-feature-computation-blackout.png" alt="암전 구간에서 특징점 수와 VIO 연산시간이 함께 감소하는 그래프" />
+            <figcaption>회색 암전 구간에서 특징점 수와 프레임별 연산시간이 동시에 급감하는 현상</figcaption>
+          </figure>
+          <div class="logic-flow" aria-label="VIO 실패 대응 순서">
+            <div><span>1</span><strong>특징점 추적</strong><small>실시간 개수 모니터링</small></div>
+            <div><span>2</span><strong>실패 판단</strong><small>임계값 이하 신호 발생</small></div>
+            <div><span>3</span><strong>입력 전환</strong><small>외부 위치 정보 사용</small></div>
+            <div><span>4</span><strong>복구·정렬</strong><small>연속된 위치 출력 확보</small></div>
+          </div>
+          <p class="detail-note">초기에는 VINS-Fusion 최적화 내부를 직접 수정하려 했지만 구현 난도가 높았습니다. 최종적으로 기존 추정기를 크게 훼손하지 않고 외부 상태 관리자를 분리하는 구조로 방향을 전환해 이식성과 검증 가능성을 높였습니다.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="detail-section detail-section-tint">
+      <div class="container detail-grid">
+        <h2>드론 시뮬레이션</h2>
+        <div class="detail-copy">
+          <p>WSL의 Gazebo 환경에서 사각 경로를 비행시키며 0초부터 7초까지 암전 시간을 바꿔 적용 전후 궤적을 비교했습니다.</p>
+          <div class="metric-row metric-row-two">
+            <div class="metric"><strong>0.8613 m</strong><span>대응 구조 적용 전 위치 오차</span></div>
+            <div class="metric"><strong>0.3024 m</strong><span>대응 구조 적용 후 위치 오차</span></div>
+            <div class="metric"><strong>64.9%</strong><span>드론 시뮬레이션 오차 감소</span></div>
+          </div>
+          <figure class="wide-evidence">
+            <img src="../assets/images/projects/vio-gazebo-blackout-comparison.png" alt="Gazebo 드론 암전 실험에서 대응 구조 적용 전후 XY 궤적 비교" />
+            <figcaption><strong>왼쪽 적용 전</strong> 암전이 길수록 조기에 경로가 틀어짐 <span>→</span> <strong>오른쪽 적용 후</strong> 기준 사각 궤적을 더 오래 유지</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="detail-section">
+      <div class="container detail-grid">
+        <h2>실물 검증</h2>
+        <div class="detail-copy">
+          <p>시뮬레이션에서 확인한 구조를 RC카 시험 환경으로 옮겼습니다. Jetson 기반 연산부와 스테레오 카메라를 탑재하고, OptiTrack의 120 Hz 위치 정보를 기준 궤적과 대체 입력으로 사용했습니다. 본 실험은 개념 검증 단계로 외부 추정치에 참값을 사용했습니다. 별도로 드론 실내비행에서도 데이터 흐름과 동작을 확인했지만, 해당 결과는 논문의 정량 평가에는 포함하지 않았습니다.</p>
+          <div class="evidence-grid platform-grid">
+            <figure class="portrait"><img src="../assets/images/projects/vio-rc-platform-top.jpg" alt="Jetson과 스테레오 카메라를 탑재한 RC카 상단" /><figcaption>Jetson, 스테레오 카메라, OptiTrack 마커를 탑재한 RC카</figcaption></figure>
+            <figure><img src="../assets/images/projects/vio-rc-platform-side.jpg" alt="실험실 바닥에 놓인 VIO RC카 시험 플랫폼" /><figcaption>반복 회전·암전 실험에 사용한 실제 플랫폼</figcaption></figure>
+            <figure class="wide"><img src="../assets/images/projects/vio-optitrack-lab.png" alt="OptiTrack Motive의 강체 설정과 120 Hz 위치 계측 화면" /><figcaption>카메라 16대를 사용한 OptiTrack 강체 설정과 120 Hz 위치 계측</figcaption></figure>
+          </div>
+
+          <div class="metric-row">
+            <div class="metric"><strong>0.9121 m</strong><span>대응 구조 적용 전 ATE RMSE</span></div>
+            <div class="metric"><strong>0.1346 m</strong><span>대응 구조 적용 후 ATE RMSE</span></div>
+            <div class="metric"><strong>85.2%</strong><span>동일 조건에서 감소한 오차</span></div>
+          </div>
+
+          <h3 id="trajectory-comparison">RC카 7초 암전 실험 결과</h3>
+          <p>동일한 회전 경로와 7초 암전 조건에서 VIO 궤적과 OptiTrack 기준 궤적을 비교했습니다.</p>
+          <div class="evidence-grid comparison-grid">
+            <figure><img src="../assets/images/projects/vio-trajectory-before.png" alt="암전 시간별 기존 VIO의 XY와 XZ 궤적" /><figcaption><strong>적용 전</strong> 암전이 길어질수록 누적되는 위치 오차</figcaption></figure>
+            <figure><img src="../assets/images/projects/vio-trajectory-after.png" alt="상태 관리 프레임워크 적용 전후 XZ 궤적 비교" /><figcaption><strong>적용 후</strong> 수직축 오차와 궤적 이탈을 억제한 결과</figcaption></figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="detail-section detail-section-dark">
+      <div class="container detail-grid">
+        <h2>분석 자동화</h2>
+        <div class="detail-copy">
+          <p>실험 결과는 MATLAB 파이프라인으로 반복 처리했습니다. VIO와 OptiTrack의 시간을 동기화하고 서로 다른 3차원 좌표계를 선형 변환한 뒤, ATE와 축별 RMSE를 계산했습니다. 조건별 3회 반복 실험의 평균과 논문용 표·그래프까지 같은 절차로 생성하도록 구성했습니다.</p>
+          <div class="contribution-grid">
+            <article><strong>동기화</strong><span>서로 다른 센서 시간축 정렬</span></article>
+            <article><strong>좌표 변환</strong><span>VIO와 기준 궤적의 3차원 정렬</span></article>
+            <article><strong>정량 평가</strong><span>ATE·축별 RMSE와 반복 평균 계산</span></article>
+            <article><strong>시각화</strong><span>논문용 궤적·오차 그래프 자동 생성</span></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="detail-section">
+      <div class="container detail-grid">
+        <h2>연구 결과</h2>
+        <div class="detail-copy">
+          <p class="section-intro">VIO 내부 알고리즘 하나를 고치는 데서 끝나지 않고, 실패를 전제로 감지·전환·복구·검증하는 운용 구조를 만들었습니다.</p>
+          <ul class="result-list">
+            <li>VINS-Fusion 소스 분석부터 환경 구축, 실험 설계, 데이터 분석과 논문 집필까지 수행</li>
+            <li>Gazebo 드론 시뮬레이션과 OptiTrack 기반 RC카 실험으로 실패 대응 구조를 단계적으로 검증</li>
+            <li>제20회 한국로봇종합학술대회 주저자 발표: 「VINS-Fusion 위치추정 성능 향상에 관한 연구」</li>
+          </ul>
+          <div class="video-slot"><p><strong>연구 영상 준비 중</strong>대표 연구영상, OptiTrack 실내비행, ORB-SLAM과 VINS 영상을 무음 편집 후 배치합니다.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="container detail-next">
+      <a href="../index.html#projects">← 목록으로</a>
+      <a href="modal-analysis.html">다음: 모달 분석 →</a>
+    </div>
+  </main>
+</body>
+</html>
