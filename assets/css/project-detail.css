@@ -12,7 +12,7 @@ body.project-page { background: var(--detail-paper); color: var(--detail-ink); }
 .detail-nav { display: flex; min-height: 68px; align-items: center; justify-content: space-between; gap: 24px; }
 .detail-back { color: var(--detail-accent); font-size: 13px; font-weight: 800; }
 .detail-nav strong { font-size: 14px; }
-.detail-toc { position: fixed; z-index: 18; top: 50%; right: 24px; display: grid; width: 168px; padding: 16px 12px; border: 1px solid rgba(13, 27, 42, 0.16); background: rgba(247, 244, 237, 0.94); box-shadow: 0 14px 42px rgba(13, 27, 42, 0.1); backdrop-filter: blur(12px); transform: translateY(-50%); }
+.detail-toc { position: fixed; z-index: 18; top: 50%; right: 10px; display: grid; width: 136px; padding: 14px 8px; border: 1px solid rgba(13, 27, 42, 0.16); background: rgba(247, 244, 237, 0.96); box-shadow: 0 14px 42px rgba(13, 27, 42, 0.13); backdrop-filter: blur(12px); transform: translateY(-50%); }
 .detail-toc strong { padding: 2px 10px 10px; color: var(--detail-muted); font: 800 10px Consolas, monospace; letter-spacing: 0.12em; }
 .detail-toc a { position: relative; padding: 8px 10px 8px 18px; color: #5f6c76; font-size: 12px; font-weight: 700; line-height: 1.35; transition: color 160ms ease, background 160ms ease; }
 .detail-toc a::before { content: ""; position: absolute; top: 50%; left: 6px; width: 4px; height: 4px; border-radius: 50%; background: #aeb4b8; transform: translateY(-50%); transition: background 160ms ease, transform 160ms ease; }
@@ -193,10 +193,13 @@ body.lightbox-open { overflow: hidden; }
 .blackout-evidence figcaption strong { display: block; margin-bottom: 4px; color: var(--detail-accent); }
 .feature-debug-video { margin-top: 24px; }
 .feature-debug-video video { aspect-ratio: 16 / 9; }
-@media (min-width: 1251px) {
-  .manta-page main { padding-right: 192px; }
+@media (min-width: 521px) {
+  .manta-page main { padding-right: 142px; }
 }
-@media (max-width: 1250px) {
+@media (min-width: 761px) {
+  .manta-page .detail-section { padding-top: 132px; padding-bottom: 132px; }
+}
+@media (max-width: 520px) {
   .detail-toc { display: none; }
 }
 @media (max-width: 760px) {
