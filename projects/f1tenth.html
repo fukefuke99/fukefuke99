@@ -3,25 +3,59 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="김수환의 F1TENTH 자율주행 레이싱 플랫폼 프로젝트" />
-  <title>F1TENTH 자율주행 레이싱 | 김수환</title>
+  <meta name="description" content="김수환의 F1TENTH 2D LiDAR SLAM 위치추정 프로젝트" />
+  <title>F1TENTH 2D LiDAR SLAM | 김수환</title>
   <link rel="stylesheet" href="../assets/css/style.css?v=20260911-14" />
-  <link rel="stylesheet" href="../assets/css/project-detail.css?v=20260911-13" />
+  <link rel="stylesheet" href="../assets/css/project-detail.css?v=20260911-15" />
 </head>
 <body class="project-page">
   <header class="detail-header"><div class="container detail-nav"><a class="detail-back" href="../index.html#projects">← 대표 프로젝트</a><strong>김수환 포트폴리오</strong></div></header>
-  <main>
+  <main id="overview">
     <section class="detail-hero"><div class="container">
-      <p class="detail-label">F1TENTH · LIDAR SLAM · POSITION ESTIMATION</p>
-      <h1>고속 주행에 맞춘 LiDAR 맵핑과 위치추정</h1>
-      <p class="detail-lead">F1TENTH 자율주행 레이싱 플랫폼에서 맵핑과 위치추정을 맡아, 실제 트랙의 지도를 구축하고 속도에 따른 SLAM(Simultaneous Localization and Mapping) 설정을 반복 조정했습니다.</p>
-      <dl class="detail-facts"><div><dt>역할</dt><dd>맵핑 및 위치추정</dd></div><div><dt>센서</dt><dd>Hokuyo LiDAR</dd></div><div><dt>연산</dt><dd>NVIDIA Jetson</dd></div><div><dt>구동 연동</dt><dd>VESC·UART·ERPM</dd></div></dl>
+      <p class="detail-label">ICCAS 2024 · F1TENTH · 2D LIDAR SLAM</p>
+      <h1>고속 주행을 위한<br />맵핑과 위치추정</h1>
+      <p class="detail-lead">1/10 스케일 레이싱 차량에서 2D LiDAR SLAM 위치추정 모듈을 맡았습니다. 저속에서 만든 지도를 기준으로 속도와 센서 조건을 바꿔 반복 주행하며, 고속 구간에서 흔들리는 스캔 매칭과 좌표변환 흐름을 조정했습니다.</p>
+      <dl class="detail-facts"><div><dt>기간</dt><dd>2024.07 — 2024.11</dd></div><div><dt>프로젝트</dt><dd>제3회 F1TENTH Korea Championship</dd></div><div><dt>담당</dt><dd>2D LiDAR 맵핑·위치추정</dd></div><div><dt>플랫폼</dt><dd>ROS · Jetson · Hokuyo · VESC</dd></div></dl>
     </div></section>
-    <section class="detail-section"><div class="container detail-grid"><h2>주행 환경 구축</h2><div class="detail-copy">
-      <p>Hokuyo의 LiDAR(Light Detection and Ranging) 센서로 OGM(Occupancy Grid Map)을 구성하고 SLAM Toolbox 기반 맵핑 환경을 구축했습니다. 저속에서 확보한 설정을 그대로 사용하지 않고, 고속 주행에서 발생하는 스캔 매칭 오차와 루프 클로징 결과를 확인하며 파라미터를 조정했습니다.</p>
-      <p>Jetson과 VESC(Vedder Electronic Speed Controller)는 UART(Universal Asynchronous Receiver-Transmitter)로 연결했습니다. 모터의 ERPM(Electrical Revolutions Per Minute) 텔레메트리를 받아 차량 상태와 주행 데이터를 함께 확인하고, 지도 생성 결과와 좌표변환 흐름을 비교해 위치추정이 흔들리는 구간을 찾았습니다.</p>
-      <div class="evidence-grid"><figure class="wide"><img src="../assets/images/projects/f1tenth-map.jpg" alt="F1TENTH 차량으로 생성한 실내 트랙 지도" /><figcaption>LiDAR SLAM으로 생성한 실내 주행 트랙 지도</figcaption></figure></div>
+
+    <section class="detail-section" id="platform"><div class="container detail-grid"><h2>차량과 센서를<br />먼저 연결하다</h2><div class="detail-copy">
+      <p class="section-intro">위치추정 알고리즘만 실행하는 데서 끝내지 않고, 차량의 센서와 구동계 상태가 ROS 안에서 함께 흐르도록 기반을 구성했습니다.</p>
+      <p>Hokuyo 2D LiDAR와 NVIDIA Jetson을 연결해 scan과 TF를 확인하고, SLAM Toolbox가 사용할 센서 좌표계를 정리했습니다. Jetson과 VESC는 UART로 연결해 ERPM을 수신했으며, 별도 휠 엔코더가 없는 차량에서 속도와 구동 상태를 확인하는 값으로 활용했습니다.</p>
+      <div class="logic-flow"><div><span>01</span><strong>Hokuyo LiDAR</strong><small>레이싱 트랙의 2D scan 취득</small></div><div><span>02</span><strong>Jetson · ROS</strong><small>센서·TF·SLAM 노드 실행</small></div><div><span>03</span><strong>VESC · UART</strong><small>구동 명령과 ERPM 수신</small></div><div><span>04</span><strong>Mapping · Localization</strong><small>OGM 생성과 차량 pose 추정</small></div></div>
+      <p class="detail-note">ERPM은 정지·저속에서 실제 차량 속도와 차이가 커질 수 있어 절대적인 속도 센서로 간주하지 않고, 위치추정 상태를 함께 해석하기 위한 보조값으로 사용했습니다.</p>
     </div></div></section>
+
+    <section class="detail-section detail-section-dark" id="mapping"><div class="container detail-grid"><h2>저속 맵핑으로<br />기준을 만들다</h2><div class="detail-copy">
+      <p class="section-intro">먼저 수동 저속 주행으로 트랙을 여러 차례 돌며 점유 격자 지도와 스캔 정합 상태를 확인했습니다.</p>
+      <p>LiDAR scan이 벽면 형상을 따라 누적되는지, 같은 구간을 다시 지날 때 지도와 pose가 일치하는지 확인했습니다. 루프 클로징이 잘못 걸리거나 scan이 겹치지 않는 조건에서는 지도가 회전하거나 복제되므로, 한 번의 결과보다 반복 주행에서 형상이 유지되는지를 기준으로 삼았습니다.</p>
+      <figure class="detail-video">
+        <video controls muted playsinline preload="metadata" poster="../assets/images/projects/f1-scan-matching-poster.jpg"><source src="../assets/videos/f1-scan-matching-noaudio.mp4" type="video/mp4" /></video>
+        <figcaption><strong>Scan matching 확인</strong> LiDAR scan 사용량과 주행 속도를 바꾸며 스캔 정합과 지도 누적 상태를 비교했습니다. 영상의 오디오는 제거했습니다.</figcaption>
+      </figure>
+    </div></div></section>
+
+    <section class="detail-section" id="high-speed"><div class="container detail-grid"><h2>속도가 오르자<br />pose가 흔들리다</h2><div class="detail-copy">
+      <p class="section-intro">저속에서 안정적이던 설정도 차량 속도가 올라가면 scan 사이의 이동량이 커져 그대로 사용할 수 없었습니다.</p>
+      <p>고속 주행에서 위치가 순간적으로 튀거나 지도의 벽면이 두껍게 누적되는 구간을 확인했습니다. 주행 영상과 RViz 화면을 함께 기록하고 ROS bag을 조건별로 남겨, 스캔 매칭과 루프 클로징 설정을 바꾼 결과를 같은 트랙에서 반복 비교했습니다.</p>
+      <div class="detail-video-grid f1-speed-grid">
+        <figure><video controls muted playsinline preload="metadata" poster="../assets/images/projects/f1-slow-localization-poster.jpg"><source src="../assets/videos/f1-slow-localization-noaudio.mp4" type="video/mp4" /></video><figcaption><strong>저속 통합 주행</strong><span>실차 화면과 맵핑·위치추정 결과를 동시에 기록해 기준 동작을 확인했습니다.</span></figcaption></figure>
+        <figure><video controls muted playsinline preload="metadata" poster="../assets/images/projects/f1-fast-localization-poster.jpg"><source src="../assets/videos/f1-fast-localization-noaudio.mp4" type="video/mp4" /></video><figcaption><strong>고속 통합 주행</strong><span>같은 트랙에서 속도를 높인 뒤 pose와 지도 형상이 유지되는지 비교했습니다.</span></figcaption></figure>
+      </div>
+      <ul class="process-list f1-test-list"><li><span>01</span><div><strong>조건 분리</strong><p>속도와 LiDAR scan 조건을 나누고 각 조합을 여러 차례 주행했습니다.</p></div></li><li><span>02</span><div><strong>동시 기록</strong><p>실차 영상, RViz 위치추정 화면과 ROS bag을 함께 남겨 같은 시점의 현상을 대조했습니다.</p></div></li><li><span>03</span><div><strong>파라미터 조정</strong><p>scan matching, loop closure와 갱신 주기의 균형을 바꾸며 고속 구간의 pose 변화를 확인했습니다.</p></div></li><li><span>04</span><div><strong>반복 검증</strong><p>한 바퀴 결과가 아니라 여러 바퀴를 주행한 뒤 트랙 형상과 위치가 계속 유지되는지를 확인했습니다.</p></div></li></ul>
+    </div></div></section>
+
+    <section class="detail-section detail-section-tint" id="odometry"><div class="container detail-grid"><h2>구동 상태를<br />좌표변환에 연결하다</h2><div class="detail-copy">
+      <p class="section-intro">LiDAR 결과만 보지 않고 차량이 실제로 어떻게 움직였는지 설명할 수 있도록 조향과 속도 정보를 함께 정리했습니다.</p>
+      <p>VESC에서 받은 ERPM을 차량 속도 확인에 사용하고, servo 명령을 steering angle로 환산했습니다. 현재 속도와 조향각, wheelbase를 이용해 yaw rate와 평면 이동량을 계산하는 차량 운동학을 정리하고 map·odom·base 좌표계의 변환 흐름과 비교했습니다.</p>
+      <div class="contribution-grid"><article><strong>Speed</strong><span>VESC ERPM 수신과 차량 속도 상태 확인</span></article><article><strong>Steering</strong><span>servo command를 steering angle로 환산</span></article><article><strong>Vehicle odometry</strong><span>속도·조향각·wheelbase 기반 평면 운동 계산</span></article><article><strong>TF 검증</strong><span>map·odom·base 좌표계와 SLAM pose 비교</span></article></div>
+    </div></div></section>
+
+    <section class="detail-section" id="result"><div class="container detail-grid"><h2>결과와<br />남은 한계</h2><div class="detail-copy">
+      <p class="section-intro">레이싱 트랙의 OGM과 2D LiDAR 위치추정 환경을 구축하고, 속도 변화에 맞춰 검증하는 절차를 만들었습니다.</p>
+      <ul class="result-list"><li><strong>맵핑</strong> 수동 주행으로 연구실 트랙의 점유 격자 지도를 생성했습니다.</li><li><strong>위치추정</strong> 저속·고속 주행 영상과 ROS bag을 함께 기록해 pose 변화를 반복 확인했습니다.</li><li><strong>구동계 연동</strong> Jetson–VESC UART 통신과 ERPM 수신을 구성해 차량 상태를 위치추정 결과와 함께 확인했습니다.</li><li><strong>한계</strong> 경로 주행 로직과의 통합 시간이 부족해 완전한 자율 레이싱 검증까지 이어지지는 못했습니다.</li></ul>
+      <p class="detail-note">이 페이지는 제가 전담한 2024년 2D LiDAR SLAM 맵핑·위치추정 범위를 중심으로 정리했습니다. 이후 팀에서 검토한 Cartographer·AMCL·MPC 자료는 개인 수행 결과로 포함하지 않았습니다.</p>
+    </div></div></section>
+
     <div class="container detail-next"><a href="manta.html">← 이전: MANTA</a><a href="triboelectric-counter.html">다음: 교통량 측정 →</a></div>
   </main>
 </body>

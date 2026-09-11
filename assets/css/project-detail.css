@@ -192,6 +192,9 @@ body.lightbox-open { overflow: hidden; }
 .blackout-evidence figcaption strong { display: block; margin-bottom: 4px; color: var(--detail-accent); }
 .feature-debug-video { margin-top: 24px; }
 .feature-debug-video video { aspect-ratio: 16 / 9; }
+.f1-speed-grid video { aspect-ratio: 16 / 9; }
+.f1-test-list { border-top-color: var(--detail-line); }
+.f1-test-list li { border-bottom-color: var(--detail-line); }
 @media (max-width: 760px) {
   .detail-hero { padding-top: 68px; }
   .detail-facts { grid-template-columns: repeat(2, 1fr); }
