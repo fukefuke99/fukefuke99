@@ -106,11 +106,11 @@
             <article class="capability-card reveal">
               <span class="card-number">01</span>
               <h3>Embedded & Control</h3>
-              <p>MCU(Microcontroller Unit) 기반 센서 인터페이스와 저수준 통신, 실시간 모터·자세 제어기를 구현합니다.</p>
+              <p>MCU 기반 센서 인터페이스와 저수준 통신, 실시간 모터·자세 제어기를 구현합니다.</p>
               <ul>
-                <li>C/C++ · STM32/MCU · Raspberry Pi</li>
-                <li>UART(Universal Asynchronous Receiver-Transmitter) · I²C(Inter-Integrated Circuit)</li>
-                <li>SSI(Synchronous Serial Interface) · GPIO(General-Purpose Input/Output)</li>
+                <li>C/C++ · STM32 · Zybo · Teensy · ESP32</li>
+                <li>Raspberry Pi · Arduino</li>
+                <li>UART · I²C · SSI · GPIO · CAN</li>
                 <li>Cascade · Feedforward · Filtering</li>
               </ul>
             </article>
@@ -119,10 +119,9 @@
               <h3>Robotics Platform</h3>
               <p>엣지 컴퓨팅 보드와 센서, 펌웨어를 연결해 실제 기체에서 동작하는 시스템을 만듭니다.</p>
               <ul>
-                <li>ROS(Robot Operating System) · MAVROS · ArduPilot</li>
-                <li>NVIDIA Jetson · VESC(Vedder Electronic Speed Controller)</li>
-                <li>LiDAR(Light Detection and Ranging)</li>
-                <li>SLAM(Simultaneous Localization and Mapping) · VIO(Visual-Inertial Odometry)</li>
+                <li>ROS · MAVROS · ArduPilot</li>
+                <li>Jetson TX2 · Xavier</li>
+                <li>Jetson Orin NX · Orin Nano</li>
               </ul>
             </article>
             <article class="capability-card reveal">
@@ -131,7 +130,7 @@
               <p>데이터를 계측하고 분석해 설계가 실제 환경에서도 신뢰할 수 있는지 검증합니다.</p>
               <ul>
                 <li>MATLAB · Signal Processing · FRF(Frequency Response Function)</li>
-                <li>GDB(GNU Debugger) · CMake · Docker · Linux</li>
+                <li>GDB · CMake · Docker · Linux</li>
                 <li>OptiTrack · Gazebo · AirSim</li>
               </ul>
             </article>
@@ -191,7 +190,7 @@
                   <ul class="tags" aria-label="사용 기술">
                     <li>VINS-Fusion</li><li>GDB</li><li>ArduPilot</li><li>MAVROS</li><li>Jetson</li>
                   </ul>
-                  <a class="project-link" href="projects/vio-slam.html">연구 과정 자세히 보기 <span>↗</span></a>
+                  <a class="project-link" href="projects/vio-slam.html">자세히 보기 <span>↗</span></a>
                 </div>
               </div>
               <figure class="project-media project-media-wide">
@@ -222,7 +221,7 @@
                   <ul class="tags" aria-label="사용 기술">
                     <li>MATLAB</li><li>FFT/FRF</li><li>Curve Fitting</li><li>DAQ</li><li>3D Visualization</li>
                   </ul>
-                  <a class="project-link" href="projects/modal-analysis.html">분석 과정 자세히 보기 <span>↗</span></a>
+                  <a class="project-link" href="projects/modal-analysis.html">자세히 보기 <span>↗</span></a>
                 </div>
               </div>
               <div class="project-gallery" aria-label="모달 시험 및 분석 결과">
@@ -269,7 +268,7 @@
                     <li>DAVE</li><li>ROS 2</li><li>Gazebo</li><li>C++</li><li>Git</li>
                   </ul>
                   <div class="project-actions">
-                    <a class="project-link" href="projects/manta.html">통합 과정 자세히 보기 <span>↗</span></a>
+                    <a class="project-link" href="projects/manta.html">자세히 보기 <span>↗</span></a>
                     <a class="project-link" href="https://github.com/MANTA-P/MANTA" target="_blank" rel="noreferrer">GitHub 저장소 <span>↗</span></a>
                   </div>
                 </div>
@@ -288,7 +287,7 @@
                 <h3>F1TENTH 자율주행 레이싱</h3>
                 <p>Hokuyo LiDAR로 OGM(Occupancy Grid Map)과 SLAM(Simultaneous Localization and Mapping) 환경을 구축하고, 고속 주행에서 스캔 매칭·루프 클로징을 튜닝했습니다. Jetson–VESC 통신과 모터 회전 정보를 통합했습니다.</p>
                 <ul class="tags"><li>SLAM Toolbox</li><li>LiDAR</li><li>VESC</li><li>Jetson</li></ul>
-                <a class="project-link" href="projects/f1tenth.html">프로젝트 자세히 보기 <span>↗</span></a>
+                <a class="project-link" href="projects/f1tenth.html">자세히 보기 <span>↗</span></a>
                 <figure class="compact-media">
                   <img src="assets/images/projects/f1tenth-map.jpg" alt="F1TENTH 차량으로 작성한 주행 트랙 지도" loading="lazy" />
                   <figcaption>LiDAR SLAM으로 작성한 실내 주행 트랙 지도</figcaption>
@@ -299,7 +298,7 @@
                 <h3>마찰전기 나노발전기 기반 교통량 측정 시스템</h3>
                 <p>마찰전기 나노발전기의 입력을 Arduino로 계수하고 RTC(Real-Time Clock)와 SD(Secure Digital) 카드에 기록한 뒤, Bluetooth로 App Inventor 앱에 전달해 기간별 교통량을 확인하는 시제품을 팀장으로 개발했습니다.</p>
                 <ul class="tags"><li>Arduino</li><li>Bluetooth</li><li>RTC·SD</li><li>App Inventor</li></ul>
-                <a class="project-link" href="projects/triboelectric-counter.html">프로젝트 자세히 보기 <span>↗</span></a>
+                <a class="project-link" href="projects/triboelectric-counter.html">자세히 보기 <span>↗</span></a>
                 <figure class="compact-media">
                   <img src="assets/images/projects/triboelectric-prototype.jpg" alt="마찰전기 나노발전기 기반 교통량 측정 시스템 시제품" loading="lazy" />
                   <figcaption>센서 입력·로깅·무선 전송을 통합한 팀 프로젝트 시제품</figcaption>
