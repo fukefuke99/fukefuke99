@@ -33,6 +33,7 @@ body.project-page { background: var(--detail-paper); color: var(--detail-ink); }
 .evidence-grid img { display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: cover; }
 .evidence-grid figure.portrait img { aspect-ratio: 4 / 5; object-fit: contain; background: #f0eee8; }
 .evidence-grid figcaption { padding: 12px 14px; color: var(--detail-muted); font-size: 12px; }
+.research-evidence img { aspect-ratio: 16 / 9; object-fit: contain; background: #fff; }
 .comparison-grid img { aspect-ratio: 1 / 1; object-fit: contain; padding: 8px; background: #fff; }
 .comparison-grid figcaption { font-size: 13px; }
 .comparison-grid figcaption strong { margin-right: 6px; color: var(--detail-accent); }

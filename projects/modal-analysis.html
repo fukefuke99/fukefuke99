@@ -6,7 +6,7 @@
   <meta name="description" content="3U 큐브위성의 발사 진동 공진 위험을 확인하기 위한 모달 시험 환경 구축 및 MATLAB 분석 프로젝트" />
   <title>항공우주 구조체 모달 분석 | 김수환</title>
   <link rel="stylesheet" href="../assets/css/style.css" />
-  <link rel="stylesheet" href="../assets/css/project-detail.css?v=20260911-1" />
+  <link rel="stylesheet" href="../assets/css/project-detail.css?v=20260911-2" />
 </head>
 <body class="project-page">
   <header class="detail-header"><div class="container detail-nav"><a class="detail-back" href="../index.html#projects">← 대표 프로젝트</a><strong>김수환 포트폴리오</strong></div></header>
@@ -20,12 +20,12 @@
 
     <section class="detail-section detail-section-tint"><div class="container detail-grid"><h2>왜 시험했는가</h2><div class="detail-copy">
       <p class="section-intro">발사체가 만드는 진동 대역과 위성 구조체의 고유진동수가 겹치지 않도록, 설계 단계에서 구조의 동특성을 먼저 확인해야 했습니다.</p>
-      <p>발사체 상승 과정의 랜덤 진동과 음향 하중은 구조물에 넓은 주파수 대역의 가진을 전달합니다. 이 가운데 구조체의 고유진동수와 겹치는 성분은 공진을 일으켜 변형과 응답을 증폭하고, 체결부나 탑재 부품의 손상 위험을 높일 수 있습니다.</p>
-      <p>저는 발사 환경과 큐브위성 구조시험 선행연구를 조사해 시험 목적과 조건을 정리했습니다. 연구의 목표는 3U 구조체의 고유진동수, 감쇠비와 실제 변형 형태를 실험으로 찾아 구조설계 판단에 활용할 근거를 만드는 것이었습니다.</p>
+      <p>발사 환경과 큐브위성 구조시험 선행연구를 직접 조사해 연구 배경과 시험 목표를 정리하고 아래 발표자료를 제작했습니다. 발사체 요구조건과 20~2000 Hz 랜덤 진동 환경을 검토한 뒤, 3U 구조체의 고유진동수와 감쇠비, 모드 형상을 실험으로 확인하는 방향을 설정했습니다.</p>
+      <div class="evidence-grid research-evidence"><figure class="wide"><img src="../assets/images/projects/modal-research-background.png" alt="발사 환경의 진동과 공진 위험을 정리한 연구 배경 및 목표 발표자료" loading="lazy" /><figcaption>직접 조사·작성한 연구 배경과 목표: 발사 환경, 공진 위험, 모달시험의 목적</figcaption></figure><figure><img src="../assets/images/projects/modal-launch-requirements.png" alt="발사체 랜덤 진동 환경과 큐브위성 고유진동수 요구조건 발표자료" loading="lazy" /><figcaption>발사체 진동 대역과 고유진동수 요구조건 검토</figcaption></figure><figure><img src="../assets/images/projects/modal-prior-research.png" alt="큐브위성 모달 해석 선행연구 사례를 비교한 발표자료" loading="lazy" /><figcaption>선행연구 비교를 통한 실험 모달분석의 필요성 정리</figcaption></figure></div>
     </div></div></section>
 
     <section class="detail-section"><div class="container detail-grid"><h2>담당 범위와 시험 구성</h2><div class="detail-copy">
-      <p>지도교수 변경 이후 과제가 새로 시작되던 시점에 합류했습니다. 다른 연구자가 3D 프린팅 기반 3U 프레임 제작을 맡았고, 저는 모달 가진 시험 환경 구축부터 계측, 분석과 결과 시각화까지 담당했습니다.</p>
+      <p>지도교수 변경 이후 과제가 새로 시작되던 시점에 3명이 함께 참여했습니다. 한 명은 프레임 구매와 번지 로프 조사, 다른 한 명은 3D 프린팅 재료 조사와 구조체 모델링·출력을 맡았습니다. 저는 앞서 제시한 자료조사와 발표자료 작성부터 시험 조건 설정, 모달 가진 시험 환경 구축, 계측, 시험 수행, MATLAB 분석과 시각화를 담당했습니다. 시험 지그는 팀원들과 함께 설계했습니다.</p>
       <p>구조체를 번지 로프로 매달아 자유 경계조건을 구성한 뒤, 가진기와 힘 센서로 입력을 제어하고 8개 가속도계로 각 지점의 응답을 동시에 측정했습니다. 최종 시험에서는 20~2000 Hz 랜덤 가진을 적용하고 진동 제어 계측 시스템에서 FRF를 확보했습니다.</p>
       <div class="evidence-grid"><figure class="portrait"><img src="../assets/images/projects/modal-frame.jpg" alt="모달 시험 대상 3U 위성 프레임" /><figcaption>모달 시험에 사용한 3U 위성 프레임 시험체</figcaption></figure><figure><img src="../assets/images/projects/modal-test.jpg" alt="구조체와 가속도계 설치 모습" /><figcaption>구조체에 부착한 가속도계와 시험 구성</figcaption></figure></div>
     </div></div></section>
