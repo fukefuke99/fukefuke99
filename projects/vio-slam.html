@@ -6,7 +6,7 @@
   <meta name="description" content="김수환의 VINS-Fusion 기반 VIO 실패 감지·대응 프레임워크 연구" />
   <title>VIO 실패 대응 프레임워크 | 김수환</title>
   <link rel="stylesheet" href="../assets/css/style.css?v=20260911-4" />
-  <link rel="stylesheet" href="../assets/css/project-detail.css?v=20260911-4" />
+  <link rel="stylesheet" href="../assets/css/project-detail.css?v=20260911-5" />
 </head>
 <body class="project-page">
   <header class="detail-header">
@@ -56,7 +56,7 @@
           <p class="selection-kicker">ALGORITHM SELECTION</p>
           <h3 class="selection-title">여러 위치추정기를 실행·검토한 뒤 VINS-Fusion을 선정했습니다.</h3>
           <p>연구 초기에는 ORB-SLAM2의 mono·stereo 구성과 VINS 계열을 직접 구동하고 관련 성능 비교 자료를 조사했습니다. 오픈소스 구현 여부, KITTI 평가 결과, 제한된 연산 자원에서의 구동 가능성, 스테레오 카메라와 IMU를 함께 사용할 수 있는 확장성을 기준으로 최종 연구 대상을 VINS-Fusion으로 좁혔습니다.</p>
-          <div class="algorithm-selection"><article><span>01</span><strong>ORB-SLAM2</strong><small>Mono·Stereo 구동 및 영상 기반 추정 특성 확인</small></article><article><span>02</span><strong>VINS 계열</strong><small>카메라·IMU 결합과 임베디드 적용 가능성 검토</small></article><article class="selected"><span>03</span><strong>VINS-Fusion 선정</strong><small>Stereo·IMU 구성과 소스 확장성을 바탕으로 연구 진행</small></article></div>
+          <div class="algorithm-selection"><article><span>01</span><strong>ORB-SLAM2</strong><small>Mono·Stereo 구동 및 영상 기반 추정 특성 확인</small></article><article><span>02</span><strong>VINS 계열</strong><small>카메라·IMU 결합과 제한된 연산 자원에서의 구동 가능성 검토</small></article><article class="selected"><span>03</span><strong>VINS-Fusion 선정</strong><small>Stereo·IMU 구성과 소스 확장성을 바탕으로 연구 진행</small></article></div>
           <p class="section-intro">카메라 영상이 잠시 끊기더라도 플랫폼이 사용할 위치 정보는 계속 이어질 수 있을까?</p>
           <p>VINS-Fusion은 영상과 IMU를 함께 사용하지만, 암전이 길어지면 추적 특징점이 급감하고 IMU 오차가 누적되어 위치가 크게 틀어졌습니다. 단순히 알고리즘의 파라미터를 조정하는 대신, 위치추정기가 실패할 수 있다는 전제에서 실패를 판단하고 입력을 전환하는 별도 관리 구조를 연구했습니다.</p>
           <div class="evidence-grid">
@@ -75,11 +75,11 @@
           <ol class="process-list">
             <li><span>01</span><div><strong>VINS-Fusion 포팅</strong><p>Ceres Solver 버전 차이로 발생한 빌드 오류를 추적하고 WSL 환경의 CMake 설정을 수정했습니다.</p></div></li>
             <li><span>02</span><div><strong>스테레오 카메라 보정</strong><p>사용한 Kalibr 빌드가 Ubuntu 14.04 기반 의존성을 요구해 현재 개발환경에 직접 구성하기 어려웠습니다. 기존 환경과의 충돌을 피하기 위해 해당 버전이 구성된 Docker 이미지를 활용하고, 내부 파라미터와 카메라 간 상대 변환을 추정해 재투영 오차를 확인했습니다.</p></div></li>
-            <li><span>03</span><div><strong>드론 모델 설계와 시뮬레이션 구성</strong><p>실기체 제작 전 Inventor에서 카메라와 연산 보드의 배치 구조를 검토하고, 모델링 형상을 Gazebo에 적용해 간섭과 구성을 확인했습니다. 이를 바탕으로 실제 기체를 제작한 뒤 ArduPilot, MAVROS와 위치 제어 흐름을 구성했습니다.</p></div></li>
+            <li><span>03</span><div><strong>드론 모델 설계와 시뮬레이션 구성</strong><p>실기체 제작 전 Inventor로 설계 시제품을 모델링해 카메라와 연산 보드의 배치 및 간섭을 확인했습니다. 모델링 형상을 Gazebo에 적용해 구성을 검토한 뒤 실제 기체를 제작하고 ArduPilot, MAVROS와 위치 제어 흐름을 구성했습니다.</p></div></li>
             <li><span>04</span><div><strong>AirSim 사전 검토</strong><p>AirSim과 ROS 연동 환경도 구성해 제어·센서 설정을 시험했습니다. 최종 논문에는 포함하지 않았지만 시뮬레이션 환경을 비교하고 연구 방향을 정하는 과정에 활용했습니다.</p></div></li>
           </ol>
           <div class="evidence-grid">
-            <figure><a class="image-zoom" href="../assets/images/projects/vio-drone-model.png" target="_blank" rel="noopener"><img src="../assets/images/projects/vio-drone-model.png" alt="Inventor에서 설계하고 Gazebo에 적용한 카메라 탑재 쿼드콥터 모델" /></a><figcaption>실기체 제작 전 Inventor 설계 형상을 Gazebo에 적용해 배치와 간섭을 확인한 모델</figcaption></figure>
+            <figure><a class="image-zoom" href="../assets/images/projects/vio-drone-model.png" target="_blank" rel="noopener"><img src="../assets/images/projects/vio-drone-model.png" alt="Inventor에서 설계하고 Gazebo에 적용한 카메라 탑재 쿼드콥터 모델" /></a><figcaption>실기체 제작 전 Inventor로 설계 시제품을 모델링하여 배치와 간섭을 확인</figcaption></figure>
             <figure><a class="image-zoom" href="../assets/images/projects/vio-gazebo-environment.png" target="_blank" rel="noopener"><img src="../assets/images/projects/vio-gazebo-environment.png" alt="WSL Gazebo 드론 시뮬레이션 환경" /></a><figcaption>WSL에서 구축한 Gazebo 비행·암전 실험 환경</figcaption></figure>
           </div>
         </div>
@@ -112,6 +112,11 @@
         <h2>실패 감지와 대응</h2>
         <div class="detail-copy">
           <p>카메라를 완전히 가려도 미세한 빛 때문에 특징점이 약 10개 남아, 특징점 수가 0이 되는 조건으로는 실패 시점을 잡을 수 없었습니다. 저조도 실험을 반복하며 추정이 무너지기 직전의 특징점 수를 관찰하고 감지 임계값을 정했습니다.</p>
+          <div class="evidence-grid blackout-evidence">
+            <figure><a class="image-zoom" href="../assets/images/projects/vio-blackout-frame.png" target="_blank" rel="noopener"><img src="../assets/images/projects/vio-blackout-frame.png" alt="암전 구간에서 소수의 특징점만 남아 추적되는 카메라 화면" /></a><figcaption><strong>암전 화면</strong> 완전히 가려도 소수의 특징점이 남아 0이 아닌 임계값이 필요했습니다.</figcaption></figure>
+            <figure><a class="image-zoom" href="../assets/images/projects/vio-feature-count.png" target="_blank" rel="noopener"><img src="../assets/images/projects/vio-feature-count.png" alt="암전 전후 시간에 따른 영상 특징점 개수 변화" /></a><figcaption><strong>특징점 변화</strong> 암전 진입 후 특징점이 급감하고 복구되는 구간을 반복 관찰했습니다.</figcaption></figure>
+          </div>
+          <p class="detail-note"><strong>소스 수준 원인 추적</strong><br />GDB로 특징점 하나의 데이터가 추적·최적화 과정에서 사용되는 흐름을 끝까지 따라가며 위치 출력에 미치는 영향을 확인했습니다. 그 과정에서 단일 특징점이 순간적인 위치 스파이크를 만드는 구간을 찾았고, 이후 출력 코드를 수정해 특징점 변화와 궤적 응답을 한 화면에서 재현했습니다.</p>
           <figure class="wide-evidence feature-evidence">
             <a class="image-zoom" href="../assets/images/projects/vio-feature-computation-blackout.png" target="_blank" rel="noopener"><img src="../assets/images/projects/vio-feature-computation-blackout.png" alt="암전 구간에서 특징점 수와 VIO 연산시간이 함께 감소하는 그래프" /></a>
             <figcaption>암전 구간의 특징점 수와 프레임별 연산시간 변화</figcaption>
@@ -206,5 +211,6 @@
       <a href="modal-analysis.html">다음: 모달 분석 →</a>
     </div>
   </main>
+  <script src="../assets/js/image-lightbox.js?v=20260911-1" defer></script>
 </body>
 </html>
