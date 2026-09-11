@@ -6,7 +6,7 @@
   <meta name="description" content="김수환의 MANTA 수중 위협 어뢰·ROV 회피 통합 시뮬레이션 프로젝트" />
   <title>MANTA 수중 통합 시뮬레이션 | 김수환</title>
   <link rel="stylesheet" href="../assets/css/style.css" />
-  <link rel="stylesheet" href="../assets/css/project-detail.css?v=20260911-10" />
+  <link rel="stylesheet" href="../assets/css/project-detail.css?v=20260911-12" />
 </head>
 <body class="project-page">
   <header class="detail-header"><div class="container detail-nav"><a class="detail-back" href="../index.html#projects">← 대표 프로젝트</a><strong>김수환 포트폴리오</strong></div></header>
@@ -21,6 +21,7 @@
     <section class="detail-section" id="environment"><div class="container detail-grid"><h2>DAVE 자산에서<br />공통환경으로</h2><div class="detail-copy">
       <p class="section-intro">프로젝트 소개 다음 단계는 모델을 새로 그리는 일이 아니라, 검증된 DAVE 자산의 구성과 경계를 정확히 파악하는 것이었습니다.</p>
       <p>DAVE가 제공하는 수중 월드와 BlueROV2, Slocum 모델, Gazebo 플러그인을 기반으로 시작했습니다. 기존 자산을 처음부터 제작한 것은 아니며, visual·collision·link·joint·sensor와 hydrodynamic 설정을 분석한 뒤 BlueROV와 위협 어뢰가 같은 환경에서 상태와 구동기 데이터를 주고받도록 수정·통합했습니다.</p>
+      <p class="detail-note source-attribution">이 프로젝트의 수중 월드와 BlueROV2·Slocum 모델은 Field Robotics Lab의 오픈소스 <a href="https://github.com/Field-Robotics-Lab/dave" target="_blank" rel="noreferrer">Project DAVE GitHub</a>를 기반으로 합니다. ROS 2 환경 구성은 <a href="https://dave-ros2.notion.site/" target="_blank" rel="noreferrer">Project DAVE ROS 2 문서</a>를 참고했으며, MANTA에서는 원본 자산을 분석·수정해 공통 시뮬레이션 환경과 위협 어뢰 모델을 구성했습니다.</p>
       <ul class="process-list manta-environment-list"><li><span>01</span><div><strong>기존 자산 검토</strong><p>DAVE 수중 월드, BlueROV2와 Slocum의 SDF·DAE·플러그인 구성을 확인했습니다.</p></div></li><li><span>02</span><div><strong>기본 구동 검증</strong><p>Gazebo thruster 토픽에 직접 추력 명령을 보내 BlueROV 모델과 구동 인터페이스가 정상적으로 반응하는지 먼저 확인했습니다.</p></div></li><li><span>03</span><div><strong>통합 기준 확정</strong><p>ROS–Gazebo Bridge로 상태와 actuator 명령을 연결하고, 반복 가능한 SITL을 HITL 전 단계의 공통 기준으로 삼았습니다.</p></div></li></ul>
       <figure class="detail-video manta-environment-video">
         <video controls muted playsinline preload="metadata" poster="../assets/images/projects/manta-bluerov-environment-poster.jpg"><source src="../assets/videos/manta-bluerov-environment-noaudio.mp4" type="video/mp4" /></video>
@@ -63,11 +64,11 @@
     </div></div></section>
 
     <section class="detail-section" id="validation"><div class="container detail-grid"><h2>유도 방식별<br />통합 검증</h2><div class="detail-copy">
-      <p class="section-intro">기능이 돌아간다는 확인에서 끝내지 않고, 동일한 환경에서 접근 방식이 달라질 때 회피 결과가 어떻게 바뀌는지 기록했습니다.</p>
+      <p class="section-intro">기능이 돌아간다는 확인에서 끝내지 않고, 동일한 환경에서 순수 추종(Pure Pursuit, PP)과 비례항법 유도(Proportional Navigation Guidance, PNG)에 따라 회피 결과가 어떻게 바뀌는지 기록했습니다.</p>
       <div class="detail-video-grid manta-validation-grid">
         <figure><video controls muted playsinline preload="metadata" poster="../assets/images/projects/manta-simple-tracking-poster.jpg"><source src="../assets/videos/manta-simple-tracking-noaudio.mp4" type="video/mp4" /></video><figcaption><strong>SIMPLE TRACKING</strong><span>움직이는 BlueROV의 상태를 받아 기본 추적 동작을 확인했습니다.</span></figcaption></figure>
         <figure><video controls muted playsinline preload="metadata" poster="../assets/images/projects/manta-face2face-avoid-poster.jpg"><source src="../assets/videos/manta-face2face-avoid-noaudio.mp4" type="video/mp4" /></video><figcaption><strong>통합 회피시험</strong><span>정면 접근 조건에서 BlueROV와 위협 어뢰의 경로 변화를 함께 확인했습니다.</span></figcaption></figure>
-        <figure class="wide"><video controls muted playsinline preload="metadata" poster="../assets/images/projects/manta-png-hit-poster.jpg"><source src="../assets/videos/manta-png-hit-noaudio.mp4" type="video/mp4" /></video><figcaption><strong>PNG 한계 확인</strong><span>PNG 위협에서는 충돌 사례가 반복되어 유도법 변화에 따른 기존 회피 로직의 한계를 확인했습니다.</span></figcaption></figure>
+        <figure class="wide"><video controls muted playsinline preload="metadata" poster="../assets/images/projects/manta-png-hit-poster.jpg"><source src="../assets/videos/manta-png-hit-noaudio.mp4" type="video/mp4" /></video><figcaption><strong>비례항법 유도(PNG) 한계 확인</strong><span>PNG 위협에서는 충돌 사례가 반복되어 유도법 변화에 따른 기존 회피 로직의 한계를 확인했습니다.</span></figcaption></figure>
       </div>
       <ul class="result-list"><li><strong>기능시험</strong> Keyboard 모드에서 프로펠러와 4-fin의 방향·부호를 확인했습니다.</li><li><strong>기본 추적</strong> Simple Tracking에서 움직이는 BlueROV를 따라가는 동작을 확인했습니다.</li><li><strong>팀 통합시험</strong> PP 방식 위협에서는 BlueROV의 회피 동작을 확인했습니다.</li><li><strong>한계 확인</strong> PNG 방식에서는 BlueROV가 대부분 피격되어 위협 유도법에 따라 회피 난이도가 크게 달라짐을 확인했습니다.</li></ul>
       <p class="detail-note">명중률이나 회피 성공률을 통계적으로 산출한 시험은 아닙니다. 현재는 ESP32·Teensy·CAN 단위시험을 거쳐 양방향 HITL 폐루프로 확장하고 있습니다.</p>
