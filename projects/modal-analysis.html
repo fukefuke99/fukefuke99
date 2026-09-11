@@ -6,7 +6,7 @@
   <meta name="description" content="3U 큐브위성의 발사 진동 공진 위험을 확인하기 위한 모달 시험 환경 구축 및 MATLAB 분석 프로젝트" />
   <title>항공우주 구조체 모달 분석 | 김수환</title>
   <link rel="stylesheet" href="../assets/css/style.css" />
-  <link rel="stylesheet" href="../assets/css/project-detail.css?v=20260911-2" />
+  <link rel="stylesheet" href="../assets/css/project-detail.css?v=20260911-3" />
 </head>
 <body class="project-page">
   <header class="detail-header"><div class="container detail-nav"><a class="detail-back" href="../index.html#projects">← 대표 프로젝트</a><strong>김수환 포트폴리오</strong></div></header>
@@ -19,15 +19,33 @@
     </div></section>
 
     <section class="detail-section detail-section-tint"><div class="container detail-grid"><h2>왜 시험했는가</h2><div class="detail-copy">
-      <p class="section-intro">발사체가 만드는 진동 대역과 위성 구조체의 고유진동수가 겹치지 않도록, 설계 단계에서 구조의 동특성을 먼저 확인해야 했습니다.</p>
-      <p>발사 환경과 큐브위성 구조시험 선행연구를 직접 조사해 연구 배경과 시험 목표를 정리하고 아래 발표자료를 제작했습니다. 발사체 요구조건과 20~2000 Hz 랜덤 진동 환경을 검토한 뒤, 3U 구조체의 고유진동수와 감쇠비, 모드 형상을 실험으로 확인하는 방향을 설정했습니다.</p>
-      <div class="evidence-grid research-evidence"><figure class="wide"><img src="../assets/images/projects/modal-research-background.png" alt="발사 환경의 진동과 공진 위험을 정리한 연구 배경 및 목표 발표자료" loading="lazy" /><figcaption>직접 조사·작성한 연구 배경과 목표: 발사 환경, 공진 위험, 모달시험의 목적</figcaption></figure><figure><img src="../assets/images/projects/modal-launch-requirements.png" alt="발사체 랜덤 진동 환경과 큐브위성 고유진동수 요구조건 발표자료" loading="lazy" /><figcaption>발사체 진동 대역과 고유진동수 요구조건 검토</figcaption></figure><figure><img src="../assets/images/projects/modal-prior-research.png" alt="큐브위성 모달 해석 선행연구 사례를 비교한 발표자료" loading="lazy" /><figcaption>선행연구 비교를 통한 실험 모달분석의 필요성 정리</figcaption></figure></div>
+      <p class="section-intro">발사체가 만드는 진동 대역과 위성 구조체의 고유진동수가 겹치면 공진으로 응답이 증폭되어 체결부와 탑재 부품에 손상이 생길 수 있습니다. 따라서 설계 단계에서 구조체 고유의 동특성을 먼저 확인해야 했습니다.</p>
+      <p>발사 환경과 큐브위성 구조시험 선행연구를 직접 조사하고 발표자료로 정리했습니다. Ariane-5 탑재 기준의 1차 고유진동수 요구조건과 Vega-C의 20~2000 Hz 랜덤 진동 대역을 검토한 결과, 단순히 구조물이 버티는지만 보는 것이 아니라 고유진동수, 감쇠비와 실제 변형 형태인 모드 형상을 함께 식별해야 한다고 판단했습니다.</p>
+      <div class="research-logic" aria-label="발사 환경에서 모달시험 목표까지의 흐름">
+        <article><span>LAUNCH</span><strong>랜덤 진동·음향 하중</strong><p>발사체 상승 과정에서 넓은 주파수 대역의 동적 하중이 구조체에 전달됩니다.</p></article>
+        <article><span>RISK</span><strong>고유진동수와 가진 대역 중첩</strong><p>두 주파수가 겹치면 공진으로 응답이 커져 체결부와 탑재 부품의 손상 위험이 높아집니다.</p></article>
+        <article><span>VERIFY</span><strong>구조의 동특성 식별</strong><p>가진 시험으로 고유진동수, 감쇠비와 모드 형상을 확인해 설계 판단 근거를 만듭니다.</p></article>
+      </div>
+      <div class="requirement-row" aria-label="검토한 발사 환경 요구조건"><article><strong>20~2000 Hz</strong><span>Vega-C 랜덤 진동 검토 대역</span></article><article><strong>&gt; 100 Hz</strong><span>종축 1차 고유진동수 기준</span></article><article><strong>&gt; 50 Hz</strong><span>횡축 1차 고유진동수 기준</span></article></div>
+      <div class="research-gap"><div><span>선행연구의 한계</span><strong>유한요소해석과 1차 고유진동수 확인에 집중</strong></div><b>→</b><div><span>이번 시험의 범위</span><strong>실험으로 고유진동수·감쇠비·모드 형상까지 식별</strong></div></div>
     </div></div></section>
 
     <section class="detail-section"><div class="container detail-grid"><h2>담당 범위와 시험 구성</h2><div class="detail-copy">
-      <p>지도교수 변경 이후 과제가 새로 시작되던 시점에 3명이 함께 참여했습니다. 한 명은 프레임 구매와 번지 로프 조사, 다른 한 명은 3D 프린팅 재료 조사와 구조체 모델링·출력을 맡았습니다. 저는 앞서 제시한 자료조사와 발표자료 작성부터 시험 조건 설정, 모달 가진 시험 환경 구축, 계측, 시험 수행, MATLAB 분석과 시각화를 담당했습니다. 시험 지그는 팀원들과 함께 설계했습니다.</p>
-      <p>구조체를 번지 로프로 매달아 자유 경계조건을 구성한 뒤, 가진기와 힘 센서로 입력을 제어하고 8개 가속도계로 각 지점의 응답을 동시에 측정했습니다. 최종 시험에서는 20~2000 Hz 랜덤 가진을 적용하고 진동 제어 계측 시스템에서 FRF를 확보했습니다.</p>
-      <div class="evidence-grid"><figure class="portrait"><img src="../assets/images/projects/modal-frame.jpg" alt="모달 시험 대상 3U 위성 프레임" /><figcaption>모달 시험에 사용한 3U 위성 프레임 시험체</figcaption></figure><figure><img src="../assets/images/projects/modal-test.jpg" alt="구조체와 가속도계 설치 모습" /><figcaption>구조체에 부착한 가속도계와 시험 구성</figcaption></figure></div>
+      <p>지도교수 변경 이후 과제가 새로 시작되던 시점에 3명이 함께 참여했습니다. 한 명은 프레임 구매와 번지 로프 조사, 다른 한 명은 3D 프린팅 재료 조사와 구조체 모델링·출력을 맡았습니다. 저는 연구 배경과 시험 방법을 정리한 발표자료 작성부터 시험 조건 설정, 가진 시험 환경 구축, 계측, 시험 수행, MATLAB 분석과 시각화까지 담당했습니다. 가진기와 구조체를 연결하는 시험 지그는 팀원들과 함께 설계했습니다.</p>
+      <p>먼저 지지대의 진동이 구조체 고유 모드에 섞이지 않도록 번지 로프로 매달아 자유 경계조건을 근사했습니다. 가진기와 구조체 사이에는 힘 센서와 스팅어를 배치해 실제 입력력을 측정하고, 구조체 8개 지점에는 가속도계를 부착해 위치별 응답을 동시에 수집했습니다. 특정 주파수만 훑는 방식보다 전체 관심 대역을 충분히 자극할 수 있도록 최종 시험에는 20~2000 Hz 백색잡음 랜덤 가진을 적용했습니다.</p>
+      <div class="method-choice"><article><span>BOUNDARY</span><strong>번지 로프 기반 Free-Free 조건</strong><p>외부 지지 구조의 모드 전달을 줄이고 구조체 고유의 탄성 모드를 관찰했습니다.</p></article><article><span>EXCITATION</span><strong>전자식 가진기 + White Noise</strong><p>관심 주파수 전 구간에 충분한 가진 시간을 확보하고 반복 가능한 입력을 적용했습니다.</p></article></div>
+      <div class="evidence-grid platform-grid"><figure><img src="../assets/images/projects/modal-test-environment.jpg" alt="가진기와 계측 시스템을 포함한 전체 모달 시험 환경" /><figcaption>가진기, 시험 프레임과 계측 시스템으로 구성한 전체 시험 환경</figcaption></figure><figure><img src="../assets/images/projects/modal-test.jpg" alt="구조체와 힘 센서 및 스팅어 결합부" /><figcaption>구조체, 힘 센서와 스팅어 부착 구성</figcaption></figure></div>
+    </div></div></section>
+
+    <section class="detail-section detail-section-process"><div class="container detail-grid"><h2>힘과 응답에서<br />모드 형상까지</h2><div class="detail-copy">
+      <p class="section-intro">시험 결과가 구조설계 판단으로 이어지도록, 계측부터 모드 형상 시각화까지의 분석 절차를 직접 구성했습니다.</p>
+      <ol class="modal-process">
+        <li><strong>입력과 응답 계측</strong><span>힘 센서로 가진기의 실제 입력력을, 8개 가속도계로 구조체 각 지점의 응답을 동시에 측정했습니다.</span></li>
+        <li><strong>주파수응답함수 산출</strong><span>진동 제어 시스템과 VibrationVIEW에서 평균화, 윈도우 처리와 FFT를 수행하고, 주파수별 가속도 응답을 힘 입력으로 나눈 FRF를 얻었습니다.</span></li>
+        <li><strong>모드 후보 식별</strong><span>한 센서가 진동하지 않는 절점에 놓일 가능성을 고려해 단일 채널에 의존하지 않고, 8채널 FRF와 Coherence 및 전체 응답 합을 함께 비교했습니다.</span></li>
+        <li><strong>고유진동수와 감쇠비 추정</strong><span>서로 겹친 공진 응답을 분리하기 위해 관심 주파수 구간을 정한 뒤 Peak Picking과 LSCE 결과를 교차 검토했습니다.</span></li>
+        <li><strong>모드 형상 재구성</strong><span>FRF 크기와 위상으로 복소수 응답을 만들고 센서 위치에 대응시킨 뒤, 3차 스플라인 보간을 적용해 굽힘과 비틀림 거동을 3차원 애니메이션으로 시각화했습니다.</span></li>
+      </ol>
     </div></div></section>
 
     <section class="detail-section detail-section-dark"><div class="container detail-grid"><h2>분석 환경을 다시 만들다</h2><div class="detail-copy">
@@ -38,7 +56,7 @@
 
     <section class="detail-section"><div class="container detail-grid"><h2>분석 결과</h2><div class="detail-copy">
       <p>센서가 진동하지 않는 절점에 놓일 가능성을 고려해 8개 채널의 FRF를 함께 비교하고, 전체 응답에서 공통으로 나타나는 모드 후보를 찾았습니다. Peak Picking과 LSCE 결과를 교차 검토해 고유진동수와 감쇠비를 추정한 뒤, 센서 위치에 대응시켜 3차원 모드 형상과 애니메이션으로 시각화했습니다.</p>
-      <div class="evidence-grid"><figure class="wide"><img src="../assets/images/projects/modal-frf.png" alt="8개 가속도 채널의 FRF 크기와 위상" /><figcaption>8개 채널의 FRF 크기와 위상 비교</figcaption></figure><figure><img src="../assets/images/projects/modal-mif.png" alt="전체 채널의 Global Mode Indicator" /><figcaption>전체 채널을 합산한 모드 후보 확인</figcaption></figure><figure><img src="../assets/images/projects/modal-shapes.png" alt="MATLAB으로 시각화한 모드 형상" /><figcaption>MATLAB 기반 3차원 모드 형상 시각화</figcaption></figure></div>
+      <div class="evidence-grid"><figure class="wide"><img src="../assets/images/projects/modal-frf.png" alt="8개 가속도 채널의 FRF 크기와 위상" /><figcaption>8개 채널의 FRF 크기와 위상 비교</figcaption></figure><figure class="wide"><img src="../assets/images/projects/modal-mif.png" alt="전체 채널의 Global Mode Indicator" /><figcaption>전체 채널을 합산한 모드 후보 확인</figcaption></figure></div>
       <figure class="detail-video"><video autoplay muted loop playsinline preload="metadata"><source src="../assets/videos/modal-bending-mode-noaudio.mp4" type="video/mp4" /></video><figcaption>MATLAB으로 재구성한 구조체 굽힘 모드 애니메이션</figcaption></figure>
     </div></div></section>
     <div class="container detail-next"><a href="vio-slam.html">← 이전: VIO</a><a href="manta.html">다음: MANTA →</a></div>
