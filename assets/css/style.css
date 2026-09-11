@@ -722,6 +722,10 @@ p {
   aspect-ratio: 4 / 3;
 }
 
+.compact-media-f1 video {
+  object-fit: contain;
+}
+
 .skills-section {
   background: #f4f6f9;
 }
