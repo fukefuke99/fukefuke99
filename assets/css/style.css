@@ -559,6 +559,11 @@ p {
   aspect-ratio: 16 / 7;
 }
 
+.project-media.project-media-vio video {
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+}
+
 .project-media-contain img {
   padding: clamp(10px, 2vw, 22px);
   object-fit: contain;
