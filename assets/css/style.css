@@ -433,7 +433,32 @@ p {
 
 .project-list {
   display: grid;
-  gap: 22px;
+  gap: 33px;
+}
+
+.page-toc {
+  position: fixed;
+  z-index: 18;
+  top: 50%;
+  right: max(14px, calc((100vw - 1480px) / 2));
+  display: none;
+  width: 136px;
+  padding: 14px 8px;
+  border: 1px solid rgba(13, 27, 42, 0.16);
+  background: rgba(247, 244, 237, 0.96);
+  box-shadow: 0 14px 42px rgba(13, 27, 42, 0.13);
+  backdrop-filter: blur(12px);
+  transform: translateY(-50%);
+}
+
+.page-toc strong { padding: 2px 10px 10px; color: #687783; font: 800 10px Consolas, monospace; letter-spacing: 0.12em; }
+.page-toc a { position: relative; padding: 8px 10px 8px 18px; color: #5f6c76; font-size: 12px; font-weight: 700; line-height: 1.35; transition: color 160ms ease, background 160ms ease; }
+.page-toc a::before { content: ""; position: absolute; top: 50%; left: 6px; width: 4px; height: 4px; border-radius: 50%; background: #aeb4b8; transform: translateY(-50%); transition: background 160ms ease, transform 160ms ease; }
+.page-toc a:hover, .page-toc a.is-active { background: rgba(240, 90, 50, 0.09); color: var(--accent); }
+.page-toc a.is-active::before { background: var(--accent); transform: translateY(-50%) scale(1.55); }
+
+@media (min-width: 1500px) {
+  .page-toc { display: grid; }
 }
 
 .project-card {
