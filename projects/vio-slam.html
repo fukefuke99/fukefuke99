@@ -107,11 +107,12 @@
       </div>
     </section>
 
-    <section class="detail-section" id="failure-response">
+    <section class="detail-section" id="failure-detection">
       <div class="container detail-grid">
-        <h2>실패 감지와 대응</h2>
+        <h2>실패 감지</h2>
         <div class="detail-copy">
-          <p>카메라를 완전히 가려도 미세한 빛 때문에 특징점이 약 10개 남아, 특징점 수가 0이 되는 조건으로는 실패 시점을 잡을 수 없었습니다. 저조도 실험을 반복하며 추정이 무너지기 직전의 특징점 수를 관찰하고 감지 임계값을 정했습니다.</p>
+          <p class="section-intro">영상 특징점 수를 실시간으로 관찰해 VIO가 유효한 위치를 출력할 수 없는 시점을 판단했습니다.</p>
+          <p>카메라를 완전히 가려도 미세한 빛 때문에 특징점이 약 10개 남아, 단순히 특징점 수가 0이 되는 조건으로는 실패를 감지할 수 없었습니다. 저조도 실험을 반복하며 추정이 무너지기 직전의 특징점 수를 확인하고 감지 임계값을 정했습니다.</p>
           <div class="evidence-grid blackout-evidence">
             <figure><a class="image-zoom" href="../assets/images/projects/vio-blackout-frame.png" target="_blank" rel="noopener"><img src="../assets/images/projects/vio-blackout-frame.png" alt="암전 구간에서 소수의 특징점만 남아 추적되는 카메라 화면" /></a><figcaption><strong>암전 화면</strong> 완전히 가려도 소수의 특징점이 남아 0이 아닌 임계값이 필요했습니다.</figcaption></figure>
             <figure><a class="image-zoom" href="../assets/images/projects/vio-feature-count.png" target="_blank" rel="noopener"><img src="../assets/images/projects/vio-feature-count.png" alt="암전 전후 시간에 따른 영상 특징점 개수 변화" /></a><figcaption><strong>특징점 변화</strong> 암전 진입 후 특징점이 급감하고 복구되는 구간을 반복 관찰했습니다.</figcaption></figure>
@@ -128,13 +129,21 @@
             <a class="image-zoom" href="../assets/images/projects/vio-feature-computation-blackout.png" target="_blank" rel="noopener"><img src="../assets/images/projects/vio-feature-computation-blackout.png" alt="암전 구간에서 특징점 수와 VIO 연산시간이 함께 감소하는 그래프" /></a>
             <figcaption>암전 구간의 특징점 수와 프레임별 연산시간 변화</figcaption>
           </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="detail-section detail-section-tint" id="failure-response">
+      <div class="container detail-grid">
+        <h2>실패 대응<br />프레임워크</h2>
+        <div class="detail-copy">
+          <p class="section-intro">감지 이후에는 외부 위치로 암전 구간의 출력 공백을 메우고, 영상이 회복되면 다시 시작된 VIO 궤적을 기존 경로에 정렬했습니다.</p>
           <div class="logic-flow" aria-label="VIO 실패 대응 순서">
             <div><span>1</span><strong>특징점 추적</strong><small>실시간 개수 모니터링</small></div>
             <div><span>2</span><strong>실패 판단</strong><small>임계값 이하 신호 발생</small></div>
             <div><span>3</span><strong>입력 전환</strong><small>OptiTrack·Gazebo 위치 사용</small></div>
             <div><span>4</span><strong>복구·정렬</strong><small>VIO 재개점의 좌표 보정</small></div>
           </div>
-          <p class="section-intro">암전 중에는 외부 위치로 출력 공백을 메우고, 영상이 회복되면 VIO 궤적을 다시 정렬했습니다.</p>
           <p>실패 신호가 발생하면 RC카 실험에서는 OptiTrack 위치를, Gazebo 실험에서는 시뮬레이션의 실제 위치를 대체 입력으로 사용했습니다. 영상이 복구된 뒤에는 새로 시작된 VIO 위치와 외부 위치 사이의 차이를 변환값으로 적용해 궤적이 갑자기 튀지 않도록 기존 출력에 정렬했습니다.</p>
           <figure class="wide-evidence trajectory-alignment-evidence">
             <a class="image-zoom" href="../assets/images/projects/vio-trajectory-alignment.png" target="_blank" rel="noopener"><img src="../assets/images/projects/vio-trajectory-alignment.png" alt="VIO 실패 감지 후 외부 위치로 암전 구간을 연결하고 복구된 VIO 궤적을 정렬하는 방법" /></a>
@@ -145,7 +154,7 @@
       </div>
     </section>
 
-    <section class="detail-section detail-section-tint">
+    <section class="detail-section">
       <div class="container detail-grid">
         <h2>드론 시뮬레이션</h2>
         <div class="detail-copy">
@@ -163,7 +172,7 @@
       </div>
     </section>
 
-    <section class="detail-section">
+    <section class="detail-section detail-section-tint">
       <div class="container detail-grid">
         <h2>실물 검증</h2>
         <div class="detail-copy">
