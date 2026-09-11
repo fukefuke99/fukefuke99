@@ -136,20 +136,31 @@ p {
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
   font-weight: 800;
   letter-spacing: -0.03em;
 }
 
-.brand-mark {
-  display: grid;
-  width: 36px;
-  height: 36px;
-  place-items: center;
-  background: var(--accent);
-  color: var(--white);
-  font-size: 12px;
-  letter-spacing: 0.04em;
+.brand-wordmark {
+  color: inherit;
+  font-size: 15px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+}
+
+.brand-wordmark::after {
+  content: ".";
+  color: var(--accent);
+}
+
+.brand-role {
+  padding-left: 14px;
+  border-left: 1px solid currentColor;
+  color: inherit;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  opacity: 0.64;
 }
 
 .primary-nav {
@@ -942,7 +953,7 @@ p {
   :root { --header-height: 66px; }
   .container { width: min(calc(100% - 32px), var(--max-width)); }
   .section { padding: 88px 0; }
-  .brand-name { display: none; }
+  .brand-role { display: none; }
   .menu-button { display: block; position: relative; z-index: 102; }
   .primary-nav {
     position: fixed;
