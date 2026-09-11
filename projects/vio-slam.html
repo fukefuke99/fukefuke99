@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="김수환의 VINS-Fusion 기반 VIO 실패 감지·대응 프레임워크 연구" />
   <title>VIO 실패 대응 프레임워크 | 김수환</title>
-  <link rel="stylesheet" href="../assets/css/style.css" />
-  <link rel="stylesheet" href="../assets/css/project-detail.css" />
+  <link rel="stylesheet" href="../assets/css/style.css?v=20260911-4" />
+  <link rel="stylesheet" href="../assets/css/project-detail.css?v=20260911-2" />
 </head>
 <body class="project-page">
   <header class="detail-header">
@@ -33,11 +33,11 @@
         <div class="hero-research-showcase">
           <figure class="hero-feature-video">
             <div class="showcase-kicker">FEATURE TRACKING TEST</div>
-            <video autoplay loop muted playsinline controls preload="metadata" aria-label="영상 특징점 추적과 암전 실험 영상">
+            <video autoplay loop muted playsinline controls preload="metadata" aria-label="영상 특징점 추적과 암전 구간에서의 추정 위치 오차 변화 영상">
               <source src="../assets/videos/vio-feature-tracking-noaudio.mp4" type="video/mp4" />
               브라우저가 MP4 영상 재생을 지원하지 않습니다.
             </video>
-            <figcaption>영상 특징점 추적과 암전 구간에서의 변화 확인</figcaption>
+            <figcaption>영상 특징점 추적과 암전 구간에서의 추정 위치 오차 변화</figcaption>
           </figure>
 
           <figure class="hero-framework-diagram">
@@ -70,12 +70,12 @@
           <p>연구 결과만 비교하기 전에 카메라, VIO, 비행 제어기가 같은 좌표와 시간 기준으로 데이터를 주고받는 환경부터 구성했습니다.</p>
           <ol class="process-list">
             <li><span>01</span><div><strong>VINS-Fusion 포팅</strong><p>Ceres Solver 버전 차이로 발생한 빌드 오류를 추적하고 WSL 환경의 CMake 설정을 수정했습니다.</p></div></li>
-            <li><span>02</span><div><strong>스테레오 카메라 보정</strong><p>Ubuntu 14.04 기반 Kalibr Docker 이미지를 활용해 내부 파라미터와 카메라 간 상대 변환을 추정하고 재투영 오차를 확인했습니다.</p></div></li>
-            <li><span>03</span><div><strong>드론 시뮬레이션 구성</strong><p>Gazebo, ArduPilot, MAVROS를 연동하고 드론 모델과 카메라 센서, 위치 제어 흐름을 구성했습니다.</p></div></li>
+            <li><span>02</span><div><strong>스테레오 카메라 보정</strong><p>사용한 Kalibr 빌드가 Ubuntu 14.04 기반 의존성을 요구해 현재 개발환경에 직접 구성하기 어려웠습니다. 기존 환경과의 충돌을 피하기 위해 해당 버전이 구성된 Docker 이미지를 활용하고, 내부 파라미터와 카메라 간 상대 변환을 추정해 재투영 오차를 확인했습니다.</p></div></li>
+            <li><span>03</span><div><strong>드론 모델 설계와 시뮬레이션 구성</strong><p>실기체 제작 전 Inventor에서 카메라와 연산 보드의 배치 구조를 검토하고, 모델링 형상을 Gazebo에 적용해 간섭과 구성을 확인했습니다. 이를 바탕으로 실제 기체를 제작한 뒤 ArduPilot, MAVROS와 위치 제어 흐름을 구성했습니다.</p></div></li>
             <li><span>04</span><div><strong>AirSim 사전 검토</strong><p>AirSim과 ROS 연동 환경도 구성해 제어·센서 설정을 시험했습니다. 최종 논문에는 포함하지 않았지만 시뮬레이션 환경을 비교하고 연구 방향을 정하는 과정에 활용했습니다.</p></div></li>
           </ol>
           <div class="evidence-grid">
-            <figure><img src="../assets/images/projects/vio-drone-model.png" alt="Gazebo에서 사용한 카메라 탑재 쿼드콥터 모델" /><figcaption>카메라와 연산 보드를 고려해 구성한 드론 모델</figcaption></figure>
+            <figure><img src="../assets/images/projects/vio-drone-model.png" alt="Inventor에서 설계하고 Gazebo에 적용한 카메라 탑재 쿼드콥터 모델" /><figcaption>실기체 제작 전 Inventor 설계 형상을 Gazebo에 적용해 배치와 간섭을 확인한 모델</figcaption></figure>
             <figure><img src="../assets/images/projects/vio-gazebo-environment.png" alt="WSL Gazebo 드론 시뮬레이션 환경" /><figcaption>WSL에서 구축한 Gazebo 비행·암전 실험 환경</figcaption></figure>
           </div>
         </div>
@@ -110,7 +110,7 @@
           <p>카메라를 완전히 가려도 미세한 빛 때문에 특징점이 약 10개 남아, 특징점 수가 0이 되는 조건으로는 실패 시점을 잡을 수 없었습니다. 저조도 실험을 반복하며 추정이 무너지기 직전의 특징점 수를 관찰하고 감지 임계값을 정했습니다.</p>
           <figure class="wide-evidence feature-evidence">
             <img src="../assets/images/projects/vio-feature-computation-blackout.png" alt="암전 구간에서 특징점 수와 VIO 연산시간이 함께 감소하는 그래프" />
-            <figcaption>회색 암전 구간에서 특징점 수와 프레임별 연산시간이 동시에 급감하는 현상</figcaption>
+            <figcaption>암전 구간의 특징점 수와 프레임별 연산시간 변화</figcaption>
           </figure>
           <div class="logic-flow" aria-label="VIO 실패 대응 순서">
             <div><span>1</span><strong>특징점 추적</strong><small>실시간 개수 모니터링</small></div>
@@ -147,8 +147,8 @@
         <div class="detail-copy">
           <p>시뮬레이션에서 확인한 구조를 RC카 시험 환경으로 옮겼습니다. Jetson 기반 연산부와 스테레오 카메라를 탑재하고, OptiTrack의 120 Hz 위치 정보를 기준 궤적과 대체 입력으로 사용했습니다. 본 실험은 개념 검증 단계로 외부 추정치에 참값을 사용했습니다. 별도로 드론 실내비행에서도 데이터 흐름과 동작을 확인했지만, 해당 결과는 논문의 정량 평가에는 포함하지 않았습니다.</p>
           <div class="evidence-grid platform-grid">
-            <figure class="portrait"><img src="../assets/images/projects/vio-rc-platform-top.jpg" alt="Jetson과 스테레오 카메라를 탑재한 RC카 상단" /><figcaption>Jetson, 스테레오 카메라, OptiTrack 마커를 탑재한 RC카</figcaption></figure>
-            <figure><img src="../assets/images/projects/vio-rc-platform-side.jpg" alt="실험실 바닥에 놓인 VIO RC카 시험 플랫폼" /><figcaption>반복 회전·암전 실험에 사용한 실제 플랫폼</figcaption></figure>
+            <figure class="top-view"><img src="../assets/images/projects/vio-rc-platform-top.jpg" alt="Jetson과 스테레오 카메라, OptiTrack 마커를 탑재한 RC카 상단 구성" /><figcaption>Jetson, 스테레오 카메라와 OptiTrack 마커를 배치한 RC카 상단 구성</figcaption></figure>
+            <figure class="side-view"><img src="../assets/images/projects/vio-rc-platform-side.jpg" alt="센서와 연산부를 탑재한 VIO RC카의 측면 구성" /><figcaption>센서와 연산부 장착 상태를 확인한 RC카 측면 구성</figcaption></figure>
             <figure class="wide"><img src="../assets/images/projects/vio-optitrack-lab.png" alt="OptiTrack Motive의 강체 설정과 120 Hz 위치 계측 화면" /><figcaption>카메라 16대를 사용한 OptiTrack 강체 설정과 120 Hz 위치 계측</figcaption></figure>
           </div>
 
