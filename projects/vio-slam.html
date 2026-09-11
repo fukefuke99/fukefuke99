@@ -21,7 +21,7 @@
       <div class="container">
         <p class="detail-label">MASTER'S RESEARCH · VINS-FUSION · FAILURE MANAGEMENT</p>
         <h1>암전에서 무너지는 VIO를 감지하고<br />위치 출력을 이어가다</h1>
-        <p class="detail-lead">시각·관성 주행거리 추정(Visual-Inertial Odometry, VIO)에서 영상 특징점이 사라지는 순간을 감지하고 외부 위치 입력으로 전환하는 상태 관리 프레임워크를 설계했습니다. Gazebo 시뮬레이션과 OptiTrack 기반 RC카 실험으로 성능을 검증했습니다.</p>
+        <p class="detail-lead">VIO(Visual-Inertial Odometry)에서 영상 특징점이 사라지는 순간을 감지하고 외부 위치 입력으로 전환하는 상태 관리 프레임워크를 설계했습니다. Gazebo 시뮬레이션과 OptiTrack 기반 RC(Radio-Controlled) 차량 실험으로 성능을 검증했습니다.</p>
 
         <dl class="detail-facts">
           <div><dt>연구 형태</dt><dd>석사학위 연구 전 과정 수행</dd></div>
@@ -54,7 +54,7 @@
         <h2>연구 질문</h2>
         <div class="detail-copy">
           <p class="section-intro">카메라 영상이 잠시 끊기더라도 플랫폼이 사용할 위치 정보는 계속 이어질 수 있을까?</p>
-          <p>VINS-Fusion은 영상과 관성측정장치(Inertial Measurement Unit, IMU)를 함께 사용하지만, 암전이 길어지면 추적 특징점이 급감하고 IMU 오차가 누적되어 위치가 크게 틀어졌습니다. 단순히 알고리즘의 파라미터를 조정하는 대신, 위치추정기가 실패할 수 있다는 전제에서 실패를 판단하고 입력을 전환하는 별도 관리 구조를 연구했습니다.</p>
+          <p>VINS-Fusion은 영상과 IMU(Inertial Measurement Unit)를 함께 사용하지만, 암전이 길어지면 추적 특징점이 급감하고 IMU 오차가 누적되어 위치가 크게 틀어졌습니다. 단순히 알고리즘의 파라미터를 조정하는 대신, 위치추정기가 실패할 수 있다는 전제에서 실패를 판단하고 입력을 전환하는 별도 관리 구조를 연구했습니다.</p>
           <div class="evidence-grid">
             <figure><a class="image-zoom" href="../assets/images/projects/vio-rmse-3d.jpg" target="_blank" rel="noopener"><img src="../assets/images/projects/vio-rmse-3d.jpg" alt="암전 시간에 따른 3차원 위치 RMSE 증가 그래프" /></a><figcaption>암전 시간이 길어질수록 커지는 3차원 위치 오차</figcaption></figure>
             <figure><a class="image-zoom" href="../assets/images/projects/vio-rmse-axes.jpg" target="_blank" rel="noopener"><img src="../assets/images/projects/vio-rmse-axes.jpg" alt="X Y Z 축과 3차원 RMSE 분석 그래프" /></a><figcaption>X, Y, Z축과 3차원 오차를 분리해 원인을 확인</figcaption></figure>
@@ -70,13 +70,13 @@
           <p class="selection-kicker">ALGORITHM SELECTION</p>
           <h3 class="selection-title">여러 위치추정기를 실행·검토한 뒤 VINS-Fusion을 선정했습니다.</h3>
           <p>연구 초기에는 ORB-SLAM2의 mono·stereo 구성과 VINS 계열을 직접 구동하고 관련 성능 비교 자료를 조사했습니다. 오픈소스 구현 여부, KITTI 평가 결과, 제한된 연산 자원에서의 구동 가능성, 스테레오 카메라와 IMU를 함께 사용할 수 있는 확장성을 기준으로 최종 연구 대상을 VINS-Fusion으로 좁혔습니다.</p>
-          <div class="algorithm-selection"><article><span>01</span><strong>ORB-SLAM2</strong><small>Oriented FAST and Rotated BRIEF(ORB) 특징 기반 Mono·Stereo 추정 특성 확인</small></article><article><span>02</span><strong>VINS 계열</strong><small>시각·관성 항법 시스템(Visual-Inertial Navigation System, VINS)의 카메라·IMU 결합과 제한된 연산 자원에서의 구동 가능성 검토</small></article><article class="selected"><span>03</span><strong>VINS-Fusion 선정</strong><small>Stereo·IMU 구성과 소스 확장성을 바탕으로 연구 진행</small></article></div>
+          <div class="algorithm-selection"><article><span>01</span><strong>ORB-SLAM2</strong><small>ORB(Oriented FAST and Rotated BRIEF) 특징 기반 Mono·Stereo 추정 특성 확인</small></article><article><span>02</span><strong>VINS 계열</strong><small>VINS(Visual-Inertial Navigation System)의 카메라·IMU 결합과 제한된 연산 자원에서의 구동 가능성 검토</small></article><article class="selected"><span>03</span><strong>VINS-Fusion 선정</strong><small>Stereo·IMU 구성과 소스 확장성을 바탕으로 연구 진행</small></article></div>
           <p>연구 결과만 비교하기 전에 카메라, VIO, 비행 제어기가 같은 좌표와 시간 기준으로 데이터를 주고받는 환경부터 구성했습니다.</p>
           <ol class="process-list">
-            <li><span>01</span><div><strong>VINS-Fusion 포팅</strong><p>Ceres Solver 버전 차이로 발생한 빌드 오류를 추적하고 Windows용 Linux 하위 시스템(Windows Subsystem for Linux, WSL) 환경의 CMake 설정을 수정했습니다.</p></div></li>
+            <li><span>01</span><div><strong>VINS-Fusion 포팅</strong><p>Ceres Solver 버전 차이로 발생한 빌드 오류를 추적하고 WSL(Windows Subsystem for Linux) 환경의 CMake 설정을 수정했습니다.</p></div></li>
             <li><span>02</span><div><strong>스테레오 카메라 보정</strong><p>사용한 Kalibr 빌드가 Ubuntu 14.04 기반 의존성을 요구해 현재 개발환경에 직접 구성하기 어려웠습니다. 기존 환경과의 충돌을 피하기 위해 해당 버전이 구성된 Docker 이미지를 활용하고, 내부 파라미터와 카메라 간 상대 변환을 추정해 재투영 오차를 확인했습니다.</p></div></li>
             <li><span>03</span><div><strong>드론 모델 설계와 시뮬레이션 구성</strong><p>실기체 제작 전 Inventor로 설계 시제품을 모델링해 카메라와 연산 보드의 배치 및 간섭을 확인했습니다. 모델링 형상을 Gazebo에 적용해 구성을 검토한 뒤 실제 기체를 제작하고 ArduPilot, MAVROS와 위치 제어 흐름을 구성했습니다.</p></div></li>
-            <li><span>04</span><div><strong>AirSim 사전 검토</strong><p>AirSim과 로봇 운영체제(Robot Operating System, ROS) 연동 환경도 구성해 제어·센서 설정을 시험했습니다. 최종 논문에는 포함하지 않았지만 시뮬레이션 환경을 비교하고 연구 방향을 정하는 과정에 활용했습니다.</p></div></li>
+            <li><span>04</span><div><strong>AirSim 사전 검토</strong><p>AirSim과 ROS(Robot Operating System) 연동 환경도 구성해 제어·센서 설정을 시험했습니다. 최종 논문에는 포함하지 않았지만 시뮬레이션 환경을 비교하고 연구 방향을 정하는 과정에 활용했습니다.</p></div></li>
           </ol>
           <div class="evidence-grid">
             <figure><a class="image-zoom" href="../assets/images/projects/vio-drone-model.png" target="_blank" rel="noopener"><img src="../assets/images/projects/vio-drone-model.png" alt="Inventor에서 설계하고 Gazebo에 적용한 카메라 탑재 쿼드콥터 모델" /></a><figcaption>실기체 제작 전 Inventor로 설계 시제품을 모델링하여 배치와 간섭을 확인</figcaption></figure>
@@ -91,7 +91,7 @@
         <h2 id="ppid-controller">P-PID 위치 제어기</h2>
         <div class="detail-copy">
           <p class="section-intro">VIO가 추정한 위치를 실제 드론의 이동으로 연결하기 위해 MAVROS 기반 캐스케이드 위치 제어기를 직접 구현했습니다.</p>
-          <p>외부 루프의 비례(P) 제어기가 위치 오차를 목표 속도로 바꾸고, 내부 루프의 비례·적분·미분(Proportional-Integral-Derivative, PID) 제어기가 속도 오차로 가속도 명령을 계산하도록 구성했습니다. 계산 결과는 드론의 Roll, Pitch, Thrust 명령으로 변환해 ArduPilot에 전달했습니다.</p>
+          <p>외부 루프의 P(Proportional) 제어기가 위치 오차를 목표 속도로 바꾸고, 내부 루프의 PID(Proportional-Integral-Derivative) 제어기가 속도 오차로 가속도 명령을 계산하도록 구성했습니다. 계산 결과는 드론의 Roll, Pitch, Thrust 명령으로 변환해 ArduPilot에 전달했습니다.</p>
           <div class="logic-flow controller-flow" aria-label="P-PID 위치 제어 흐름">
             <div><span>1</span><strong>위치 오차</strong><small>목표 위치와 추정 위치 비교</small></div>
             <div><span>2</span><strong>외부 P 루프</strong><small>목표 속도 생성·크기 제한</small></div>
@@ -117,7 +117,7 @@
             <figure><a class="image-zoom" href="../assets/images/projects/vio-blackout-frame.png" target="_blank" rel="noopener"><img src="../assets/images/projects/vio-blackout-frame.png" alt="암전 구간에서 소수의 특징점만 남아 추적되는 카메라 화면" /></a><figcaption><strong>암전 화면</strong> 완전히 가려도 소수의 특징점이 남아 0이 아닌 임계값이 필요했습니다.</figcaption></figure>
             <figure><a class="image-zoom" href="../assets/images/projects/vio-feature-count.png" target="_blank" rel="noopener"><img src="../assets/images/projects/vio-feature-count.png" alt="암전 전후 시간에 따른 영상 특징점 개수 변화" /></a><figcaption><strong>특징점 변화</strong> 암전 진입 후 특징점이 급감하고 복구되는 구간을 반복 관찰했습니다.</figcaption></figure>
           </div>
-          <p class="detail-note"><strong>소스 수준 원인 추적</strong><br />GNU Debugger(GDB)로 특징점 하나의 데이터가 추적·최적화 과정에서 사용되는 흐름을 끝까지 따라가며 위치 출력에 미치는 영향을 확인했습니다. 그 과정에서 단일 특징점이 순간적인 위치 스파이크를 만드는 구간을 찾았고, 이후 출력 코드를 수정해 특징점 변화와 궤적 응답을 한 화면에서 재현했습니다.</p>
+          <p class="detail-note"><strong>소스 수준 원인 추적</strong><br />GDB(GNU Debugger)로 특징점 하나의 데이터가 추적·최적화 과정에서 사용되는 흐름을 끝까지 따라가며 위치 출력에 미치는 영향을 확인했습니다. 그 과정에서 단일 특징점이 순간적인 위치 스파이크를 만드는 구간을 찾았고, 이후 출력 코드를 수정해 특징점 변화와 궤적 응답을 한 화면에서 재현했습니다.</p>
           <figure class="detail-video feature-debug-video">
             <video autoplay muted loop playsinline controls preload="auto" poster="../assets/images/projects/vio-feature-debug-poster.jpg" aria-label="GDB 분석 후 시각화 코드를 수정해 확인한 단일 특징점과 위치 스파이크의 영향">
               <source src="../assets/videos/vio-feature-debug-trace-noaudio.mp4?v=20260911-1" type="video/mp4" />
@@ -176,7 +176,7 @@
       <div class="container detail-grid">
         <h2>실물 검증</h2>
         <div class="detail-copy">
-          <p>시뮬레이션에서 확인한 구조를 RC카 시험 환경으로 옮겼습니다. Jetson 기반 연산부와 스테레오 카메라를 탑재하고, OptiTrack의 120 Hz 위치 정보를 기준 궤적과 대체 입력으로 사용했습니다. 절대 궤적 오차(Absolute Trajectory Error, ATE)의 평균제곱근(Root Mean Square Error, RMSE)으로 적용 전후 성능을 비교했습니다. 본 실험은 개념 검증 단계로 외부 추정치에 참값을 사용했습니다. 별도로 드론 실내비행에서도 데이터 흐름과 동작을 확인했지만, 해당 결과는 논문의 정량 평가에는 포함하지 않았습니다.</p>
+          <p>시뮬레이션에서 확인한 구조를 RC카 시험 환경으로 옮겼습니다. Jetson 기반 연산부와 스테레오 카메라를 탑재하고, OptiTrack의 120 Hz 위치 정보를 기준 궤적과 대체 입력으로 사용했습니다. ATE(Absolute Trajectory Error)의 RMSE(Root Mean Square Error)로 적용 전후 성능을 비교했습니다. 본 실험은 개념 검증 단계로 외부 추정치에 참값을 사용했습니다. 별도로 드론 실내비행에서도 데이터 흐름과 동작을 확인했지만, 해당 결과는 논문의 정량 평가에는 포함하지 않았습니다.</p>
           <div class="evidence-grid platform-grid">
             <figure class="top-view"><a class="image-zoom" href="../assets/images/projects/vio-rc-platform-top.jpg" target="_blank" rel="noopener"><img src="../assets/images/projects/vio-rc-platform-top.jpg" alt="Jetson과 스테레오 카메라, OptiTrack 마커를 탑재한 RC카 상단 구성" /></a><figcaption>Jetson, 스테레오 카메라와 OptiTrack 마커를 배치한 RC카 상단 구성</figcaption></figure>
             <figure class="side-view"><a class="image-zoom" href="../assets/images/projects/vio-rc-platform-side.jpg" target="_blank" rel="noopener"><img src="../assets/images/projects/vio-rc-platform-side.jpg" alt="센서와 연산부를 탑재한 VIO RC카의 측면 구성" /></a><figcaption>센서와 연산부 장착 상태를 확인한 RC카 측면 구성</figcaption></figure>

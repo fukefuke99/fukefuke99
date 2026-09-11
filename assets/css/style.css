@@ -332,9 +332,11 @@ p {
 }
 
 .profile-intro {
-  margin-bottom: 34px;
+  max-width: 34rem;
+  margin-bottom: 28px;
   color: #b8c3cc;
-  font-size: 15px;
+  font-size: 14px;
+  line-height: 1.7;
 }
 
 .profile-details {
