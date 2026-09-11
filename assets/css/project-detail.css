@@ -45,6 +45,14 @@ body.project-page { background: var(--detail-paper); color: var(--detail-ink); }
 .metric span { color: var(--detail-muted); font-size: 12px; }
 .video-slot { display: grid; min-height: 260px; margin-top: 42px; place-items: center; border: 1px dashed #aaa89f; background: #efede6; color: var(--detail-muted); text-align: center; }
 .video-slot strong { display: block; margin-bottom: 6px; color: var(--detail-ink); }
+.detail-video { margin: 42px 0 0; overflow: hidden; border: 1px solid var(--detail-line); background: #101d29; }
+.detail-video video { display: block; width: 100%; max-height: 560px; object-fit: contain; }
+.detail-video figcaption { padding: 12px 14px; background: #fff; color: var(--detail-muted); font-size: 12px; }
+.certificate-card { display: grid; grid-template-columns: minmax(180px, 280px) 1fr; gap: 28px; align-items: center; margin: 38px 0 0; padding: 22px; border: 1px solid #34424d; background: #182733; }
+.certificate-card img { display: block; width: 100%; max-height: 390px; object-fit: contain; background: #fff; }
+.certificate-card figcaption { display: grid; gap: 8px; color: #bdc8d0; }
+.certificate-card strong { color: #fff; font-size: 20px; }
+.certificate-card span { font-size: 14px; }
 .detail-next { display: flex; padding: 54px 0 80px; justify-content: space-between; gap: 24px; }
 .detail-next a { color: var(--detail-accent); font-weight: 800; }
 .vio-hero { padding-bottom: 88px; }
@@ -99,6 +107,8 @@ body.project-page { background: var(--detail-paper); color: var(--detail-ink); }
   .detail-facts { grid-template-columns: repeat(2, 1fr); }
   .detail-grid { grid-template-columns: 1fr; gap: 28px; }
   .evidence-grid, .metric-row { grid-template-columns: 1fr; }
+  .certificate-card { grid-template-columns: 1fr; }
+  .certificate-card img { max-width: 300px; margin: 0 auto; }
   .evidence-grid figure.wide { grid-column: auto; }
   .logic-flow, .contribution-grid { grid-template-columns: 1fr 1fr; }
   .platform-grid figure:not(.wide) img { width: 100%; height: auto; min-height: 0; aspect-ratio: 16 / 10; }

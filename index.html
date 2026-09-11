@@ -9,7 +9,7 @@
     />
     <meta name="theme-color" content="#0d1b2a" />
     <title>김수환 | Robotics & Embedded Systems Engineer</title>
-    <link rel="stylesheet" href="assets/css/style.css?v=20260911-5" />
+    <link rel="stylesheet" href="assets/css/style.css?v=20260911-7" />
     <script src="assets/js/main.js?v=20260911-1" defer></script>
   </head>
   <body>
@@ -152,8 +152,9 @@
                 <div class="project-summary">
                   <p>
                     전원·회로부와 방수 배선을 설계하고 Raspberry Pi–Teensy 통신, GPIO 기반 SSI,
-                    침수 센서를 통합했습니다. 엔코더 피드백 기반 Feedforward Cascade 제어와
-                    중앙값 필터를 적용해 수중 구동 안정성을 확보했습니다.
+                    침수 센서를 통합했습니다. 모터 토크와 소비전류를 실험으로 산정해 구동계와
+                    방수 커넥터·케이블을 선정했으며, 엔코더 피드백 제어와 MATLAB GUI로
+                    상태 점검·파라미터 조정·시험까지 수행했습니다.
                   </p>
                   <ul class="tags" aria-label="사용 기술">
                     <li>ROS</li><li>C++</li><li>Teensy</li><li>SSI</li><li>MATLAB</li>
@@ -189,9 +190,11 @@
                   <a class="project-link" href="projects/vio-slam.html">연구 과정 자세히 보기 <span>↗</span></a>
                 </div>
               </div>
-              <figure class="project-media project-media-wide project-media-contain">
-                <img src="assets/images/projects/vio-gazebo-blackout-comparison.png" alt="Gazebo 드론 암전 실험에서 실패 대응 프레임워크 적용 전후 궤적 비교" loading="lazy" />
-                <figcaption>Gazebo 암전 실험의 실패 대응 프레임워크 적용 전·후 궤적 비교</figcaption>
+              <figure class="project-media project-media-wide">
+                <video autoplay muted loop playsinline preload="metadata" aria-label="VINS-Fusion 영상 특징점 추적과 암전 구간의 실패 감지 실험">
+                  <source src="assets/videos/vio-feature-tracking-noaudio.mp4" type="video/mp4" />
+                </video>
+                <figcaption>영상 특징점 추적과 암전 구간의 VIO 실패 감지</figcaption>
               </figure>
             </article>
 
@@ -201,15 +204,16 @@
               </div>
               <div class="project-body">
                 <div>
-                  <p class="project-kicker">DAQ · 신호처리 · 알고리즘</p>
+                  <p class="project-kicker">모달 시험 · FRF 분석 · 시각화</p>
                   <h3>항공우주 구조체 모달 분석 파이프라인</h3>
                 </div>
                 <div class="project-summary">
                   <p>
-                    가진기와 8채널 가속도계로 구조 응답을 계측하고 FRF를 확보했습니다. 상용 분석
-                    소프트웨어의 라이선스가 유실된 상황에서 관련 논문과 업체 교육을 바탕으로 MATLAB
-                    분석 환경을 구축했으며, Peak Picking과 LSCE로 고유진동수와 감쇠비를 구하고
-                    모드 형상을 시각화했습니다.
+                    발사 진동과 3U 큐브위성 구조체의 고유진동수가 겹칠 때 발생할 수 있는 공진 위험을
+                    확인하는 연구입니다. 구조체 제작 담당과 분업해 저는 가진기, 힘 센서, 8채널 가속도계,
+                    DAQ를 연결한 모달 시험 환경 구축부터 계측과 분석을 맡았습니다. 상용 분석 SW 라이선스
+                    유실에 대응해 논문을 근거로 MATLAB 전환을 협의하고, FRF에 Peak Picking과 LSCE를 적용해
+                    고유진동수와 감쇠비를 도출한 뒤 모드 형상을 시각화했습니다.
                   </p>
                   <ul class="tags" aria-label="사용 기술">
                     <li>MATLAB</li><li>FFT/FRF</li><li>Curve Fitting</li><li>DAQ</li><li>3D Visualization</li>
@@ -223,8 +227,10 @@
                   <figcaption>가진기·센서·DAQ를 연결한 모달 시험 환경 구성</figcaption>
                 </figure>
                 <figure class="project-media">
-                  <img src="assets/images/projects/modal-bending-modes-comparison.png" alt="MATLAB으로 시각화한 243.5 Hz와 542.5 Hz Bending 모드 형상 비교" loading="lazy" />
-                  <figcaption>243.5 Hz·542.5 Hz Bending 모드 형상 비교</figcaption>
+                  <video class="modal-mode-video" autoplay muted loop playsinline preload="metadata" aria-label="MATLAB으로 시각화한 구조체 Bending 모드 형상">
+                    <source src="assets/videos/modal-bending-mode-noaudio.mp4" type="video/mp4" />
+                  </video>
+                  <figcaption>MATLAB으로 시각화한 구조체 Bending 모드 형상</figcaption>
                 </figure>
               </div>
             </article>
