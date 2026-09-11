@@ -171,6 +171,7 @@ body.lightbox-open { overflow: hidden; }
 .manta-phase-flow small { color: var(--detail-muted); font-size: 12px; line-height: 1.55; }
 .manta-phase-flow .done strong { color: #fff; }
 .manta-phase-flow .done small { color: #bdc8d0; }
+.manta-model-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .manta-model-grid img { object-fit: contain; background: #d7dfe2; }
 .manta-model-grid figure.wide img { aspect-ratio: 16 / 7; object-fit: contain; }
 .manta-model-grid figcaption strong, .manta-log-grid figcaption strong { margin-right: 6px; color: var(--detail-accent); }

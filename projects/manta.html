@@ -6,7 +6,7 @@
   <meta name="description" content="김수환의 MANTA 수중 위협 어뢰·ROV 회피 통합 시뮬레이션 프로젝트" />
   <title>MANTA 수중 통합 시뮬레이션 | 김수환</title>
   <link rel="stylesheet" href="../assets/css/style.css" />
-  <link rel="stylesheet" href="../assets/css/project-detail.css?v=20260911-9" />
+  <link rel="stylesheet" href="../assets/css/project-detail.css?v=20260911-10" />
 </head>
 <body class="project-page">
   <header class="detail-header"><div class="container detail-nav"><a class="detail-back" href="../index.html#projects">← 대표 프로젝트</a><strong>김수환 포트폴리오</strong></div></header>
@@ -31,11 +31,12 @@
     </div></div></section>
 
     <section class="detail-section detail-section-dark" id="modeling"><div class="container detail-grid"><h2>Slocum을<br />위협 어뢰로</h2><div class="detail-copy">
-      <p class="section-intro">기존 글라이더의 외형과 구동 구조를 회피시험에 필요한 4-fin 위협 모델로 바꿨습니다.</p>
-      <p>Blender로 DAE 구조와 좌표를 확인한 뒤 큰 좌우 주익과 연결부를 제거한 어뢰형 메시를 적용했습니다. SDF의 visual URI를 변경하고 프로펠러와 상·하·좌·우 4개 fin, link와 joint를 추가해 Gazebo에 반영했습니다.</p>
+      <p class="section-intro">기존 Slocum 글라이더에 직접 4-fin 구동 구조를 추가한 뒤, 큰 주익을 제거해 회피시험용 위협 어뢰로 발전시켰습니다.</p>
+      <p>DAVE의 원본 Slocum 글라이더를 기준으로 후방 상·하·좌·우 4개 fin과 각 link·joint를 추가하고, fin마다 LiftDrag(양력) 플러그인을 연결했습니다. 이후 Blender로 DAE 구조와 좌표를 확인해 큰 좌우 주익과 연결부를 제거한 메시를 제작하고, SDF의 visual URI를 교체했습니다. 프로펠러의 Thruster 플러그인과 4-fin 제어 구조는 유지해 최종 위협 어뢰 모델로 구성했습니다.</p>
       <div class="evidence-grid manta-model-grid">
-        <figure><a class="image-zoom" href="../assets/images/projects/manta-model-before.png" target="_blank" rel="noopener"><img src="../assets/images/projects/manta-model-before.png" alt="큰 좌우 주익이 남아 있는 기존 Slocum 모델" /></a><figcaption><strong>변경 전</strong> 큰 좌우 주익이 남아 있던 기존 Slocum 모델</figcaption></figure>
-        <figure><a class="image-zoom" href="../assets/images/projects/manta-simulation.png" target="_blank" rel="noopener"><img src="../assets/images/projects/manta-simulation.png" alt="주익을 제거하고 프로펠러와 4-fin을 구성해 수중 환경에 배치한 위협 어뢰 모델" /></a><figcaption><strong>변경 후</strong> 주익을 제거하고 프로펠러와 4-fin을 구성해 수중 환경에 배치한 위협 어뢰</figcaption></figure>
+        <figure><a class="image-zoom" href="../assets/images/projects/manta-slocum-original.png" target="_blank" rel="noopener"><img src="../assets/images/projects/manta-slocum-original.png" alt="DAVE에서 제공된 원본 Slocum 수중 글라이더" /></a><figcaption><strong>원본 모델</strong> DAVE에서 제공된 Slocum 수중 글라이더</figcaption></figure>
+        <figure><a class="image-zoom" href="../assets/images/projects/manta-model-before.png" target="_blank" rel="noopener"><img src="../assets/images/projects/manta-model-before.png" alt="기존 주익을 유지한 채 후방에 4개 fin을 추가한 Slocum 모델" /></a><figcaption><strong>1차 변경</strong> 주익을 유지한 상태에서 후방 4-fin과 LiftDrag 플러그인 추가</figcaption></figure>
+        <figure><a class="image-zoom" href="../assets/images/projects/manta-simulation.png" target="_blank" rel="noopener"><img src="../assets/images/projects/manta-simulation.png" alt="큰 주익을 제거하고 프로펠러와 4-fin을 유지한 최종 위협 어뢰 모델" /></a><figcaption><strong>최종 모델</strong> 큰 주익을 제거하고 프로펠러와 4-fin을 유지한 위협 어뢰</figcaption></figure>
       </div>
       <ul class="process-list"><li><span>01</span><div><strong>비표준 좌표계 확인</strong><p>일반적인 +X 전방이 아니라 +Y 전방인 모델이어서 DAE, collision 장축, joint axis와 odometry 반응을 함께 대조했습니다.</p></div></li><li><span>02</span><div><strong>Fin 방향과 부호 검증</strong><p>Top·Bottom fin은 yaw, Left·Right fin은 pitch를 만들도록 구성하고 각 fin에 작은 양·음 입력을 따로 적용해 실제 회전 방향을 확인했습니다.</p></div></li><li><span>03</span><div><strong>물리 플러그인 통합</strong><p>fin의 LiftDrag, 프로펠러의 Thruster와 joint 제어를 분리해 시험하고, 실제 수중시험값이 아닌 SITL 검증용 공학적 추정값임을 구분했습니다.</p></div></li></ul>
       <figure class="detail-video manta-keyboard-video">
