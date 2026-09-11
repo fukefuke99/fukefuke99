@@ -8,9 +8,18 @@
   <link rel="stylesheet" href="../assets/css/style.css" />
   <link rel="stylesheet" href="../assets/css/project-detail.css?v=20260911-6" />
 </head>
-<body class="project-page">
+<body class="project-page manta-page">
   <header class="detail-header"><div class="container detail-nav"><a class="detail-back" href="../index.html#projects">← 대표 프로젝트</a><strong>김수환 포트폴리오</strong></div></header>
-  <main>
+  <nav class="detail-toc" aria-label="MANTA 프로젝트 목차">
+    <strong>CONTENTS</strong>
+    <a href="#overview" class="is-active">개요</a>
+    <a href="#environment">DAVE 환경 구성</a>
+    <a href="#modeling">어뢰 모델링</a>
+    <a href="#interface">인터페이스</a>
+    <a href="#performance">성능 개선</a>
+    <a href="#validation">통합 검증</a>
+  </nav>
+  <main id="overview">
     <section class="detail-hero manta-hero"><div class="container">
       <p class="detail-label">DAVE · ROS 2 · GAZEBO · 5인 팀 프로젝트</p>
       <h1>서로 다른 회피 알고리즘을<br />같은 수중 환경에서 검증하다</h1>
@@ -18,7 +27,7 @@
       <dl class="detail-facts"><div><dt>기간</dt><dd>2026.07 — 2026.08</dd></div><div><dt>팀 구성</dt><dd>5명, 어뢰·회피·제어 분담</dd></div><div><dt>담당</dt><dd>공통환경·위협 어뢰</dd></div><div><dt>기술</dt><dd>C++, ROS 2, Gazebo, DAVE</dd></div></dl>
     </div></section>
 
-    <section class="detail-section"><div class="container detail-grid"><h2>DAVE 자산에서<br />공통환경으로</h2><div class="detail-copy">
+    <section class="detail-section" id="environment"><div class="container detail-grid"><h2>DAVE 자산에서<br />공통환경으로</h2><div class="detail-copy">
       <p class="section-intro">프로젝트 소개 다음 단계는 모델을 새로 그리는 일이 아니라, 검증된 DAVE 자산의 구성과 경계를 정확히 파악하는 것이었습니다.</p>
       <p>DAVE가 제공하는 수중 월드와 BlueROV2, Slocum 모델, Gazebo 플러그인을 기반으로 시작했습니다. 기존 자산을 처음부터 제작한 것은 아니며, visual·collision·link·joint·sensor와 hydrodynamic 설정을 분석한 뒤 BlueROV와 위협 어뢰가 같은 환경에서 상태와 구동기 데이터를 주고받도록 수정·통합했습니다.</p>
       <ul class="process-list manta-environment-list"><li><span>01</span><div><strong>기존 자산 검토</strong><p>DAVE 수중 월드, BlueROV2와 Slocum의 SDF·DAE·플러그인 구성을 확인했습니다.</p></div></li><li><span>02</span><div><strong>기본 구동 검증</strong><p>Gazebo thruster 토픽에 직접 추력 명령을 보내 BlueROV 모델과 구동 인터페이스가 정상적으로 반응하는지 먼저 확인했습니다.</p></div></li><li><span>03</span><div><strong>통합 기준 확정</strong><p>ROS–Gazebo Bridge로 상태와 actuator 명령을 연결하고, 반복 가능한 SITL을 HITL 전 단계의 공통 기준으로 삼았습니다.</p></div></li></ul>
@@ -30,7 +39,7 @@
       <div class="manta-phase-flow"><article class="done"><span>01</span><strong>SITL 통합</strong><small>알고리즘·좌표계·인터페이스 검증 완료</small></article><article class="active"><span>02</span><strong>보드·CAN 단위시험</strong><small>ESP32, Teensy 기반 연결 검증</small></article><article><span>03</span><strong>HITL 폐루프</strong><small>양방향 전체 연동으로 확장 중</small></article></div>
     </div></div></section>
 
-    <section class="detail-section detail-section-dark"><div class="container detail-grid"><h2>Slocum을<br />위협 어뢰로</h2><div class="detail-copy">
+    <section class="detail-section detail-section-dark" id="modeling"><div class="container detail-grid"><h2>Slocum을<br />위협 어뢰로</h2><div class="detail-copy">
       <p class="section-intro">기존 글라이더의 외형과 구동 구조를 회피시험에 필요한 4-fin 위협 모델로 바꿨습니다.</p>
       <p>Blender로 DAE 구조와 좌표를 확인한 뒤 큰 좌우 주익과 연결부를 제거한 어뢰형 메시를 적용했습니다. SDF의 visual URI를 변경하고 프로펠러와 상·하·좌·우 4개 fin, link와 joint를 추가해 Gazebo에 반영했습니다.</p>
       <div class="evidence-grid manta-model-grid">
@@ -44,7 +53,7 @@
       </figure>
     </div></div></section>
 
-    <section class="detail-section"><div class="container detail-grid"><h2>인터페이스를<br />함께 정하다</h2><div class="detail-copy">
+    <section class="detail-section" id="interface"><div class="container detail-grid"><h2>인터페이스를<br />함께 정하다</h2><div class="detail-copy">
       <p class="section-intro">누가 무엇을 계산할지 먼저 나누자, 팀원들이 각자의 알고리즘에 집중할 수 있었습니다.</p>
       <p>초기에는 회피 모듈에서 어뢰의 예상 충돌 시간과 위치를 요청했습니다. 하지만 어뢰가 이 값을 확정하면 상대 UUV의 회피 정책과 동역학까지 가정하게 됩니다. 회의를 통해 책임 경계를 다시 그려, 어뢰는 실시간 odometry를 제공하고 회피 모듈이 자체 모델로 충돌을 예측하도록 변경했습니다.</p>
       <div class="logic-flow manta-interface-flow"><div><span>01</span><strong>Gazebo 상태</strong><small>어뢰·BlueROV 위치와 자세</small></div><div><span>02</span><strong>실시간 Odometry</strong><small>공통 메시지와 좌표계</small></div><div><span>03</span><strong>회피 모듈</strong><small>자체 모델로 충돌 예측</small></div><div><span>04</span><strong>제어 명령</strong><small>추진기·Fin 동작 반영</small></div></div>
@@ -52,7 +61,7 @@
       <div class="contribution-grid manta-contribution"><article><strong>제어 구조</strong><span>Strategy·Factory 패턴으로 모드 교체와 생성 책임을 분리</span></article><article><strong>형상관리</strong><span>기능 브랜치에서 개발하고 Pull Request 기반 통합에 참여</span></article><article><strong>실행 표준화</strong><span>월드, 어뢰, 회피 패키지, 목표, 제어의 5단계 실행 흐름</span></article><article><strong>아키텍처 판단</strong><span>ROS 의존성이 분리된 어뢰 코드를 ESP32 이식 대상으로 변경</span></article></div>
     </div></div></section>
 
-    <section class="detail-section detail-section-tint"><div class="container detail-grid"><h2>측정으로 찾은<br />통합 병목</h2><div class="detail-copy">
+    <section class="detail-section detail-section-tint" id="performance"><div class="container detail-grid"><h2>측정으로 찾은<br />통합 병목</h2><div class="detail-copy">
       <p class="section-intro">평균 동작만 보지 않고, 오래된 상태가 사용되는 순간과 CPU를 점유하는 대기 방식을 수치로 확인했습니다.</p>
       <h3>불필요한 1,000 Hz 경로 제거</h3><p>사용하지 않는 JointState가 ROS–Gazebo 데이터 경로를 점유하면서 어뢰 odometry의 최대 수신 간격이 약 330 ms까지 늘어났습니다. 발행·브리지·구독 경로를 함께 제거한 뒤 약 100 Hz 상태 입력과 최대 12 ms 간격을 확인했습니다.</p>
       <h3>Busy-wait 제거</h3><p>20 Hz 제어 주기를 기다리는 동안 한 코어를 계속 점유하던 구조를, 다음 주기까지 남은 시간만 대기하도록 변경했습니다. 같은 30초 유도 시험에서 CPU 사용률을 102.7%에서 2.4%로 낮추고 Real-time factor를 약 0.62에서 1.00으로 회복했습니다.</p>
@@ -61,7 +70,7 @@
       <div class="evidence-grid manta-log-grid"><figure><a class="image-zoom" href="../assets/images/projects/manta-inertia-before.png" target="_blank" rel="noopener"><img src="../assets/images/projects/manta-inertia-before.png" alt="프로펠러 관성 수정 전 pitch와 yaw 결합 로그" /></a><figcaption><strong>수정 전</strong> pitch와 yaw가 함께 나타난 각속도 로그</figcaption></figure><figure><a class="image-zoom" href="../assets/images/projects/manta-inertia-after.png" target="_blank" rel="noopener"><img src="../assets/images/projects/manta-inertia-after.png" alt="프로펠러 관성 수정 후 yaw가 감소한 로그" /></a><figcaption><strong>수정 후</strong> pitch는 남고 비정상 yaw는 크게 감소</figcaption></figure></div>
     </div></div></section>
 
-    <section class="detail-section"><div class="container detail-grid"><h2>유도 방식별<br />통합 검증</h2><div class="detail-copy">
+    <section class="detail-section" id="validation"><div class="container detail-grid"><h2>유도 방식별<br />통합 검증</h2><div class="detail-copy">
       <p class="section-intro">기능이 돌아간다는 확인에서 끝내지 않고, 동일한 환경에서 접근 방식이 달라질 때 회피 결과가 어떻게 바뀌는지 기록했습니다.</p>
       <div class="detail-video-grid manta-validation-grid">
         <figure><video controls muted playsinline preload="metadata" poster="../assets/images/projects/manta-simple-tracking-poster.jpg"><source src="../assets/videos/manta-simple-tracking-noaudio.mp4" type="video/mp4" /></video><figcaption><strong>SIMPLE TRACKING</strong><span>움직이는 BlueROV의 상태를 받아 기본 추적 동작을 확인했습니다.</span></figcaption></figure>
@@ -75,5 +84,6 @@
     <div class="container detail-next"><a href="modal-analysis.html">← 이전: 모달 분석</a><a href="f1tenth.html">다음: F1TENTH →</a></div>
   </main>
   <script src="../assets/js/image-lightbox.js?v=20260911-1" defer></script>
+  <script src="../assets/js/detail-toc.js?v=20260911-1" defer></script>
 </body>
 </html>
