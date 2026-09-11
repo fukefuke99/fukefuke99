@@ -6,7 +6,7 @@
   <meta name="description" content="김수환의 MANTA 수중 위협 어뢰·ROV 회피 통합 시뮬레이션 프로젝트" />
   <title>MANTA 수중 통합 시뮬레이션 | 김수환</title>
   <link rel="stylesheet" href="../assets/css/style.css" />
-  <link rel="stylesheet" href="../assets/css/project-detail.css?v=20260911-5" />
+  <link rel="stylesheet" href="../assets/css/project-detail.css?v=20260911-6" />
 </head>
 <body class="project-page">
   <header class="detail-header"><div class="container detail-nav"><a class="detail-back" href="../index.html#projects">← 대표 프로젝트</a><strong>김수환 포트폴리오</strong></div></header>
@@ -18,16 +18,31 @@
       <dl class="detail-facts"><div><dt>기간</dt><dd>2026.07 — 2026.08</dd></div><div><dt>팀 구성</dt><dd>5명, 어뢰·회피·제어 분담</dd></div><div><dt>담당</dt><dd>공통환경·위협 어뢰</dd></div><div><dt>기술</dt><dd>C++, ROS 2, Gazebo, DAVE</dd></div></dl>
     </div></section>
 
-    <section class="detail-section"><div class="container detail-grid"><h2>왜 SITL부터<br />시작했는가</h2><div class="detail-copy">
-      <p class="section-intro">실기체를 확보하기 전에 알고리즘과 인터페이스를 반복 검증할 공통 기준이 필요했습니다.</p>
-      <p>프로젝트의 목적은 실제 어뢰 성능이나 명중률을 정밀 재현하는 것이 아니었습니다. 동일한 수중 물리환경에서 유도 방식과 접근 조건을 바꾸며 BlueROV 회피 로직의 반응을 비교하는 것이 먼저였습니다. 최종 방향은 보드를 포함한 HITL로 정하되, 하드웨어 연결 이전에 오류를 분리할 수 있도록 SITL을 선행했습니다.</p>
+    <section class="detail-section"><div class="container detail-grid"><h2>DAVE 자산에서<br />공통환경으로</h2><div class="detail-copy">
+      <p class="section-intro">프로젝트 소개 다음 단계는 모델을 새로 그리는 일이 아니라, 검증된 DAVE 자산의 구성과 경계를 정확히 파악하는 것이었습니다.</p>
+      <p>DAVE가 제공하는 수중 월드와 BlueROV2, Slocum 모델, Gazebo 플러그인을 기반으로 시작했습니다. 기존 자산을 처음부터 제작한 것은 아니며, visual·collision·link·joint·sensor와 hydrodynamic 설정을 분석한 뒤 BlueROV와 위협 어뢰가 같은 환경에서 상태와 구동기 데이터를 주고받도록 수정·통합했습니다.</p>
+      <ul class="process-list manta-environment-list"><li><span>01</span><div><strong>기존 자산 검토</strong><p>DAVE 수중 월드, BlueROV2와 Slocum의 SDF·DAE·플러그인 구성을 확인했습니다.</p></div></li><li><span>02</span><div><strong>기본 구동 검증</strong><p>Gazebo thruster 토픽에 직접 추력 명령을 보내 BlueROV 모델과 구동 인터페이스가 정상적으로 반응하는지 먼저 확인했습니다.</p></div></li><li><span>03</span><div><strong>통합 기준 확정</strong><p>ROS–Gazebo Bridge로 상태와 actuator 명령을 연결하고, 반복 가능한 SITL을 HITL 전 단계의 공통 기준으로 삼았습니다.</p></div></li></ul>
+      <figure class="detail-video manta-environment-video">
+        <video controls muted playsinline preload="metadata" poster="../assets/images/projects/manta-bluerov-environment-poster.jpg"><source src="../assets/videos/manta-bluerov-environment-noaudio.mp4" type="video/mp4" /></video>
+        <figcaption><strong>BlueROV 환경 검증</strong> DAVE 수중 월드에서 Gazebo thruster 토픽에 직접 추력 명령을 보내 모델의 기본 구동을 확인했습니다.</figcaption>
+      </figure>
+      <p>실기체를 구매해 여러 위협 조건을 반복 시험하기 어려웠기 때문에, 실제 어뢰 성능을 정밀 재현하기보다 동일한 수중 환경에서 유도 방식 변화에 따른 BlueROV 회피 반응을 비교하는 것을 우선 목표로 정했습니다.</p>
       <div class="manta-phase-flow"><article class="done"><span>01</span><strong>SITL 통합</strong><small>알고리즘·좌표계·인터페이스 검증 완료</small></article><article class="active"><span>02</span><strong>보드·CAN 단위시험</strong><small>ESP32, Teensy 기반 연결 검증</small></article><article><span>03</span><strong>HITL 폐루프</strong><small>양방향 전체 연동으로 확장 중</small></article></div>
-      <p class="detail-note">완료한 SITL 성과와 진행 중인 HITL 범위를 구분해 기록했습니다.</p>
     </div></div></section>
 
-    <section class="detail-section detail-section-dark"><div class="container detail-grid"><h2>공통환경과<br />담당 범위</h2><div class="detail-copy">
-      <p class="section-intro">기존 DAVE 자산을 처음부터 다시 만들기보다, 목적에 맞게 분석하고 수정·연결했습니다.</p>
-      <ul class="process-list"><li><span>01</span><div><strong>수중 월드 통합</strong><p>DAVE 수중 월드에 BlueROV와 위협 어뢰를 함께 배치하고 ROS–Gazebo Bridge로 상태와 구동기 토픽을 연결했습니다.</p></div></li><li><span>02</span><div><strong>위협 어뢰 모델 변경</strong><p>Slocum의 큰 주익을 제거하고 프로펠러와 상하좌우 4-fin을 구성했습니다. SDF의 visual, collision, link, joint와 유체 플러그인을 나눠 확인했습니다.</p></div></li><li><span>03</span><div><strong>제어·유도 계층 구현</strong><p>Keyboard, Pure Pursuit 기반 Simple Tracking, 3차원 Proportional Navigation과 roll 안정화·actuator mixer를 구현했습니다.</p></div></li></ul>
+    <section class="detail-section detail-section-dark"><div class="container detail-grid"><h2>Slocum을<br />위협 어뢰로</h2><div class="detail-copy">
+      <p class="section-intro">기존 글라이더의 외형과 구동 구조를 회피시험에 필요한 4-fin 위협 모델로 바꿨습니다.</p>
+      <p>Blender로 DAE 구조와 좌표를 확인한 뒤 큰 좌우 주익과 연결부를 제거한 어뢰형 메시를 적용했습니다. SDF의 visual URI를 변경하고 프로펠러와 상·하·좌·우 4개 fin, link와 joint를 추가해 Gazebo에 반영했습니다.</p>
+      <div class="evidence-grid manta-model-grid">
+        <figure><a class="image-zoom" href="../assets/images/projects/manta-model-before.png" target="_blank" rel="noopener"><img src="../assets/images/projects/manta-model-before.png" alt="큰 좌우 주익이 남아 있는 기존 Slocum 모델" /></a><figcaption><strong>변경 전</strong> 큰 좌우 주익이 남아 있던 기존 Slocum 모델</figcaption></figure>
+        <figure><a class="image-zoom" href="../assets/images/projects/manta-model-after.png" target="_blank" rel="noopener"><img src="../assets/images/projects/manta-model-after.png" alt="주익을 제거하고 프로펠러와 4-fin을 구성한 위협 어뢰 모델" /></a><figcaption><strong>변경 후</strong> 주익을 제거하고 프로펠러와 4-fin을 구성한 위협 어뢰</figcaption></figure>
+        <figure class="wide"><a class="image-zoom" href="../assets/images/projects/manta-tail-actuator.png" target="_blank" rel="noopener"><img src="../assets/images/projects/manta-tail-actuator.png" alt="위협 어뢰 후방의 프로펠러와 4-fin 구동부" /></a><figcaption><strong>구동부 구성</strong> JointPositionController·LiftDrag·Thruster 플러그인으로 4-fin 자세 제어와 추진을 연결했습니다.</figcaption></figure>
+      </div>
+      <ul class="process-list"><li><span>01</span><div><strong>비표준 좌표계 확인</strong><p>일반적인 +X 전방이 아니라 +Y 전방인 모델이어서 DAE, collision 장축, joint axis와 odometry 반응을 함께 대조했습니다.</p></div></li><li><span>02</span><div><strong>Fin 방향과 부호 검증</strong><p>Top·Bottom fin은 yaw, Left·Right fin은 pitch를 만들도록 구성하고 각 fin에 작은 양·음 입력을 따로 적용해 실제 회전 방향을 확인했습니다.</p></div></li><li><span>03</span><div><strong>물리 플러그인 통합</strong><p>fin의 LiftDrag, 프로펠러의 Thruster와 joint 제어를 분리해 시험하고, 실제 수중시험값이 아닌 SITL 검증용 공학적 추정값임을 구분했습니다.</p></div></li></ul>
+      <figure class="detail-video manta-keyboard-video">
+        <video controls muted playsinline preload="metadata" poster="../assets/images/projects/manta-keyboard-poster.jpg"><source src="../assets/videos/manta-keyboard-noaudio.mp4" type="video/mp4" /></video>
+        <figcaption><strong>Keyboard 기능시험</strong> 수동 입력으로 thrust와 4-fin의 방향·부호를 먼저 검증했습니다.</figcaption>
+      </figure>
     </div></div></section>
 
     <section class="detail-section"><div class="container detail-grid"><h2>인터페이스를<br />함께 정하다</h2><div class="detail-copy">
@@ -43,12 +58,17 @@
       <h3>불필요한 1,000 Hz 경로 제거</h3><p>사용하지 않는 JointState가 ROS–Gazebo 데이터 경로를 점유하면서 어뢰 odometry의 최대 수신 간격이 약 330 ms까지 늘어났습니다. 발행·브리지·구독 경로를 함께 제거한 뒤 약 100 Hz 상태 입력과 최대 12 ms 간격을 확인했습니다.</p>
       <h3>Busy-wait 제거</h3><p>20 Hz 제어 주기를 기다리는 동안 한 코어를 계속 점유하던 구조를, 다음 주기까지 남은 시간만 대기하도록 변경했습니다. 같은 30초 유도 시험에서 CPU 사용률을 102.7%에서 2.4%로 낮추고 Real-time factor를 약 0.62에서 1.00으로 회복했습니다.</p>
       <div class="metric-row"><div class="metric"><strong>330 → 12 ms</strong><span>Odometry 최대 수신 간격</span></div><div class="metric"><strong>102.7 → 2.4%</strong><span>어뢰 제어 노드 CPU</span></div><div class="metric"><strong>0.62 → 1.00</strong><span>Real-time factor</span></div></div>
-      <h3>자이로스코픽 결합 원인 분리</h3><p>직진 입력 중 기체가 pitch 방향으로 회전하자 프로펠러의 회전축과 수직인 Z축에 토크가 생기며 yaw가 함께 발생했습니다. 회전체가 각운동량의 방향을 유지하려는 성질 때문에 기체의 pitch 각속도와 프로펠러의 각운동량이 결합해 나타난 자이로스코픽 세차 현상이었습니다. 모델에 입력된 프로펠러 축 관성값이 지나치게 커 이 효과가 과장된 것을 확인하고, <code>iyy</code>를 0.1에서 0.000625로 수정했습니다. 동일한 추력 조건에서 비정상 yaw는 약 121배 줄었고, 남은 pitch는 추력선과 무게중심의 높이 차이에서 생긴 별도 모멘트로 분리했습니다.</p>
+      <h3>자이로스코픽 결합 원인 분리</h3><p>Fin을 중립으로 두고 직진 추력만 입력했는데도 pitch가 발생할 때 yaw가 함께 나타났습니다. 프로펠러의 각운동량과 기체의 pitch 각속도가 결합하면서 회전축에 수직인 Z축 모멘트가 생기는 자이로스코픽 세차 현상으로 원인을 분리했습니다. 모델의 프로펠러 축 관성값이 지나치게 커 효과가 과장된 것을 확인하고 <code>iyy</code>를 0.1에서 0.000625로 수정했습니다. 동일한 +50 N 조건에서 비정상 yaw는 약 121배 줄었지만 pitch 자체는 남았고, 이는 추력선과 무게중심의 높이 차이에서 생긴 별도 모멘트로 관리했습니다.</p>
       <div class="evidence-grid manta-log-grid"><figure><a class="image-zoom" href="../assets/images/projects/manta-inertia-before.png" target="_blank" rel="noopener"><img src="../assets/images/projects/manta-inertia-before.png" alt="프로펠러 관성 수정 전 pitch와 yaw 결합 로그" /></a><figcaption><strong>수정 전</strong> pitch와 yaw가 함께 나타난 각속도 로그</figcaption></figure><figure><a class="image-zoom" href="../assets/images/projects/manta-inertia-after.png" target="_blank" rel="noopener"><img src="../assets/images/projects/manta-inertia-after.png" alt="프로펠러 관성 수정 후 yaw가 감소한 로그" /></a><figcaption><strong>수정 후</strong> pitch는 남고 비정상 yaw는 크게 감소</figcaption></figure></div>
     </div></div></section>
 
-    <section class="detail-section"><div class="container detail-grid"><h2>검증 결과와<br />남은 과제</h2><div class="detail-copy">
-      <p class="section-intro">성공한 동작뿐 아니라, 유도 방식이 바뀌었을 때 드러난 회피 알고리즘의 한계도 결과로 남겼습니다.</p>
+    <section class="detail-section"><div class="container detail-grid"><h2>유도 방식별<br />통합 검증</h2><div class="detail-copy">
+      <p class="section-intro">기능이 돌아간다는 확인에서 끝내지 않고, 동일한 환경에서 접근 방식이 달라질 때 회피 결과가 어떻게 바뀌는지 기록했습니다.</p>
+      <div class="detail-video-grid manta-validation-grid">
+        <figure><video controls muted playsinline preload="metadata" poster="../assets/images/projects/manta-simple-tracking-poster.jpg"><source src="../assets/videos/manta-simple-tracking-noaudio.mp4" type="video/mp4" /></video><figcaption><strong>SIMPLE TRACKING</strong><span>움직이는 BlueROV의 상태를 받아 기본 추적 동작을 확인했습니다.</span></figcaption></figure>
+        <figure><video controls muted playsinline preload="metadata" poster="../assets/images/projects/manta-face2face-avoid-poster.jpg"><source src="../assets/videos/manta-face2face-avoid-noaudio.mp4" type="video/mp4" /></video><figcaption><strong>통합 회피시험</strong><span>정면 접근 조건에서 BlueROV와 위협 어뢰의 경로 변화를 함께 확인했습니다.</span></figcaption></figure>
+        <figure class="wide"><video controls muted playsinline preload="metadata" poster="../assets/images/projects/manta-png-hit-poster.jpg"><source src="../assets/videos/manta-png-hit-noaudio.mp4" type="video/mp4" /></video><figcaption><strong>PNG 한계 확인</strong><span>PNG 위협에서는 충돌 사례가 반복되어 유도법 변화에 따른 기존 회피 로직의 한계를 확인했습니다.</span></figcaption></figure>
+      </div>
       <ul class="result-list"><li><strong>기능시험</strong> Keyboard 모드에서 프로펠러와 4-fin의 방향·부호를 확인했습니다.</li><li><strong>기본 추적</strong> Simple Tracking에서 움직이는 BlueROV를 따라가는 동작을 확인했습니다.</li><li><strong>팀 통합시험</strong> PP 방식 위협에서는 BlueROV의 회피 동작을 확인했습니다.</li><li><strong>한계 확인</strong> PNG 방식에서는 BlueROV가 대부분 피격되어 위협 유도법에 따라 회피 난이도가 크게 달라짐을 확인했습니다.</li></ul>
       <p class="detail-note">명중률이나 회피 성공률을 통계적으로 산출한 시험은 아닙니다. 현재는 ESP32·Teensy·CAN 단위시험을 거쳐 양방향 HITL 폐루프로 확장하고 있습니다.</p>
       <a class="project-link" href="https://github.com/MANTA-P/MANTA" target="_blank" rel="noreferrer">MANTA GitHub 저장소 <span>↗</span></a>

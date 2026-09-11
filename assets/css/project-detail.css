@@ -86,6 +86,13 @@ body.lightbox-open { overflow: hidden; }
 .detail-video { margin: 42px 0 0; overflow: hidden; border: 1px solid var(--detail-line); background: #101d29; }
 .detail-video video { display: block; width: 100%; max-height: 560px; object-fit: contain; }
 .detail-video figcaption { padding: 12px 14px; background: #fff; color: var(--detail-muted); font-size: 12px; }
+.detail-video figcaption strong { margin-right: 7px; color: var(--detail-accent); }
+.detail-video-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; margin-top: 38px; }
+.detail-video-grid figure { margin: 0; overflow: hidden; border: 1px solid var(--detail-line); background: #fff; }
+.detail-video-grid figure.wide { grid-column: 1 / -1; }
+.detail-video-grid video { display: block; width: 100%; aspect-ratio: 16 / 9; background: #071018; object-fit: contain; }
+.detail-video-grid figcaption { display: grid; gap: 4px; min-height: 68px; padding: 13px 15px; color: var(--detail-muted); font-size: 12px; line-height: 1.55; }
+.detail-video-grid figcaption strong { color: var(--detail-accent); font-size: 11px; letter-spacing: 0.06em; }
 .certificate-card { display: grid; grid-template-columns: minmax(180px, 280px) 1fr; gap: 28px; align-items: center; margin: 38px 0 0; padding: 22px; border: 1px solid #34424d; background: #182733; }
 .certificate-card img { display: block; width: 100%; max-height: 390px; object-fit: contain; background: #fff; }
 .certificate-card figcaption { display: grid; gap: 8px; color: #bdc8d0; }
@@ -166,6 +173,12 @@ body.lightbox-open { overflow: hidden; }
 .manta-model-grid img { object-fit: contain; background: #d7dfe2; }
 .manta-model-grid figure.wide img { aspect-ratio: 16 / 7; object-fit: contain; }
 .manta-model-grid figcaption strong, .manta-log-grid figcaption strong { margin-right: 6px; color: var(--detail-accent); }
+.manta-environment-list { border-top-color: var(--detail-line); }
+.manta-environment-list li { border-bottom-color: var(--detail-line); }
+.manta-environment-video video { aspect-ratio: 875 / 464; }
+.manta-keyboard-video { max-width: 620px; }
+.manta-keyboard-video video { aspect-ratio: 1 / 1; }
+.manta-validation-grid .wide video { max-height: 560px; }
 .manta-interface-flow { margin-bottom: 26px; }
 .manta-contribution { margin-bottom: 34px; }
 .manta-log-grid img { aspect-ratio: 16 / 6; object-fit: contain; background: #fff; }
@@ -181,6 +194,8 @@ body.lightbox-open { overflow: hidden; }
   .certificate-card { grid-template-columns: 1fr; }
   .certificate-card img { max-width: 300px; margin: 0 auto; }
   .evidence-grid figure.wide { grid-column: auto; }
+  .detail-video-grid { grid-template-columns: 1fr; }
+  .detail-video-grid figure.wide { grid-column: auto; }
   .modal-process li { grid-template-columns: 34px 1fr; gap: 10px; }
   .modal-process li span { grid-column: 2; }
   .logic-flow, .contribution-grid { grid-template-columns: 1fr 1fr; }
