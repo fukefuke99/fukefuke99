@@ -104,11 +104,6 @@ body.lightbox-open { overflow: hidden; }
 .hero-feature-video video { display: block; width: 100%; aspect-ratio: 16 / 9; background: #071018; object-fit: contain; }
 .hero-framework-diagram img { display: block; width: 100%; height: auto; padding: clamp(12px, 2vw, 24px); background: #fff; }
 .hero-research-showcase figcaption { padding: 13px 16px; color: var(--detail-muted); font-size: 13px; }
-.modal-hero-showcase { grid-template-columns: 1.15fr 0.85fr; }
-.modal-hero-showcase figure { display: flex; flex-direction: column; }
-.modal-hero-showcase img, .modal-hero-showcase video { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: contain; background: #edf0f1; }
-.modal-hero-showcase figcaption { flex: 1; line-height: 1.65; }
-.modal-hero-showcase figcaption strong { display: block; margin-bottom: 3px; color: var(--detail-ink); }
 .section-intro { color: var(--detail-ink) !important; font-size: clamp(21px, 2.5vw, 29px) !important; font-weight: 750; line-height: 1.45; letter-spacing: -0.035em; }
 .detail-section-dark { background: #101d29; color: #f7f4ed; }
 .detail-section-dark .detail-copy > p, .detail-section-dark .process-list p { color: #bdc8d0; }
@@ -198,7 +193,6 @@ body.lightbox-open { overflow: hidden; }
   .algorithm-selection article { min-height: 0; }
   .manta-phase-flow { grid-template-columns: 1fr; }
   .manta-phase-flow article { min-height: 0; }
-  .modal-hero-showcase { grid-template-columns: 1fr; }
   .platform-grid figure:not(.wide) img { width: 100%; height: auto; min-height: 0; aspect-ratio: 16 / 10; }
   .wide-evidence figcaption { display: block; }
 }
