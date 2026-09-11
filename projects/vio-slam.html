@@ -131,10 +131,16 @@
           <div class="logic-flow" aria-label="VIO 실패 대응 순서">
             <div><span>1</span><strong>특징점 추적</strong><small>실시간 개수 모니터링</small></div>
             <div><span>2</span><strong>실패 판단</strong><small>임계값 이하 신호 발생</small></div>
-            <div><span>3</span><strong>입력 전환</strong><small>외부 위치 정보 사용</small></div>
-            <div><span>4</span><strong>복구·정렬</strong><small>연속된 위치 출력 확보</small></div>
+            <div><span>3</span><strong>입력 전환</strong><small>OptiTrack·Gazebo 위치 사용</small></div>
+            <div><span>4</span><strong>복구·정렬</strong><small>VIO 재개점의 좌표 보정</small></div>
           </div>
-          <p class="detail-note">초기에는 VINS-Fusion 최적화 내부를 직접 수정하려 했지만 구현 난도가 높았습니다. 최종적으로 기존 추정기를 크게 훼손하지 않고 외부 상태 관리자를 분리하는 구조로 방향을 전환해 이식성과 검증 가능성을 높였습니다.</p>
+          <p class="section-intro">암전 중에는 외부 위치로 출력 공백을 메우고, 영상이 회복되면 VIO 궤적을 다시 정렬했습니다.</p>
+          <p>실패 신호가 발생하면 RC카 실험에서는 OptiTrack 위치를, Gazebo 실험에서는 시뮬레이션의 실제 위치를 대체 입력으로 사용했습니다. 영상이 복구된 뒤에는 새로 시작된 VIO 위치와 외부 위치 사이의 차이를 변환값으로 적용해 궤적이 갑자기 튀지 않도록 기존 출력에 정렬했습니다.</p>
+          <figure class="wide-evidence trajectory-alignment-evidence">
+            <a class="image-zoom" href="../assets/images/projects/vio-trajectory-alignment.png" target="_blank" rel="noopener"><img src="../assets/images/projects/vio-trajectory-alignment.png" alt="VIO 실패 감지 후 외부 위치로 암전 구간을 연결하고 복구된 VIO 궤적을 정렬하는 방법" /></a>
+            <figcaption><strong>궤적 연결 방법</strong> 암전 구간은 외부 위치로 이어가고, 영상 복구 후 VIO 재개점을 기존 궤적에 정렬</figcaption>
+          </figure>
+          <p class="detail-note"><strong>구조 전환</strong><br />초기에는 VINS-Fusion 최적화 내부를 직접 수정하려 했지만 구현 난도가 높았습니다. 최종적으로 기존 추정기를 크게 훼손하지 않고 외부 상태 관리자를 분리하는 구조로 방향을 전환해 이식성과 검증 가능성을 높였습니다.</p>
         </div>
       </div>
     </section>
