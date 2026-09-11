@@ -176,6 +176,8 @@ body.lightbox-open { overflow: hidden; }
 .manta-log-grid img { aspect-ratio: 16 / 6; object-fit: contain; background: #fff; }
 .blackout-evidence img { aspect-ratio: 4 / 3; object-fit: contain; padding: 8px; background: #fff; }
 .blackout-evidence figcaption strong { display: block; margin-bottom: 4px; color: var(--detail-accent); }
+.feature-debug-video { margin-top: 24px; }
+.feature-debug-video video { aspect-ratio: 16 / 9; }
 @media (max-width: 760px) {
   .detail-hero { padding-top: 68px; }
   .detail-facts { grid-template-columns: repeat(2, 1fr); }
