@@ -670,12 +670,16 @@ p {
 .project-pair {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(6, auto);
   border: 1px solid var(--line-dark);
   background: #101f2c;
   box-shadow: inset 3px 0 0 rgba(240, 90, 50, 0.62);
 }
 
 .compact-project {
+  display: grid;
+  grid-row: span 6;
+  grid-template-rows: subgrid;
   min-height: 380px;
   padding: 46px 48px 50px;
 }
@@ -997,7 +1001,7 @@ p {
   .security-notice { align-items: flex-start; flex-direction: column; gap: 8px; }
   .security-notice strong { text-align: left; }
   .project-pair { grid-template-columns: 1fr; }
-  .compact-project { min-height: auto; padding: 38px 26px; }
+  .compact-project { display: block; min-height: auto; padding: 38px 26px; }
   .compact-project + .compact-project { padding: 38px 26px; border-top: 1px solid var(--line-dark); border-left: 0; }
   .compact-project h3 { margin-top: 42px; }
   .skills-grid { grid-template-columns: 1fr; }
