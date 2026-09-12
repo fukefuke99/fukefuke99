@@ -627,6 +627,7 @@ p {
   color: #8293a0;
   font-size: 13px;
 }
+.compact-media-capstone figcaption strong { margin-right: 6px; color: #f07a55; }
 .project-gallery .project-media figcaption { display: grid; gap: 4px; min-height: 58px; padding: 12px 14px; border-top: 1px solid #263746; background: #101d29; color: #c7d2d9; line-height: 1.5; }
 .project-gallery .project-media figcaption strong { color: #f07a55; font-size: 12px; letter-spacing: 0.08em; }
 .project-gallery .project-media figcaption span { font-size: 13px; }
