@@ -58,8 +58,8 @@ MANTA 프로젝트의 코드와 실행 방법은 [MANTA-P/MANTA](https://github.
   <img src="https://img.shields.io/badge/ROS_1-22314E?style=flat-square&logo=ros&logoColor=white" alt="ROS 1" />
   <img src="https://img.shields.io/badge/ROS_2-22314E?style=flat-square&logo=ros&logoColor=white" alt="ROS 2" />
   <img src="https://img.shields.io/badge/Gazebo-F58113?style=flat-square&logo=gazebo&logoColor=white" alt="Gazebo" />
-  <img src="https://img.shields.io/badge/AirSim-0078D4?style=flat-square" alt="AirSim" />
-  <img src="https://img.shields.io/badge/MAVROS-59666C?style=flat-square" alt="MAVROS" />
+  <img src="https://img.shields.io/badge/AirSim-0078D4?style=flat-square&logo=microsoft&logoColor=white" alt="AirSim" />
+  <img src="https://img.shields.io/badge/MAVROS-59666C?style=flat-square&logo=ros&logoColor=white" alt="MAVROS" />
   <img src="https://img.shields.io/badge/ArduPilot-004F9F?style=flat-square&logo=ardupilot&logoColor=white" alt="ArduPilot" />
 </p>
 
@@ -68,7 +68,8 @@ MANTA 프로젝트의 코드와 실행 방법은 [MANTA-P/MANTA](https://github.
 <p>
   <img src="https://img.shields.io/badge/NVIDIA_Jetson-76B900?style=flat-square&logo=nvidia&logoColor=white" alt="NVIDIA Jetson" />
   <img src="https://img.shields.io/badge/Raspberry_Pi-A22846?style=flat-square&logo=raspberrypi&logoColor=white" alt="Raspberry Pi" />
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/matlab/matlab-original.svg" width="22" height="22" alt="MATLAB" title="MATLAB" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/matlab/matlab-original.svg" width="22" height="22" alt="" title="MATLAB" />
+  <img src="https://img.shields.io/badge/MATLAB-E16737?style=flat-square" alt="MATLAB" />
   <img src="https://img.shields.io/badge/Linux-FCC624?style=flat-square&logo=linux&logoColor=black" alt="Linux" />
   <img src="https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white" alt="Git" />
   <img src="https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white" alt="Docker" />
