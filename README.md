@@ -40,40 +40,15 @@ MANTA 프로젝트의 코드와 실행 방법은 [MANTA-P/MANTA](https://github.
 
 ## Tech Stack
 
-### Embedded & Control
-
 <p>
   <img src="https://img.shields.io/badge/C%2FC%2B%2B-00599C?style=flat-square&logo=cplusplus&logoColor=white" alt="C and C++" />
+  <img src="https://img.shields.io/badge/ROS-22314E?style=flat-square&logo=ros&logoColor=white" alt="ROS" />
   <img src="https://img.shields.io/badge/STM32-03234B?style=flat-square&logo=stmicroelectronics&logoColor=white" alt="STM32" />
-  <img src="https://img.shields.io/badge/FreeRTOS-3A5FCD?style=flat-square&logo=freertos&logoColor=white" alt="FreeRTOS" />
-  <img src="https://img.shields.io/badge/Arduino-00878F?style=flat-square&logo=arduino&logoColor=white" alt="Arduino" />
-  <img src="https://img.shields.io/badge/Teensy-333333?style=flat-square" alt="Teensy" />
-  <img src="https://img.shields.io/badge/ESP32-E7352C?style=flat-square&logo=espressif&logoColor=white" alt="ESP32" />
-  <img src="https://img.shields.io/badge/Zybo-8A2BE2?style=flat-square" alt="Zybo" />
-</p>
-
-### Robotics & Simulation
-
-<p>
-  <img src="https://img.shields.io/badge/ROS_1-22314E?style=flat-square&logo=ros&logoColor=white" alt="ROS 1" />
-  <img src="https://img.shields.io/badge/ROS_2-22314E?style=flat-square&logo=ros&logoColor=white" alt="ROS 2" />
-  <img src="https://img.shields.io/badge/Gazebo-F58113?style=flat-square&logo=gazebo&logoColor=white" alt="Gazebo" />
-  <img src="https://img.shields.io/badge/AirSim-0078D4?style=flat-square" alt="AirSim" />
-  <img src="https://img.shields.io/badge/MAVROS-59666C?style=flat-square" alt="MAVROS" />
-  <img src="https://img.shields.io/badge/ArduPilot-004F9F?style=flat-square&logo=ardupilot&logoColor=white" alt="ArduPilot" />
-</p>
-
-### Platforms & Tools
-
-<p>
   <img src="https://img.shields.io/badge/NVIDIA_Jetson-76B900?style=flat-square&logo=nvidia&logoColor=white" alt="NVIDIA Jetson" />
-  <img src="https://img.shields.io/badge/Raspberry_Pi-A22846?style=flat-square&logo=raspberrypi&logoColor=white" alt="Raspberry Pi" />
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/matlab/matlab-original.svg" width="22" height="22" alt="MATLAB" title="MATLAB" />
   <img src="https://img.shields.io/badge/Linux-FCC624?style=flat-square&logo=linux&logoColor=black" alt="Linux" />
-  <img src="https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white" alt="Git" />
   <img src="https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white" alt="Docker" />
   <img src="https://img.shields.io/badge/CMake-064F8C?style=flat-square&logo=cmake&logoColor=white" alt="CMake" />
-  <img src="https://img.shields.io/badge/Autodesk_Inventor-F59B00?style=flat-square&logo=autodesk&logoColor=white" alt="Autodesk Inventor" />
 </p>
 
 ---
