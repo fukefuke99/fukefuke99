@@ -201,6 +201,8 @@ body.lightbox-open { overflow: hidden; }
 .capstone-sensor-grid img { object-position: center; }
 .capstone-sensor-grid figure:first-child img { object-position: center 46%; }
 .capstone-flow-evidence img { max-height: 620px; padding: clamp(16px, 3vw, 32px); object-fit: contain; background: #fff; }
+.capstone-flow-evidence figcaption span,
+.capstone-code-evidence figcaption span { color: var(--detail-muted); font-weight: 400; }
 .capstone-hardware-grid img { aspect-ratio: 4 / 3; }
 .capstone-app-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .capstone-app-grid figure.portrait img { aspect-ratio: 9 / 16; padding: 12px; background: #edf1f3; }
