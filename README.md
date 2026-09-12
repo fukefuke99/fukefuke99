@@ -28,13 +28,14 @@
 | **Robotics Systems** | 전장 설계부터 ROS와 NVIDIA Jetson 기반 소프트웨어까지 통합합니다. |
 | **Analysis & Validation** | 계측 데이터와 실기체 테스트를 통해 시스템의 문제를 검증합니다. |
 
-## Selected Systems
+## Selected Research & Projects
 
-- **생체모방 수중유영로봇** — 전장·통신·센서 인터페이스와 모터 제어 시스템
-- **VIO 기반 자율비행 드론** — SLAM 위치추정과 실기체 비행 검증 환경
-- **항공우주 구조체 모달 분석** — 진동 계측, FRF 분석과 모드 형상 식별
-- **MANTA 수중 통합 시뮬레이션** — DAVE·ROS 2·Gazebo 기반 어뢰 유도 및 ROV 회피 검증 환경
-- **F1TENTH 자율주행 플랫폼** — LiDAR 기반 Mapping·Localization과 차량 제어 인터페이스
+- **생체모방 수중유영로봇** — 전장·통신 통합과 엔코더 피드백 기반 모터 제어, 구성품 시험
+- **VIO 위치추정 강인성 연구** — 암전 실패 감지와 외부 상태 대체·복구 궤적 정렬, 드론 실비행 검증
+- **항공우주 구조체 모달 분석** — 자유 경계 가진 시험 환경 구축과 FRF 기반 고유진동수·모드 형상 식별
+- **MANTA 수중 통합 시뮬레이션** — DAVE·ROS 2·Gazebo 기반 어뢰 유도 및 ROV 회피, 모델·통신 성능 개선
+- **F1TENTH 자율주행 플랫폼** — 2D LiDAR 매핑·위치추정 환경 구축과 속도 조건별 반복 검증
+- **마찰전기 교통량 측정 시스템** — 차동 신호 계수·저장과 Bluetooth·Firebase 기반 기간별 조회
 
 MANTA 프로젝트의 코드와 실행 방법은 [MANTA-P/MANTA](https://github.com/MANTA-P/MANTA)에서 확인할 수 있습니다.
 
@@ -42,10 +43,15 @@ MANTA 프로젝트의 코드와 실행 방법은 [MANTA-P/MANTA](https://github.
 
 <p>
   <img src="https://img.shields.io/badge/C%2FC%2B%2B-00599C?style=flat-square&logo=cplusplus&logoColor=white" alt="C and C++" />
-  <img src="https://img.shields.io/badge/ROS-22314E?style=flat-square&logo=ros&logoColor=white" alt="ROS" />
+  <img src="https://img.shields.io/badge/ROS_1%20%7C%20ROS_2-22314E?style=flat-square&logo=ros&logoColor=white" alt="ROS 1 and ROS 2" />
   <img src="https://img.shields.io/badge/STM32-03234B?style=flat-square&logo=stmicroelectronics&logoColor=white" alt="STM32" />
+  <img src="https://img.shields.io/badge/FreeRTOS-2C3E50?style=flat-square&logo=freertos&logoColor=white" alt="FreeRTOS" />
   <img src="https://img.shields.io/badge/NVIDIA_Jetson-76B900?style=flat-square&logo=nvidia&logoColor=white" alt="NVIDIA Jetson" />
+  <img src="https://img.shields.io/badge/Raspberry_Pi-A22846?style=flat-square&logo=raspberrypi&logoColor=white" alt="Raspberry Pi" />
+  <img src="https://img.shields.io/badge/Arduino-00878F?style=flat-square&logo=arduino&logoColor=white" alt="Arduino" />
+  <img src="https://img.shields.io/badge/Gazebo-F58113?style=flat-square&logo=gazebo&logoColor=white" alt="Gazebo" />
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/matlab/matlab-original.svg" width="22" height="22" alt="MATLAB" title="MATLAB" />
+  <img src="https://img.shields.io/badge/Autodesk_Inventor-0696D7?style=flat-square&logo=autodesk&logoColor=white" alt="Autodesk Inventor" />
   <img src="https://img.shields.io/badge/Linux-FCC624?style=flat-square&logo=linux&logoColor=black" alt="Linux" />
   <img src="https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white" alt="Docker" />
   <img src="https://img.shields.io/badge/CMake-064F8C?style=flat-square&logo=cmake&logoColor=white" alt="CMake" />
