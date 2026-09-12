@@ -342,6 +342,19 @@ p {
   letter-spacing: -0.045em;
 }
 
+.profile-name,
+.profile-role {
+  display: block;
+}
+
+.profile-role {
+  margin-top: 4px;
+  color: #e4ebf0;
+  font-size: clamp(18px, 1.5vw, 22px);
+  line-height: 1.35;
+  letter-spacing: -0.035em;
+}
+
 .profile-intro {
   max-width: 34rem;
   margin-bottom: 28px;
