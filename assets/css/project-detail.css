@@ -89,6 +89,8 @@ body.lightbox-open { overflow: hidden; }
 .detail-video video { display: block; width: 100%; max-height: 560px; object-fit: contain; }
 .detail-video figcaption { padding: 12px 14px; background: #fff; color: var(--detail-muted); font-size: 13px; }
 .detail-video figcaption strong { margin-right: 7px; color: var(--detail-accent); }
+.capstone-principle-video { max-width: 760px; }
+.capstone-principle-video video { aspect-ratio: 16 / 9; }
 .detail-video-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; margin-top: 38px; }
 .detail-video-grid figure { margin: 0; overflow: hidden; border: 1px solid var(--detail-line); background: #fff; }
 .detail-video-grid figure.wide { grid-column: 1 / -1; }

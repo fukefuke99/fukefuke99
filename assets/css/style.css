@@ -756,6 +756,11 @@ p {
   object-fit: contain;
 }
 
+.compact-media-capstone video {
+  object-fit: contain;
+  background: #000;
+}
+
 .skills-section {
   background: #f4f6f9;
 }

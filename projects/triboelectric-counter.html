@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="마찰전기 센서 입력부터 시간 기록, Bluetooth 통신과 App Inventor 조회 화면까지 구현한 캡스톤 디자인 프로젝트" />
   <title>마찰전기 교통량 측정 시스템 | 김수환</title>
-  <link rel="stylesheet" href="../assets/css/style.css?v=20260911-14" />
-  <link rel="stylesheet" href="../assets/css/project-detail.css?v=20260911-14" />
+  <link rel="stylesheet" href="../assets/css/style.css?v=20260913-1" />
+  <link rel="stylesheet" href="../assets/css/project-detail.css?v=20260913-1" />
 </head>
 <body class="project-page">
   <header class="detail-header"><div class="container detail-nav"><a class="detail-back" href="../index.html#projects">← 대표 프로젝트</a><strong>김수환 포트폴리오</strong></div></header>
@@ -20,7 +20,7 @@
 
     <section class="detail-section detail-section-tint" id="problem"><div class="container detail-grid"><h2>수작업 교통량 조사를<br />휴대형 장치로</h2><div class="detail-copy">
       <p class="section-intro">교통량 조사는 많은 인력과 시간이 필요하고, 매립형 장비는 설치와 유지 비용이 큽니다. 필요한 구간에 간편하게 설치해 데이터를 계속 수집할 수 있는 장치를 목표로 정했습니다.</p>
-      <p>기획 단계에서 인력 조사, 도로 매립형 센서와 영상 기반 조사 방식의 한계를 비교했습니다. 차량 하중을 전기 신호로 바꾸는 소형 센서와 저가형 임베디드 보드를 결합하면 설치 부담을 낮추면서 시간대별 데이터를 자동으로 남길 수 있다고 판단했습니다.</p>
+      <p>기획 단계에서 팀원 전원이 함께 인력 조사, 도로 매립형 센서와 영상 기반 조사 방식의 한계를 비교했습니다. 차량 하중을 전기 신호로 바꾸는 소형 센서와 저가형 임베디드 보드를 결합하면 설치 부담을 낮추면서 시간대별 데이터를 자동으로 남길 수 있다고 판단했습니다.</p>
       <div class="research-logic" aria-label="캡스톤 프로젝트의 문제 정의와 구현 방향">
         <article><span>PROBLEM</span><strong>현장 조사 부담</strong><p>인력·설치 비용이 크고, 수집한 자료를 다시 집계해야 했습니다.</p></article>
         <article><span>IDEA</span><strong>통과 신호 자동 계수</strong><p>차량 하중으로 발생하는 전기 신호를 이벤트로 검출하도록 했습니다.</p></article>
@@ -31,6 +31,12 @@
     <section class="detail-section" id="sensor"><div class="container detail-grid"><h2>센서 원리에서<br />입력 신호까지</h2><div class="detail-copy">
       <p class="section-intro">압력 입력을 전압으로 읽는 회로부터 확인한 뒤, 서로 다른 재료의 접촉과 분리에서 전하가 발생하는 마찰전기 소자를 직접 제작해 최종 입력원으로 정했습니다.</p>
       <p>초기에는 압전·압력 센서 방식과 마찰전기 방식의 발전량과 적용 가능성을 함께 검토했습니다. Arduino 입력 코드를 작성해 압력에 따른 신호 검출을 먼저 확인하고, 제작한 마찰전기 소자는 오실로스코프와 정밀 계측 장비를 이용해 실제 출력 신호가 발생하는지 확인했습니다.</p>
+      <figure class="detail-video capstone-principle-video">
+        <video controls muted playsinline preload="metadata" poster="../assets/images/projects/capstone-principle-poster.jpg" aria-label="마찰전기 나노발전기 작동 원리 설명 영상">
+          <source src="../assets/videos/capstone-principle-noaudio.mp4" type="video/mp4" />
+        </video>
+        <figcaption><strong>원리 설명 영상</strong>이미지와 자막을 직접 구성해 마찰전기 나노발전기의 작동 원리를 설명했습니다.</figcaption>
+      </figure>
       <div class="evidence-grid capstone-sensor-grid">
         <figure><a class="image-zoom" href="../assets/images/projects/capstone-input-test.jpg" target="_blank" rel="noopener"><img src="../assets/images/projects/capstone-input-test.jpg" alt="Arduino와 압력 입력 센서를 연결한 초기 검출 시험" /></a><figcaption><strong>입력 검출</strong> Arduino 코드와 센서 회로로 압력에 따른 전기 신호 확인</figcaption></figure>
         <figure><a class="image-zoom" href="../assets/images/projects/capstone-signal-measurement.jpg" target="_blank" rel="noopener"><img src="../assets/images/projects/capstone-signal-measurement.jpg" alt="오실로스코프와 정밀 계측 장비를 사용한 마찰전기 신호 측정" /></a><figcaption><strong>소자 검증</strong> 오실로스코프·전류 프리앰프·일렉트로미터로 출력 신호 측정</figcaption></figure>
@@ -59,7 +65,7 @@
 
     <section class="detail-section" id="application"><div class="container detail-grid"><h2>저장 데이터를<br />앱에서 조회하다</h2><div class="detail-copy">
       <p class="section-intro">MIT App Inventor로 Bluetooth 연결부터 조회 조건 선택, 집계 결과 표시까지 현장 사용 순서에 맞춘 화면을 구현했습니다.</p>
-      <p>앱에서 장치를 연결한 뒤 날짜와 시간 범위를 지정하고, 저장된 기록을 불러와 전체 카운트와 분류별 결과를 확인하도록 구성했습니다. Arduino가 SD 카드 기록을 읽어 Bluetooth 요청에 응답하도록 전송 형식을 맞추고, App Inventor에서 날짜·시간 범위와 분류 조건에 따라 결과를 표시했습니다.</p>
+      <p>앱에서 장치를 연결한 뒤 날짜와 시간 범위를 지정하고, 저장된 기록을 불러와 전체 카운트와 분류별 결과를 확인하도록 구성했습니다. Arduino가 SD 카드 기록을 읽어 Bluetooth 요청에 응답하도록 전송 형식을 맞추고, Firebase와 연동한 App Inventor 화면에서 날짜·시간 범위와 분류 조건에 따라 결과를 표시했습니다.</p>
       <div class="evidence-grid capstone-app-grid">
         <figure class="portrait"><a class="image-zoom" href="../assets/images/projects/capstone-app-home.jpg" target="_blank" rel="noopener"><img src="../assets/images/projects/capstone-app-home.jpg" alt="정보 확인과 기기 연결 메뉴가 있는 App Inventor 앱 홈 화면" /></a><figcaption><strong>연결</strong> 정보 확인·관리와 Bluetooth 기기 연결 메뉴</figcaption></figure>
         <figure class="portrait"><a class="image-zoom" href="../assets/images/projects/capstone-app-query.jpg" target="_blank" rel="noopener"><img src="../assets/images/projects/capstone-app-query.jpg" alt="날짜와 시간 및 차량 분류 조건을 선택하는 앱 조회 화면" /></a><figcaption><strong>조건 선택</strong> 날짜·시간 범위와 분류 항목 지정</figcaption></figure>
@@ -69,7 +75,7 @@
     </div></div></section>
 
     <section class="detail-section detail-section-tint" id="result"><div class="container detail-grid"><h2>팀장으로 맡은<br />통합 범위</h2><div class="detail-copy">
-      <p class="section-intro">자료 조사와 하드웨어 검토, 소프트웨어 개발을 맡아 네 명의 작업이 센서 입력부터 앱 조회까지 하나의 시제품으로 이어지도록 조율했습니다.</p>
+      <p class="section-intro">자료 조사는 팀원 전원이 함께 수행했습니다. 저는 팀장으로서 하드웨어 검토와 소프트웨어 개발을 맡고, 네 명의 작업이 센서 입력부터 앱 조회까지 하나의 시제품으로 이어지도록 조율했습니다.</p>
       <div class="contribution-grid capstone-contribution">
         <article><strong>시스템 설계</strong><span>문제 정의, 센서 입력과 데이터 처리 구조 정리</span></article>
         <article><strong>하드웨어</strong><span>Arduino 기반 입력·RTC·SD·Bluetooth 모듈 통합</span></article>
@@ -77,7 +83,7 @@
         <article><strong>통합 검증</strong><span>입력 발생부터 저장, 무선 전송과 조회까지 전 구간 시험</span></article>
       </div>
       <h3>구현 결과</h3>
-      <ul class="result-list"><li>차량 통과를 모사한 센서 입력을 이벤트로 검출하고 누적 카운트로 변환했습니다.</li><li>센서 차동 데이터와 RTC 시각·카운트를 SD 카드에 함께 저장하도록 구성했습니다.</li><li>Bluetooth 요청에 맞춰 저장 기록을 읽고, 앱에서 기간별 전체 카운트를 확인하는 흐름을 완성했습니다.</li></ul>
+      <ul class="result-list"><li>차량 통과를 모사한 센서 입력을 이벤트로 검출하고 누적 카운트로 변환했습니다.</li><li>센서 차동 데이터와 RTC 시각·카운트를 SD 카드에 함께 저장하도록 구성했습니다.</li><li>Bluetooth 요청에 맞춰 저장 기록을 읽고, 앱에서 기간별 전체 카운트를 확인하는 흐름을 완성했습니다.</li><li>마찰전기 나노발전기 원리 설명 영상을 제작하고, Blender로 프로젝트 소개 영상을 구성·편집했습니다.</li></ul>
       <p class="detail-note">차종·속도·중량 구분은 차동 데이터의 전압 크기를 활용한 확장 목표와 앱 조회 항목으로 설계했습니다. 이 페이지에서는 보유 자료로 확인되는 센서 계수, 차동 데이터·시각 기록, 저장과 Bluetooth 조회 범위를 구현 결과로 구분해 정리했습니다.</p>
     </div></div></section>
 
