@@ -82,6 +82,7 @@ body.lightbox-open { overflow: hidden; }
 .metric { padding: 25px; background: #fff; }
 .metric strong { display: block; color: var(--detail-accent); font-size: clamp(26px, 3vw, 42px); letter-spacing: -0.05em; }
 .metric span { color: var(--detail-muted); font-size: 13px; }
+.manta-page .metric strong { font-size: clamp(24px, 2.15vw, 32px); white-space: nowrap; }
 .video-slot { display: grid; min-height: 260px; margin-top: 42px; place-items: center; border: 1px dashed #aaa89f; background: #efede6; color: var(--detail-muted); text-align: center; }
 .video-slot strong { display: block; margin-bottom: 6px; color: var(--detail-ink); }
 .detail-video { margin: 42px 0 0; overflow: hidden; border: 1px solid var(--detail-line); background: #101d29; }
