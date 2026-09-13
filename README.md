@@ -33,7 +33,7 @@
 - `2024.03–2026.02 · 석사 연구` **생체모방 수중유영로봇** — 전장·통신 통합과 엔코더 피드백 기반 모터 제어, 구성품 시험
 - `2024.03–2026.02 · 학위 연구` **VIO 위치추정 강인성 연구** — 암전 실패 감지와 외부 상태 대체·복구 궤적 정렬, 드론 실비행 검증
 - `2025.09–2026.02 · 연구과제` **항공우주 구조체 모달 분석** — 자유 경계 가진 시험 환경 구축과 FRF 기반 고유진동수·모드 형상 식별
-- `2026.07–2026.09 · 교육 프로젝트` **MANTA 수중 통합 시뮬레이션** — DAVE·ROS 2·Gazebo 기반 어뢰 유도 및 ROV 회피, 모델·통신 성능 개선
+- `2026.07–2026.09 · 교육 프로젝트` **MANTA 수중 통합 시뮬레이션** — DAVE·ROS 2·Gazebo 기반 어뢰 유도 및 ROV 회피, ESP32·CAN 기반 Controller-HIL 통합
 - `2024.07–2024.11 · 팀 프로젝트` **F1TENTH 자율주행 플랫폼** — 2D LiDAR 매핑·위치추정 환경 구축과 속도 조건별 반복 검증
 - `2022.03–2022.07 · 학부 캡스톤` **마찰전기 교통량 측정 시스템** — 차동 신호 계수·저장과 Bluetooth·Firebase 기반 기간별 조회
 
@@ -46,6 +46,9 @@ MANTA 프로젝트의 코드와 실행 방법은 [MANTA-P/MANTA](https://github.
   <img src="https://img.shields.io/badge/ROS_1%20%7C%20ROS_2-22314E?style=flat-square&logo=ros&logoColor=white" alt="ROS 1 and ROS 2" />
   <img src="https://img.shields.io/badge/STM32-03234B?style=flat-square&logo=stmicroelectronics&logoColor=white" alt="STM32" />
   <img src="https://img.shields.io/badge/FreeRTOS-2C3E50?style=flat-square&logo=freertos&logoColor=white" alt="FreeRTOS" />
+  <img src="https://img.shields.io/badge/ESP32-E7352C?style=flat-square&logo=espressif&logoColor=white" alt="ESP32" />
+  <img src="https://img.shields.io/badge/Teensy-1F2937?style=flat-square" alt="Teensy" />
+  <img src="https://img.shields.io/badge/CAN-00599C?style=flat-square" alt="CAN" />
   <img src="https://img.shields.io/badge/NVIDIA_Jetson-76B900?style=flat-square&logo=nvidia&logoColor=white" alt="NVIDIA Jetson" />
   <img src="https://img.shields.io/badge/Raspberry_Pi-A22846?style=flat-square&logo=raspberrypi&logoColor=white" alt="Raspberry Pi" />
   <img src="https://img.shields.io/badge/Arduino-00878F?style=flat-square&logo=arduino&logoColor=white" alt="Arduino" />

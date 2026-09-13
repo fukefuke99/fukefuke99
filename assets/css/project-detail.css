@@ -181,7 +181,7 @@ body.lightbox-open { overflow: hidden; }
 .manta-model-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .manta-model-grid img { object-fit: contain; background: #d7dfe2; }
 .manta-model-grid figure.wide img { aspect-ratio: 16 / 7; object-fit: contain; }
-.manta-model-grid figcaption strong, .manta-log-grid figcaption strong { margin-right: 6px; color: var(--detail-accent); }
+.manta-model-grid figcaption strong, .manta-log-grid figcaption strong, .manta-can-grid figcaption strong { margin-right: 6px; color: var(--detail-accent); }
 .manta-environment-list { border-top-color: var(--detail-line); }
 .manta-environment-list li { border-bottom-color: var(--detail-line); }
 .manta-environment-video video { aspect-ratio: 875 / 464; }
@@ -191,6 +191,7 @@ body.lightbox-open { overflow: hidden; }
 .manta-interface-flow { margin-bottom: 26px; }
 .manta-contribution { margin-bottom: 34px; }
 .manta-log-grid img { aspect-ratio: 16 / 6; object-fit: contain; background: #fff; }
+.manta-can-grid img { aspect-ratio: 4 / 5; object-fit: cover; object-position: center 36%; background: #e8eaeb; }
 .blackout-evidence img { aspect-ratio: 4 / 3; object-fit: contain; padding: 8px; background: #fff; }
 .blackout-evidence figcaption strong { display: block; margin-bottom: 4px; color: var(--detail-accent); }
 .feature-debug-video { margin-top: 24px; }
