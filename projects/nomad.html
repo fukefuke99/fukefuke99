@@ -8,7 +8,7 @@
 <title>NOMAD · GNSS–VIO 최적화와 야지 자율주행 통합 | 김수환</title>
 <link href="../assets/css/style.css?v=20260911-14" rel="stylesheet"/>
 <link href="../assets/css/project-detail.css?v=20260913-3" rel="stylesheet"/>
-<link href="../assets/css/nomad.css?v=20261018-3" rel="stylesheet"/>
+<link href="../assets/css/nomad.css?v=20261018-4" rel="stylesheet"/>
 <link href="../assets/vendor/katex/katex.min.css" rel="stylesheet"/>
 <script defer="" src="../assets/vendor/katex/katex.min.js"></script>
 <script defer="" src="../assets/vendor/katex/copy-tex.min.js"></script>
@@ -37,12 +37,10 @@
 <p class="section-intro">윈도우 안 각 시점의 IMU 위치와 자세를 함께 조정해, 상대 이동과 전역 위치 제약을 동시에 만족시킵니다. 왼쪽 위 첨자는 좌표계를 나타냅니다.</p>
 <figure class="wide-evidence"><a class="image-zoom" href="../assets/images/projects/nomad/pose-graph.svg" rel="noopener" target="_blank"><img alt="약 50개 포즈의 슬라이딩 윈도우에서 VIO 상대 이동 제약과 GNSS 절대 위치 제약 및 경계 prior를 결합하는 포즈 그래프" src="../assets/images/projects/nomad/pose-graph.svg"/></a><figcaption>VIO는 이웃 포즈를 연결하고, GNSS는 안테나의 전역 위치를 제약합니다. 윈도우 내 과거 포즈도 함께 수정됩니다.</figcaption></figure>
 <div class="equation-card"><h3>1. 서로 다른 측정을 하나의 목적함수로</h3><div class="nomad-math">
-\begin{aligned}
 \underset{\{{}^{W}\!p_i,\,{}^{W}\!q_i\}}{\operatorname{min}}\quad
-&amp;\left\|r_{\mathrm{prior}}\right\|^2 \\
-&amp;+\sum_{(i,j)}\rho\!\left(\left\|r_{ij}^{\mathrm{VIO}}\right\|^2\right)
+\left\|r_{\mathrm{prior}}\right\|^2
++\sum_{(i,j)}\rho\!\left(\left\|r_{ij}^{\mathrm{VIO}}\right\|^2\right)
 +\sum_i\rho\!\left(\left\|r_i^{\mathrm{GNSS}}\right\|^2\right)
-\end{aligned}
 </div><details class="nomad-details math-explanation"><summary>각 항과 기호 설명</summary><p>각 잔차를 σ로 나누어 무차원화한 뒤 제곱합을 최소화합니다. ρ는 Huber 손실입니다. σ로 센서의 기본 신뢰도를 표현하고, 강건 손실로 큰 잔차의 영향이 계속 제곱으로 커지는 것을 완화합니다.</p><dl class="math-symbols"><div><dt>좌표계</dt><dd>W는 ENU 전역 좌표계, i·j는 각 시점의 IMU 좌표계입니다.</dd></div><div><dt><span class="nomad-math nomad-math-inline">{}^{W}\!p_i,\;{}^{W}\!q_i</span></dt><dd>최적화할 IMU 위치와 자세입니다. 위치는 W 기준, quaternion은 i → W 회전을 나타냅니다.</dd></div><div><dt><span class="nomad-math nomad-math-inline">r,\;\rho,\;r_{\mathrm{prior}}</span></dt><dd>각각 잔차, Huber 손실, 이전 해를 유지하는 경계 prior 잔차입니다.</dd></div></dl></details></div>
 <div class="equation-card"><h3>2. VIO는 전역 좌표 대신 상대 이동을 전달</h3><div class="nomad-math">
 \begin{aligned}
@@ -50,7 +48,7 @@ r_{p,ij} &amp;= \frac{{}^{i}\!R_W\!\left({}^{W}\!p_j-{}^{W}\!p_i\right)-{}^{i}\!
 r_{R,ij} &amp;= \frac{\operatorname{Log}\!\left[\left({}^{i}\!R_{j,\mathrm{VIO}}\right)^{\mathsf T}\,{}^{i}\!R_W\,{}^{W}\!R_j\right]}{\sigma_{R,ij}}
 \end{aligned}
 </div><details class="nomad-details math-explanation"><summary>각 항과 기호 설명</summary><p>전역 위치 차이를 i 좌표계로 옮겨 VIO 상대 이동과 비교합니다. 회전도 아래 관계로 같은 좌표계에 맞춘 뒤, VIO 관측 회전을 되돌려 남는 회전량을 잔차로 씁니다.
-<span class="nomad-math nomad-math-inline">{}^{i}\!R_W=({}^{W}\!R_i)^{\mathsf T},\qquad {}^{i}\!R_j={}^{i}\!R_W\,{}^{W}\!R_j</span></p><dl class="math-symbols"><div><dt><span class="nomad-math nomad-math-inline">{}^{W}\!R_i,\;{}^{i}\!R_W</span></dt><dd>각각 i → W, W → i 변환입니다. 서로 역변환이므로 전치 관계입니다.</dd></div><div><dt><span class="nomad-math nomad-math-inline">{}^{i}\!\Delta p_{ij}^{\mathrm{VIO}},\;{}^{i}\!R_{j,\mathrm{VIO}}</span></dt><dd>VIO가 관측한 상대 이동·회전입니다. 이동은 i 좌표계 기준, 회전은 j → i 변환입니다.</dd></div><div><dt><span class="nomad-math nomad-math-inline">\sigma_{p,ij},\;\sigma_{R,ij}</span></dt><dd>상대 이동·회전의 표준편차입니다. Log는 남은 회전을 rad 단위 3차원 회전 벡터로 바꿉니다.</dd></div></dl></details></div>
+<span class="nomad-math nomad-math-inline math-coordinate-relation">{}^{i}\!R_W=({}^{W}\!R_i)^{\mathsf T},\qquad {}^{i}\!R_j={}^{i}\!R_W\,{}^{W}\!R_j</span></p><dl class="math-symbols"><div><dt><span class="nomad-math nomad-math-inline">{}^{W}\!R_i,\;{}^{i}\!R_W</span></dt><dd>각각 i → W, W → i 변환입니다. 서로 역변환이므로 전치 관계입니다.</dd></div><div><dt><span class="nomad-math nomad-math-inline">{}^{i}\!\Delta p_{ij}^{\mathrm{VIO}},\;{}^{i}\!R_{j,\mathrm{VIO}}</span></dt><dd>VIO가 관측한 상대 이동·회전입니다. 이동은 i 좌표계 기준, 회전은 j → i 변환입니다.</dd></div><div><dt><span class="nomad-math nomad-math-inline">\sigma_{p,ij},\;\sigma_{R,ij}</span></dt><dd>상대 이동·회전의 표준편차입니다. Log는 남은 회전을 rad 단위 3차원 회전 벡터로 바꿉니다.</dd></div></dl></details></div>
 <div class="equation-card"><h3>3. GNSS는 안테나 위치를 제약</h3><div class="nomad-math">
 \begin{aligned}
 r_i^{\mathrm{GNSS}} &amp;= D_i^{-1}\!\left({}^{W}\!p_i+{}^{W}\!R_i\,{}^{i}\!\ell-{}^{W}\!z_i\right) \\

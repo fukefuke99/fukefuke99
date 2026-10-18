@@ -46,7 +46,7 @@
 .nomad-math { overflow-x:auto; overflow-y:hidden; padding:10px 2px; color:#142c3b; }
 .nomad-math .katex { font-size:1.13em; }
 .nomad-math .katex-display { margin:.65em 0; text-align:center; }
-.nomad-math-inline { display:inline; padding:0; overflow:visible; }
+.nomad-math-inline { display:inline-block; white-space:nowrap; padding:0; overflow:visible; }
 .nomad-math-inline .katex { font-size:1em; }
 .math-error { white-space:pre-wrap; font-family:monospace; color:#a13722; }
 .equation-card .nomad-math .katex { font-size:1.5em; }
@@ -56,8 +56,11 @@
 .math-symbols dt { font-size:14px; font-weight:600; }
 .math-symbols dd { margin:0; color:#52636f; font-size:14px; line-height:1.75; }
 .equation-card .nomad-math-inline .katex { font-size:1em; }
-.equation-card p > .nomad-math-inline { display:block; margin-top:10px; overflow-x:auto; padding-bottom:3px; }
+.equation-card p > .math-coordinate-relation { display:block; margin-top:10px; overflow-x:auto; padding-bottom:3px; }
 @media(max-width:760px) { .math-symbols > div { grid-template-columns:1fr; gap:3px; margin-top:14px; } }
 .equation-card .math-explanation { padding:12px 15px; margin-top:16px; background:#faf9f5; }
 .equation-card .math-explanation summary { font-size:14px; }
 .equation-card .math-explanation > p { margin-top:14px; }
+
+/* Keep each display equation intact; narrow screens can scroll the formula. */
+.nomad-math .katex-display { min-width:max-content; }
