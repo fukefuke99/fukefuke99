@@ -204,9 +204,21 @@
               </figure>
             </article>
 
+            <article class="project-card reveal" id="project-nomad">
+              <div class="project-meta"><span>03</span><span>2026 — 진행 중</span><span>OFF-ROAD AUTONOMY</span></div>
+              <div class="project-body">
+                <div><p class="project-kicker">GNSS–VIO 최적화 · 파인튜닝 · 시스템 통합</p><h3>NOMAD 야지 자율주행</h3></div>
+                <div class="project-summary"><p>위치추정과 공통 시뮬레이션 통합을 맡아, VIO 상대 이동·GNSS 절대 위치·안테나 장착 오프셋을 잔차로 구성한 Ceres 포즈 최적화기를 구현했습니다. 200.5 m 순환 데이터의 모사 GNSS σ = 0.5 m 조건에서 공통 평가 시점 수평 RMSE가 0.435 m에서 0.178 m로 감소했습니다. 의미분할 모델은 직접 파인튜닝하고, 팀원의 경로생성 코드는 원리를 학습해 위치추정·지도 출력과 통합했습니다.</p>
+                  <ul class="tags" aria-label="사용 기술"><li>Ceres</li><li>Pose Graph</li><li>ROS 2</li><li>GNSS · VIO</li><li>SegFormer</li></ul>
+                  <a class="project-link" href="projects/nomad.html">자세히 보기 <span>↗</span></a>
+                </div>
+              </div>
+              <figure class="project-media project-media-wide project-media-contain"><img src="assets/images/projects/nomad/fusion-trajectory.png" alt="NOMAD 순환 주행에서 VIO·모사 GNSS·Ceres 융합 궤적과 시간별 위치 오차 비교" loading="lazy" /><figcaption><strong>CERES · GNSS–VIO FUSION</strong><span>같은 VIO 입력으로 센서 조건을 바꿔 비교한 시뮬레이션 결과</span></figcaption></figure>
+            </article>
+
             <article class="project-card reveal" id="project-modal">
               <div class="project-meta">
-                <span>03</span><span>2025.09 — 2026.02</span><span>MODAL ANALYSIS</span>
+                <span>04</span><span>2025.09 — 2026.02</span><span>MODAL ANALYSIS</span>
               </div>
               <div class="project-body">
                 <div>
@@ -251,7 +263,7 @@
 
             <article class="project-card project-featured reveal">
               <div class="project-meta">
-                <span>04</span><span>2026.07 — 2026.09</span><span>UNDERWATER SIMULATION</span>
+                <span>05</span><span>2026.07 — 2026.09</span><span>UNDERWATER SIMULATION</span>
               </div>
               <div class="project-body">
                 <div>
@@ -286,7 +298,7 @@
 
             <div class="project-pair">
               <article class="compact-project reveal">
-                <div class="compact-meta"><span class="compact-index">05 / AUTONOMOUS DRIVING</span><span class="compact-date">2024.07 — 2024.11</span></div>
+                <div class="compact-meta"><span class="compact-index">06 / AUTONOMOUS DRIVING</span><span class="compact-date">2024.07 — 2024.11</span></div>
                 <h3>F1TENTH 자율주행 레이싱</h3>
                 <p>F1TENTH 차량의 2D LiDAR SLAM 위치추정을 맡았습니다. 저속·고속 주행과 센서 조건별 ROS bag을 비교해 스캔 매칭과 루프 클로징을 조정하고, VESC의 ERPM을 차량 상태 확인에 연동했습니다.</p>
                 <ul class="tags"><li>SLAM Toolbox</li><li>LiDAR</li><li>VESC</li><li>Jetson</li></ul>
@@ -299,7 +311,7 @@
                 </figure>
               </article>
               <article class="compact-project reveal">
-                <div class="compact-meta"><span class="compact-index">06 / EMBEDDED IoT</span><span class="compact-date">2022.03 — 2022.06</span></div>
+                <div class="compact-meta"><span class="compact-index">07 / EMBEDDED IoT</span><span class="compact-date">2022.03 — 2022.06</span></div>
                 <h3>마찰전기 나노발전기 기반 교통량 측정 시스템</h3>
                 <p>마찰전기 센서의 입력을 Arduino로 계수하고 차동 데이터와 발생 시각을 SD 카드에 저장한 뒤, Bluetooth로 App Inventor 앱에 전달해 기간별 교통량을 조회하는 시제품을 팀장으로 개발했습니다.</p>
                 <ul class="tags"><li>Arduino</li><li>Bluetooth</li><li>RTC·SD</li><li>App Inventor · Firebase</li><li>Blender</li></ul>
@@ -334,8 +346,8 @@
 
             <article class="skill-card reveal">
               <div class="skill-card-head"><span class="skill-icon" aria-hidden="true">C++</span><div><small>LANGUAGE</small><h3>C++</h3></div><span class="skill-level">프로젝트</span></div>
-              <p>로봇 제어 노드와 장비 인터페이스 구현, 객체지향과 기본적인 Strategy, Factory 패턴 적용</p>
-                  <ul><li>OOP</li><li>Control</li><li>Interface</li></ul>
+              <p>로봇 제어 노드·장비 인터페이스와 Ceres 포즈 잔차 구현, 객체지향 및 Strategy·Factory 패턴 적용</p>
+                  <ul><li>OOP</li><li>Ceres</li><li>Control</li></ul>
               <div class="skill-meter" data-score="2" aria-label="활용 수준 중하"><div class="skill-meter-label"><span>활용 수준</span><strong>중하</strong></div><div class="skill-meter-bar" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div><div class="skill-meter-scale"><span>하</span><span>중</span><span>상</span></div></div>
             </article>
 

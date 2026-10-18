@@ -1,0 +1,50 @@
+{
+  "validation_images": 200,
+  "classes_in_miou": [
+    1,
+    3,
+    6,
+    7,
+    8,
+    9
+  ],
+  "models": {
+    "B4_existing": {
+      "miou": 0.46896220980101094,
+      "iou": {
+        "Trees": 0.8649818470492627,
+        "Dry Grass": 0.005142029070745785,
+        "Logs": 0.0014382713984680737,
+        "Rocks": 0.35538613063313357,
+        "Landscape": 0.6264753957687972,
+        "Sky": 0.9603495848856584
+      },
+      "pixel_accuracy": 0.7200345540364583,
+      "median_ms": 58.350862498627976,
+      "p95_ms": 60.86185400181421,
+      "providers": [
+        "CUDAExecutionProvider",
+        "CPUExecutionProvider"
+      ]
+    },
+    "B0_gazebo": {
+      "miou": 0.8795561598739114,
+      "iou": {
+        "Trees": 0.9743019945908709,
+        "Dry Grass": 0.8115223859328152,
+        "Logs": 0.6501173656937863,
+        "Rocks": 0.8748051377255652,
+        "Landscape": 0.9914222832861964,
+        "Sky": 0.9751677920142342
+      },
+      "pixel_accuracy": 0.9879740885416667,
+      "median_ms": 31.81637349916855,
+      "p95_ms": 32.906095050566364,
+      "providers": [
+        "CUDAExecutionProvider",
+        "CPUExecutionProvider"
+      ]
+    }
+  },
+  "limits": "Same-map held-out camera positions; model selected on this validation set, not an independent test."
+}

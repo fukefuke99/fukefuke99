@@ -1,0 +1,60 @@
+.nomad-page .detail-hero h1 { max-width: 1100px; font-size: clamp(38px,6vw,72px); line-height: 1.15; }
+.nomad-page .detail-lead { max-width: 880px; }
+.nomad-hero-layout { display: grid; grid-template-columns: 1.12fr 1fr; gap: 24px; margin-top: 42px; align-items: stretch; }
+.nomad-hero-layout figure { margin:0; border:1px solid var(--detail-line); background:#d2e4ef; }
+.nomad-hero-layout img { width:100%; height:330px; object-fit:cover; object-position:center 65%; }
+.nomad-hero-layout figcaption { padding:12px 16px; background:#fff; color:#52636f; font-size:13px; }
+.nomad-summary { display:flex; flex-direction:column; justify-content:center; padding:30px; background:#142c3b; color:white; }
+.nomad-summary .detail-label { margin-top:0; color:#ff9f7d; }
+.nomad-summary h2 { margin:0 0 20px; font-size:28px; line-height:1.4; }
+.nomad-summary p { margin:0; color:#d2dce3; line-height:1.9; }
+.nomad-nav { display:flex; gap:8px 20px; flex-wrap:wrap; margin-top:28px; font-size:14px; font-weight:700; }
+.nomad-nav a { border-bottom:1px solid #d7d4ca; padding-bottom:5px; }
+.nomad-page .wide-evidence { margin:28px 0 0; border:1px solid var(--detail-line); background:white; }
+.nomad-page .wide-evidence img { width:100%; height:auto; display:block; }
+.nomad-page .metric-row { margin-top:24px; }
+.nomad-page .metric strong { font-size:30px; }
+.nomad-page .metric span { display:block; margin-top:7px; line-height:1.6; }
+.nomad-role-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:24px; }
+.nomad-role-grid article { padding:20px; background:#fff; border:1px solid var(--detail-line); }
+.nomad-role-grid h3 { margin:0 0 9px; font-size:17px; }
+.nomad-role-grid p { margin:0; color:#52636f; font-size:15px; }
+.nomad-role-grid .team { border-top:3px solid #7e8b95; }
+.nomad-role-grid .mine { border-top:3px solid var(--detail-accent); }
+.equation-card { padding:18px; margin:24px 0; border:1px solid var(--detail-line); background:#fff; }
+.equation-card h3 { margin:0 0 10px; font-size:17px; }
+.equation-card img { display:block; width:100%; height:auto; }
+.equation-card p { margin:12px 0 0; color:#52636f; font-size:14px; line-height:1.8; }
+.nomad-details { margin-top:24px; border:1px solid var(--detail-line); background:#fff; padding:18px 22px; }
+.nomad-details summary { cursor:pointer; font-weight:700; line-height:1.6; }
+.nomad-details p { color:#52636f; font-size:15px; margin:16px 0 0; }
+.nomad-page .nomad-note { padding:18px 20px; margin-top:22px; background:#ece9e0; color:#364755; font-size:14px; line-height:1.85; border-left:3px solid #9aa7ae; }
+.nomad-page .nomad-note strong { color:#142c3b; }
+.nomad-page code { font-size:.9em; overflow-wrap:anywhere; }
+.nomad-data-table { width:100%; border-collapse:collapse; margin:22px 0; font-size:14px; }
+.nomad-data-table th,.nomad-data-table td { padding:14px 10px; border-bottom:1px solid var(--detail-line); text-align:left; vertical-align:top; }
+.nomad-data-table th { color:#142c3b; }
+.nomad-data-table td { color:#52636f; }
+.nomad-bullets { margin:18px 0 0; padding:0; list-style:none; }
+.nomad-page .nomad-bullets li { padding:14px 0; }
+.nomad-page .nomad-bullets strong { color:#142c3b; }
+.nomad-page .source-link { color:#b64020; font-size:13px; text-decoration:underline; }
+.nomad-workflow { display:flex; gap:8px; align-items:center; margin:25px 0; flex-wrap:wrap; font-size:14px; }
+.nomad-workflow span { background:#fff; border:1px solid #d7d4ca; padding:13px; }
+.nomad-workflow .own { border-top:3px solid #ef5a32; }
+@media(max-width:760px) { .nomad-hero-layout,.nomad-role-grid { grid-template-columns:1fr; } .nomad-hero-layout img { height:260px; } .nomad-summary { padding:24px; } .nomad-page .detail-facts { grid-template-columns:1fr 1fr; } .nomad-page .metric-row { grid-template-columns:1fr; } .nomad-page .metric { padding:18px; } .nomad-data-table { font-size:12px; } .nomad-data-table th,.nomad-data-table td { padding:10px 5px; } .equation-card { padding:12px 8px; } }
+.nomad-math { overflow-x:auto; overflow-y:hidden; padding:10px 2px; color:#142c3b; }
+.nomad-math .katex { font-size:1.13em; }
+.nomad-math .katex-display { margin:.65em 0; text-align:center; }
+.nomad-math-inline { display:inline; padding:0; overflow:visible; }
+.nomad-math-inline .katex { font-size:1em; }
+.math-error { white-space:pre-wrap; font-family:monospace; color:#a13722; }
+.equation-card .nomad-math .katex { font-size:1.5em; }
+@media(max-width:760px) { .equation-card .nomad-math .katex { font-size:1.18em; } }
+.math-symbols { margin:18px 0 0; padding-top:5px; border-top:1px solid var(--detail-line); }
+.math-symbols > div { display:grid; grid-template-columns:minmax(150px,.8fr) minmax(0,1.8fr); gap:14px; margin-top:12px; align-items:baseline; }
+.math-symbols dt { font-size:14px; font-weight:600; }
+.math-symbols dd { margin:0; color:#52636f; font-size:14px; line-height:1.75; }
+.equation-card .nomad-math-inline .katex { font-size:1em; }
+.equation-card p > .nomad-math-inline { display:block; margin-top:10px; overflow-x:auto; padding-bottom:3px; }
+@media(max-width:760px) { .math-symbols > div { grid-template-columns:1fr; gap:3px; margin-top:14px; } }

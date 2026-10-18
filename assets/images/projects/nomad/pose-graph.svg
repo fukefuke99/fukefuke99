@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 365" role="img" aria-labelledby="title desc">
+<title id="title">VIO 상대 이동과 GNSS 절대 위치를 결합하는 포즈 그래프</title><desc id="desc">시간 순서의 포즈 노드 사이에는 VIO 상대 이동 제약을, 각 노드에는 GNSS 안테나 위치 제약을 연결한다. 윈도우 경계에는 이전 해에 대한 약한 prior를 적용한다.</desc>
+<defs><marker id="a" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8" fill="#ef5a32"/></marker></defs>
+<rect width="1100" height="365" fill="#fff"/><g font-family="Arial, Noto Sans KR, sans-serif" fill="#142c3b">
+<text x="45" y="37" font-size="16" font-weight="bold">10 s WINDOW · ≈50 POSES · JOINT POSITION + ORIENTATION UPDATE</text>
+<rect x="45" y="73" width="1000" height="229" rx="10" fill="#f7f4ed" stroke="#d7d4ca"/>
+<g stroke="#287d9b" stroke-width="2" stroke-dasharray="5 5"><path d="M190 130V215M430 130V215M670 130V215M910 130V215"/></g>
+<g fill="#e5f0f3" stroke="#287d9b" stroke-width="2"><rect x="130" y="95" width="120" height="44" rx="5"/><rect x="370" y="95" width="120" height="44" rx="5"/><rect x="610" y="95" width="120" height="44" rx="5"/><rect x="850" y="95" width="120" height="44" rx="5"/></g>
+<g text-anchor="middle" font-size="16"><text x="190" y="123">GNSS zᵢ</text><text x="430" y="123">GNSS zᵢ₊₁</text><text x="670" y="123">GNSS zᵢ₊₂</text><text x="910" y="123">GNSS zᵢ₊₃</text></g>
+<g stroke="#ef5a32" stroke-width="3" marker-end="url(#a)"><path d="M222 231H393"/><path d="M462 231H633"/><path d="M702 231H873"/></g>
+<g fill="#142c3b"><circle cx="190" cy="231" r="29"/><circle cx="430" cy="231" r="29"/><circle cx="670" cy="231" r="29"/><circle cx="910" cy="231" r="29"/></g>
+<g fill="#fff" text-anchor="middle" font-size="17"><text x="190" y="237">Tᵢ</text><text x="430" y="237">Tᵢ₊₁</text><text x="670" y="237">Tᵢ₊₂</text><text x="910" y="237">Tᵢ₊₃</text></g>
+<g fill="#c44928" text-anchor="middle" font-size="15"><text x="309" y="206">VIO ΔT</text><text x="549" y="206">VIO ΔT</text><text x="789" y="206">VIO ΔT</text></g>
+<path d="M73 231H153" stroke="#687985" stroke-width="2"/><text x="86" y="215" font-size="13">prior</text>
+<text x="190" y="283" text-anchor="middle" font-size="14">previous solution</text><text x="910" y="283" text-anchor="middle" font-size="14">latest pose → output</text>
+<text x="45" y="338" font-size="15">VIO: local relative motion</text><text x="390" y="338" font-size="15">GNSS: global position + lever arm</text><text x="795" y="338" font-size="15">Ceres: all window poses</text>
+</g></svg>

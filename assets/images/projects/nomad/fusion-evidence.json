@@ -1,0 +1,33 @@
+{
+  "scenario": "Gazebo map02 / two laps / 200.5 m",
+  "vio": "Basalt; identical frozen VIO input across GNSS conditions",
+  "evaluation": "Horizontal antenna error in ENU, same 5 Hz evaluation timestamps, initial transform fixed; no evaluation SE(3) refit",
+  "common_samples": 1718,
+  "evaluation_coverage_percent": 97.17194570135746,
+  "trials_per_condition": 1,
+  "initial_alignment": "First 2 m of nominal simulated RTK sigma .02, yaw+translation fixed across cases; successful initialization assumed",
+  "gnss_noise": "Gaussian noise in horizontal axes; no vertical noise in these controlled cases",
+  "conditions": {
+    "rtk": {
+      "VIO_RMSE_m": 0.43475026852489473,
+      "fusion_RMSE_m": 0.04046308581430754,
+      "actual_restarts": 0
+    },
+    "single": {
+      "VIO_RMSE_m": 0.43475026852489473,
+      "fusion_RMSE_m": 0.17815227566777514,
+      "actual_restarts": 0
+    },
+    "gnss_bias": {
+      "VIO_RMSE_m": 0.43475026852489473,
+      "fusion_RMSE_m": 0.0404066842570642,
+      "actual_restarts": 0
+    },
+    "mixed": {
+      "VIO_RMSE_m": 21.483921679358048,
+      "fusion_RMSE_m": 20.169248467289357,
+      "actual_restarts": 0
+    }
+  },
+  "limits": "Synthetic GNSS, not hardware accuracy. Combined VIO drift and GNSS degradation remains a failure case. No successful VIO reinitialization claimed."
+}
