@@ -99,12 +99,8 @@
         <div class="container">
           <div class="section-heading reveal">
             <p class="section-index">01 / ABOUT</p>
-            <h2>경계를 나누기보다<br />시스템 전체를 봅니다.</h2>
-            <p>
-              센서 신호가 제어 명령이 되고 실제 구동으로 이어지는 전 과정을 이해합니다.
-              문제를 로그 한 줄이나 부품 하나로 단정하지 않고, 물리 계층부터 알고리즘까지
-              연결해 원인을 찾습니다.
-            </p>
+            <h2>센서부터 제어까지 연결합니다.</h2>
+            <p>센서 입력과 통신, 제어 출력이 이어지는 흐름을 구현하고 시험했습니다. 동작이 예상과 다를 때는 로그와 계측 데이터를 대조해 원인을 찾았습니다.</p>
           </div>
 
           <div class="capability-grid">
@@ -132,7 +128,7 @@
             <article class="capability-card reveal">
               <span class="card-number">03</span>
               <h3>Analysis & Validation</h3>
-              <p>데이터를 계측하고 분석해 설계가 실제 환경에서도 신뢰할 수 있는지 검증합니다.</p>
+              <p>계측 데이터를 분석해 오차 원인을 찾고, 조건별 성능을 비교합니다.</p>
               <ul>
                 <li>MATLAB · Signal Processing · FRF</li>
                 <li>GDB · CMake · Docker · Linux</li>
@@ -148,7 +144,7 @@
           <div class="section-heading heading-on-dark reveal">
             <p class="section-index">02 / SELECTED WORK</p>
             <h2>대표 프로젝트</h2>
-            <p>프로젝트에서 맡은 문제와 구현 과정을 중심으로 정리했습니다. 수록한 모든 영상과 사진은 제가 직접 구현·제작했거나 시험·검증을 담당한 결과물이며, 담당하지 않은 작업은 제 성과로 제시하지 않았습니다.</p>
+            <p>각 프로젝트에서 맡은 역할과 해결한 문제, 시험 결과를 정리했습니다.</p>
           </div>
 
           <div class="project-list">
@@ -162,11 +158,7 @@
                   <h3>생체모방 수중유영로봇 플랫폼</h3>
                 </div>
                 <div class="project-summary">
-                  <p>
-                    전원·회로부와 방수 배선을 설계하고, Raspberry Pi–Teensy 통신과 GPIO 기반 엔코더 SSI 통신을 직접 구현했습니다.
-                    모터 토크와 DAQ로 측정한 소비전류를 바탕으로 구동계와 방수 커넥터·케이블을 선정하고 침수 센서를 통합했습니다.
-                    피드포워드를 결합한 P–PID 제어와 MATLAB GUI를 구현해 엔코더 피드백 기반 구동부터 상태 점검·파라미터 조정·시험까지 수행했습니다.
-                  </p>
+                  <p>전원·회로부와 방수 배선을 설계하고, Raspberry Pi–Teensy 통신과 GPIO 기반 엔코더 SSI 통신을 직접 구현했습니다. 모터 토크와 DAQ로 측정한 소비 전류를 바탕으로 구동계와 방수 커넥터·케이블을 선정하고 침수 센서를 통합했습니다. 피드포워드를 결합한 P–PID 제어와 MATLAB GUI를 구현해 엔코더 피드백 기반 구동, 상태 점검·파라미터 조정·시험을 수행했습니다.</p>
                   <ul class="tags" aria-label="사용 기술">
                     <li>ROS</li><li>C++</li><li>Teensy</li><li>SSI</li><li>MATLAB</li>
                   </ul>
@@ -188,9 +180,7 @@
                   <h3>VIO 기반 위치추정 강인성 연구</h3>
                 </div>
                 <div class="project-summary">
-                  <p>
-                    VINS-Fusion에서 영상 특징점 수를 관찰해 암전을 감지하고, 실패 시 OptiTrack 또는 Gazebo 위치로 전환한 뒤 복구된 VIO 궤적을 정렬하는 외부 상태 관리자를 구현했습니다. 7초 암전 조건에서 ATE RMSE는 RC카 실험 0.9121 m에서 0.1346 m로 85.2%, 드론 시뮬레이션 0.8613 m에서 0.3024 m로 64.9% 감소했습니다. 개념 검증 단계에서는 외부 위치를 참값이자 대체 입력으로 사용했습니다.
-                  </p>
+                  <p>영상 특징점 수로 암전을 감지하고, OptiTrack·Gazebo 위치로 전환한 뒤 복구된 VIO 궤적을 정렬했습니다. 7초 암전에서 ATE RMSE가 RC카 실험 0.9121 → 0.1346 m, 드론 시뮬레이션 0.8613 → 0.3024 m로 감소했습니다. 외부 위치를 참값과 대체 입력으로 사용한 개념 검증입니다.</p>
                   <ul class="tags" aria-label="사용 기술">
                     <li>VINS-Fusion</li><li>GDB</li><li>ArduPilot</li><li>MAVROS</li><li>Jetson</li>
                   </ul>
@@ -209,12 +199,12 @@
               <div class="project-meta"><span>03</span><span>2026 — 진행 중</span><span>OFF-ROAD AUTONOMY</span></div>
               <div class="project-body">
                 <div><p class="project-kicker">GNSS–VIO 최적화 · 파인튜닝 · 시스템 통합</p><h3>NOMAD 야지 자율주행</h3></div>
-                <div class="project-summary"><p>위치추정과 공통 시뮬레이션 통합을 맡아, VIO 상대 이동·GNSS 절대 위치·안테나 장착 오프셋을 잔차로 구성한 Ceres 포즈 최적화기를 구현했습니다. 200.5 m 순환 데이터의 모사 GNSS σ = 0.5 m 조건에서 공통 평가 시점 수평 RMSE가 0.435 m에서 0.178 m로 감소했습니다. 의미분할 모델은 직접 파인튜닝하고, 팀원의 경로생성 코드는 원리를 학습해 위치추정·지도 출력과 통합했습니다.</p>
+                <div class="project-summary"><p>VIO 상대 이동과 GNSS 절대 위치를 결합하는 Ceres 포즈 최적화기를 구현했습니다. 200.5 m 순환 데이터의 모사 GNSS σ = 0.5 m 조건에서 수평 ATE RMSE가 0.435 → 0.178 m로 감소했습니다. 의미분할 모델을 파인튜닝하고, 위치추정·인지 출력을 팀원의 경로생성·제어 모듈과 통합했습니다.</p>
                   <ul class="tags" aria-label="사용 기술"><li>Ceres</li><li>Pose Graph</li><li>ROS 2</li><li>GNSS · VIO</li><li>SegFormer</li></ul>
                   <a class="project-link" href="projects/nomad.html">자세히 보기 <span>↗</span></a>
                 </div>
               </div>
-              <figure class="project-media project-media-wide project-media-contain"><img src="assets/images/projects/nomad/fusion-trajectory.png" alt="NOMAD 순환 주행에서 VIO·모사 GNSS·Ceres 융합 궤적과 시간별 위치 오차 비교" loading="lazy" /><figcaption><strong>CERES · GNSS–VIO FUSION</strong><span>같은 VIO 입력으로 센서 조건을 바꿔 비교한 시뮬레이션 결과</span></figcaption></figure>
+              <figure class="project-media project-media-wide project-media-contain"><img src="assets/images/projects/nomad/fusion-trajectory.png" alt="NOMAD 순환 주행 궤적과 시간별 수평 절대 위치 오차(ATE) 비교" loading="lazy" /><figcaption><strong>CERES · GNSS–VIO FUSION</strong><span>왼쪽: GT·VIO·GNSS·융합 궤적 · 오른쪽: 시간별 수평 절대 위치 오차(ATE, m)</span></figcaption></figure>
             </article>
 
             <article class="project-card reveal" id="project-modal">
@@ -227,13 +217,7 @@
                   <h3>항공우주 구조체 모달 분석</h3>
                 </div>
                 <div class="project-summary">
-                  <p>
-                    발사 진동과 3U 큐브위성 구조체의 고유진동수가 겹칠 때 발생할 수 있는 공진 위험을
-                    확인하는 연구입니다. 3인 협업에서 저는 발사 환경과 선행연구 조사, 시험 조건 설정,
-                    가진기, 힘 센서, 8채널 가속도계, DAQ 기반 시험 환경 구축부터 계측·시험·분석을 맡았습니다. 상용 분석 소프트웨어 라이선스
-                    유실에 대응해 논문을 근거로 MATLAB 전환을 협의하고, FFT 기반 FRF에 Peak Picking과 LSCE를 적용해
-                    고유진동수와 감쇠비를 도출한 뒤 모드 형상을 시각화했습니다.
-                  </p>
+                  <p>3U 큐브위성 구조체의 진동 특성을 확인하기 위해 가진기·힘 센서·8채널 가속도계로 시험 환경을 구성했습니다. 계측한 FRF에 Peak Picking과 LSCE를 적용해 고유진동수와 감쇠비를 추정하고, MATLAB으로 모드 형상을 시각화했습니다.</p>
                   <ul class="tags" aria-label="사용 기술">
                     <li>MATLAB</li><li>FFT/FRF</li><li>Curve Fitting</li><li>DAQ</li><li>3D Visualization</li>
                   </ul>
@@ -272,14 +256,7 @@
                   <h3>MANTA 수중 통합 시뮬레이션</h3>
                 </div>
                 <div class="project-summary">
-                  <p>
-                    5인 팀에서 DAVE의 수중 월드와 BlueROV·Slocum 자산을 분석해 공통 환경을 구성하고,
-                    큰 주익을 제거한 4-fin 위협 어뢰 모델과 제어를 담당했습니다.
-                    PP와 PNG 로직을 구현하고 센서 데이터 경로를 개선해 상태 데이터의 최대 수신 간격을 330 ms에서
-                    12 ms로, 제어 노드의 CPU 사용률을 102.7%에서 2.4%로 낮췄으며 Gazebo의 Real-Time Factor를 0.62에서 1.00으로 높였습니다.
-                    실행 과정을 5단계 명령으로 표준화해 팀원의 반복 시험을 지원하고, ESP32·CAN 기반 양방향 Controller-HILS까지 확장했습니다.
-                    최종 통합 환경에서 PP 회피 동작과 PNG 조건의 반복 충돌 한계를 기록했습니다.
-                  </p>
+                  <p>DAVE 기반 수중 환경을 통합하고, 4-fin 위협 어뢰의 모델링과 PP·PNG 유도 제어를 담당했습니다. 센서 데이터 경로와 제어 주기의 대기 방식을 개선해 최대 상태 수신 간격을 330 → 12 ms로, 제어 노드 CPU 사용률을 102.7 → 2.4%로 낮췄습니다. 이후 ESP32·CAN 기반 Controller-HILS로 확장했습니다.</p>
                   <ul class="tags" aria-label="사용 기술">
                     <li>DAVE</li><li>ROS 2</li><li>Gazebo</li><li>C++</li><li>CAN</li><li>ESP32</li>
                   </ul>
@@ -334,7 +311,7 @@
           <div class="section-heading reveal">
             <p class="section-index">03 / SKILLS</p>
             <h2>기술과 도구</h2>
-            <p>직접 구현하고 시험한 경험을 기준으로, 업무에 활용할 수 있는 기술을 정리했습니다.</p>
+            <p>프로젝트에서 사용한 기술과 도구입니다.</p>
           </div>
 
           <div class="skills-grid">
@@ -389,7 +366,7 @@
 
             <article class="skill-card reveal">
               <div class="skill-card-head"><span class="skill-icon" aria-hidden="true">SIM</span><div><small>SIMULATION</small><h3>Gazebo, AirSim</h3></div><span class="skill-level">활용</span></div>
-              <p>Gazebo의 SDF 모델 수정과 플러그인, ROS Bridge를 적용했으며 AirSim과 ROS 연동 환경 구성 및 센서, 제어 설정에 성공</p>
+              <p>Gazebo 모델·물리 플러그인 수정과 ROS Bridge 연동, AirSim 센서·제어 환경 구성</p>
               <ul><li>Gazebo</li><li>SDF</li><li>AirSim</li></ul>
               <div class="skill-meter" data-score="3" aria-label="활용 수준 중"><div class="skill-meter-label"><span>활용 수준</span><strong>중</strong></div><div class="skill-meter-bar" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div><div class="skill-meter-scale"><span>하</span><span>중</span><span>상</span></div></div>
             </article>
