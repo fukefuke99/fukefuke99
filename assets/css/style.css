@@ -536,6 +536,8 @@ p {
 .tags {
   display: flex;
   flex-wrap: wrap;
+  align-items: flex-start;
+  align-content: flex-start;
   gap: 8px;
   margin-top: 28px;
 }
@@ -686,6 +688,8 @@ p {
 }
 
 .compact-project .project-link {
+  justify-self: start;
+  align-self: start;
   margin-top: 22px;
 }
 
@@ -997,7 +1001,12 @@ p {
   .capability-card { min-height: auto; }
   .card-number { margin-bottom: 34px; }
   .capability-card p { min-height: auto; }
-  .project-body { gap: 48px; }
+  .project-body { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+  .proof-strip { grid-template-columns: minmax(0, 1fr); }
+  .proof-strip > div { min-height: 92px; border-left: 1px solid var(--line-dark); border-bottom: 1px solid var(--line-dark); }
+  .project-pair { grid-template-columns: minmax(0, 1fr); }
+  .compact-project { display:block; min-height:auto; padding:38px 26px; }
+  .compact-project + .compact-project { padding:38px 26px; border-top:1px solid var(--line-dark); border-left:0; }
   .contact-grid { gap: 48px; }
   .skills-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .skill-card:nth-last-child(2) { grid-column: auto; }

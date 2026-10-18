@@ -64,3 +64,6 @@
 
 /* Keep each display equation intact; narrow screens can scroll the formula. */
 .nomad-math .katex-display { min-width:max-content; }
+
+/* A formula scrolls within its card instead of widening the mobile grid. */
+.nomad-page .detail-grid > * { min-width:0; }
