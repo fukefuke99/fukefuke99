@@ -1,0 +1,22 @@
+{
+  "source": "GNSS sensor-model received fixes, existing 110 s run",
+  "profiles": [
+    {
+      "profile": "single",
+      "samples": 551,
+      "sigma_e_n_m": 1.2739827004,
+      "cep50_model_m": 1.5,
+      "seed": 42,
+      "rate_hz": 5
+    },
+    {
+      "profile": "rtk",
+      "samples": 551,
+      "sigma_e_n_m": 0.0093425398,
+      "cep50_model_m": 0.011,
+      "seed": 42,
+      "rate_hz": 5
+    }
+  ],
+  "assumptions": "Independent isotropic horizontal Gaussian noise; zero added vertical noise; no RF, multipath or RTK ambiguity simulation."
+}
