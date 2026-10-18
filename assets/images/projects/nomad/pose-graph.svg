@@ -2,7 +2,7 @@
 <title id="title">VIO 상대 이동과 GNSS 절대 위치를 결합하는 포즈 그래프</title><desc id="desc">시간 순서의 포즈 노드 사이에는 VIO 상대 이동 제약을, 각 노드에는 GNSS 안테나 위치 제약을 연결한다. 윈도우 경계에는 이전 해에 대한 약한 prior를 적용한다.</desc>
 <defs><marker id="a" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8" fill="#ef5a32"/></marker></defs>
 <rect width="1100" height="365" fill="#fff"/><g font-family="Arial, Noto Sans KR, sans-serif" fill="#142c3b">
-<text x="45" y="37" font-size="16" font-weight="bold">10 s WINDOW · ≈50 POSES · JOINT POSITION + ORIENTATION UPDATE</text>
+<text x="45" y="37" font-size="16" font-weight="bold">윈도우: 10 s | 포즈 수: 약 50개 | 최적화 대상: 위치·자세</text>
 <rect x="45" y="73" width="1000" height="229" rx="10" fill="#f7f4ed" stroke="#d7d4ca"/>
 <g stroke="#287d9b" stroke-width="2" stroke-dasharray="5 5"><path d="M190 130V215M430 130V215M670 130V215M910 130V215"/></g>
 <g fill="#e5f0f3" stroke="#287d9b" stroke-width="2"><rect x="130" y="95" width="120" height="44" rx="5"/><rect x="370" y="95" width="120" height="44" rx="5"/><rect x="610" y="95" width="120" height="44" rx="5"/><rect x="850" y="95" width="120" height="44" rx="5"/></g>
