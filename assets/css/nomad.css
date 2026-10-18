@@ -67,3 +67,6 @@
 
 /* A formula scrolls within its card instead of widening the mobile grid. */
 .nomad-page .detail-grid > * { min-width:0; }
+
+/* Display equations need space around fractions and between rows. */
+.equation-card > .nomad-math { padding-top:18px; padding-bottom:18px; }

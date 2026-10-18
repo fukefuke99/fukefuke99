@@ -45,7 +45,7 @@
 <div class="equation-card"><h3>2. Prior 위치·회전 오차</h3><div class="nomad-math">
  r_{\mathrm{prior}}=
  \begin{bmatrix}
- \dfrac{{}^{W}\!p_0-{}^{W}\!\bar p_0}{\sigma_p^{\mathrm{prior}}} \\[6pt]
+ \dfrac{{}^{W}\!p_0-{}^{W}\!\bar p_0}{\sigma_p^{\mathrm{prior}}} \\[14pt]
  \dfrac{\operatorname{Log}\!\left[({}^{W}\!\bar R_0)^{\mathsf T}\,{}^{W}\!R_0\right]}{\sigma_R^{\mathrm{prior}}}
  \end{bmatrix}
 </div><details class="nomad-details math-explanation"><summary>각 항과 기호 설명</summary>
@@ -57,14 +57,14 @@
 </dl></details></div>
 <div class="equation-card"><h3>3. VIO 상대 이동·회전 오차</h3><div class="nomad-math">
 \begin{aligned}
-r_{p,ij} &amp;= \frac{{}^{i}\!R_W\!\left({}^{W}\!p_j-{}^{W}\!p_i\right)-{}^{i}\!\Delta p_{ij}^{\mathrm{VIO}}}{\sigma_{p,ij}} \\
+r_{p,ij} &amp;= \frac{{}^{i}\!R_W\!\left({}^{W}\!p_j-{}^{W}\!p_i\right)-{}^{i}\!\Delta p_{ij}^{\mathrm{VIO}}}{\sigma_{p,ij}} \\[12pt]
 r_{R,ij} &amp;= \frac{\operatorname{Log}\!\left[\left({}^{i}\!R_{j,\mathrm{VIO}}\right)^{\mathsf T}\,{}^{i}\!R_W\,{}^{W}\!R_j\right]}{\sigma_{R,ij}}
 \end{aligned}
 </div><details class="nomad-details math-explanation"><summary>각 항과 기호 설명</summary><p>최적화 중인 두 위치의 차이를 i 좌표계로 변환해 VIO 상대 이동과 비교합니다. 상대 회전도 VIO 관측값과 비교하고, 두 회전의 차이를 Log로 3차원 회전 벡터로 바꿉니다.
 <span class="nomad-math nomad-math-inline math-coordinate-relation">{}^{i}\!R_W=({}^{W}\!R_i)^{\mathsf T},\qquad {}^{i}\!R_j={}^{i}\!R_W\,{}^{W}\!R_j</span></p><dl class="math-symbols"><div><dt><span class="nomad-math nomad-math-inline">{}^{W}\!R_i,\;{}^{i}\!R_W</span></dt><dd>각각 i → W, W → i 변환입니다. 서로 역변환이므로 전치 관계입니다.</dd></div><div><dt><span class="nomad-math nomad-math-inline">{}^{i}\!\Delta p_{ij}^{\mathrm{VIO}},\;{}^{i}\!R_{j,\mathrm{VIO}}</span></dt><dd>VIO가 관측한 상대 이동·회전입니다. 이동은 i 좌표계 기준, 회전은 j → i 변환입니다.</dd></div><div><dt><span class="nomad-math nomad-math-inline">\sigma_{p,ij},\;\sigma_{R,ij}</span></dt><dd>상대 이동·회전의 표준편차입니다. Log는 남은 회전을 rad 단위 3차원 회전 벡터로 바꿉니다.</dd></div></dl></details></div>
 <div class="equation-card"><h3>4. GNSS 위치 오차</h3><div class="nomad-math">
 \begin{aligned}
-r_i^{\mathrm{GNSS}} &amp;= D_i^{-1}\!\left({}^{W}\!p_i+{}^{W}\!R_i\,{}^{i}\!\ell-{}^{W}\!z_i\right) \\
+r_i^{\mathrm{GNSS}} &amp;= D_i^{-1}\!\left({}^{W}\!p_i+{}^{W}\!R_i\,{}^{i}\!\ell-{}^{W}\!z_i\right) \\[12pt]
 D_i &amp;= \operatorname{diag}(\sigma_E,\sigma_N,\sigma_U)
 \end{aligned}
 </div><details class="nomad-details math-explanation"><summary>각 항과 기호 설명</summary><p>IMU 위치에 장착 오프셋(lever arm)을 반영해 안테나 위치를 계산하고, GNSS 측정 위치와의 차이를 구합니다. 오프셋은 기체 좌표계의 벡터이므로 현재 자세로 W 좌표계에 회전시킨 뒤 더합니다. 위치 차이는 동·북·상 방향의 표준편차로 각각 나눕니다.</p><dl class="math-symbols"><div><dt><span class="nomad-math nomad-math-inline">{}^{W}\!z_i</span></dt><dd>W 좌표계로 변환한 GNSS 안테나 위치 측정값입니다.</dd></div><div><dt><span class="nomad-math nomad-math-inline">{}^{i}\!\ell</span></dt><dd>i 좌표계로 표현한 IMU–GNSS 안테나 장착 오프셋(lever arm)입니다. 기체에 고정된 값입니다.</dd></div><div><dt><span class="nomad-math nomad-math-inline">D_i,\;\sigma_E,\sigma_N,\sigma_U</span></dt><dd>동·북·상 방향 표준편차를 모은 대각행렬과 각 축의 표준편차입니다.</dd></div></dl></details></div>
