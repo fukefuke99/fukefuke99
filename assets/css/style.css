@@ -1071,3 +1071,8 @@ p {
   .profile-details div { grid-template-columns: 78px 1fr; }
   .capability-card { padding: 28px 24px; }
 }
+
+.profile-education { margin:10px 0 12px; color:#b8c6d0; font-size:12px; line-height:1.8; letter-spacing:-.025em; }
+.profile-education span { display:block; }
+.profile-identity .profile-role { margin-bottom:0; }
+@media(max-width:480px) { .profile-education { font-size:10.5px; letter-spacing:-.04em; } }

@@ -58,3 +58,6 @@
 .equation-card .nomad-math-inline .katex { font-size:1em; }
 .equation-card p > .nomad-math-inline { display:block; margin-top:10px; overflow-x:auto; padding-bottom:3px; }
 @media(max-width:760px) { .math-symbols > div { grid-template-columns:1fr; gap:3px; margin-top:14px; } }
+.equation-card .math-explanation { padding:12px 15px; margin-top:16px; background:#faf9f5; }
+.equation-card .math-explanation summary { font-size:14px; }
+.equation-card .math-explanation > p { margin-top:14px; }
