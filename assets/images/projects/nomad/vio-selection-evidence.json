@@ -1,0 +1,55 @@
+{
+  "scenario": "01_편도_58.9m",
+  "notion_source": "https://app.notion.com/p/3ed8c89402ea81af8326f1ff3673150f",
+  "hardware": "Intel i5-14450HX",
+  "playback_rate": 1,
+  "trials_per_condition": 1,
+  "alignment": "SE(3), scale fixed at 1",
+  "cpu_definition": "100% = one logical core; estimator processes, GUI excluded",
+  "memory_definition": "process tree PSS, MiB",
+  "methods": [
+    {
+      "method": "VINS-Fusion",
+      "ate_se3_rmse_m": 0.18495687385705387,
+      "coverage_5hz_percent": 100.0,
+      "cpu_mean_percent": 288.54010723479666,
+      "pss_mean_mb": 341.8079023783186
+    },
+    {
+      "method": "ORB (VIO)",
+      "ate_se3_rmse_m": 0.03109432276743365,
+      "coverage_5hz_percent": 93.62139917695474,
+      "cpu_mean_percent": 177.97401141733292,
+      "pss_mean_mb": 677.7291975446428
+    },
+    {
+      "method": "OpenVINS",
+      "ate_se3_rmse_m": 2.2153328104138423,
+      "coverage_5hz_percent": 93.4156378600823,
+      "cpu_mean_percent": 25.00953539076246,
+      "pss_mean_mb": 130.60917422127287
+    },
+    {
+      "method": "Basalt",
+      "ate_se3_rmse_m": 0.058281143397597435,
+      "coverage_5hz_percent": 100.0,
+      "cpu_mean_percent": 184.34564940963546,
+      "pss_mean_mb": 96.22749376348436
+    },
+    {
+      "method": "ROVIO",
+      "ate_se3_rmse_m": 3.317744434744115,
+      "coverage_5hz_percent": 100.0,
+      "cpu_mean_percent": 29.095024056022332,
+      "pss_mean_mb": 327.34811990302904
+    },
+    {
+      "method": "Kimera",
+      "ate_se3_rmse_m": 1.5104257905295713,
+      "coverage_5hz_percent": 97.11934156378601,
+      "cpu_mean_percent": 52.372001202897785,
+      "pss_mean_mb": 194.01544860242112
+    }
+  ],
+  "selection_scope": "Basalt chosen for current integration after 6-scenario comparison; not lowest error in every scenario."
+}
